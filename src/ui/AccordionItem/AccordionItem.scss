@@ -1,0 +1,33 @@
+.accordionItem {
+  background: rgba(0, 0, 0, 0);
+  :hover {
+    background: rgba(159, 135, 255, 0.1);
+    border-radius: 20px;
+  }
+  .accordionItem__header {
+    display: inline-block;
+    width: 100%;
+    .accordionItem__title__icon {
+      width: 40px;
+      margin: 0 20px;
+      border-radius: 50%;
+    }
+    .accordionItem__title__content {
+      font-size: 18px;
+      font-weight: 450;
+      margin-left: 30px;
+    }
+    .margin_left__minus_title_icon {
+      margin-left: 80px;
+    }
+    .accordion-button {
+      background: rgba(0, 0, 0, 0);
+      border-radius: 20px;
+    }
+  }
+  .accordionBody__ul {
+    margin: 0;
+    padding: 0;
+    background: rgba(0, 0, 0, 0);
+  }
+}

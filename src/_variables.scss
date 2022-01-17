@@ -1,0 +1,12 @@
+%flex-column {
+  display: flex;
+  flex-flow: column;
+}
+%flex-wrap {
+  display: flex;
+  flex-flow: wrap;
+}
+%flex-center {
+  justify-content: center;
+  align-items: center;
+}

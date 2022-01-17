@@ -1,0 +1,68 @@
+@import "../../variables";
+.about_me {
+  @extend %flex-column;
+  max-width: 474px;
+  align-items: center;
+  margin-top: 20px;
+  border: 2px solid rgb(153, 201, 255);
+  border-radius: 20px;
+  box-shadow: 0.5em 0.5em 0.5em gray;
+  background-color: rgb(255, 255, 250);
+  // background: linear-gradient(
+  //   135deg,
+  //   rgb(255, 255, 255) 5%,
+  //   rgba(55, 0, 255, 0.5) 50%,
+  //   rgb(255, 255, 255) 95%
+  // );
+  .about_me__header {
+    @extend %flex-wrap;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px;
+    .about_me__avatar {
+      width: 160px;
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: contain;
+    }
+    .about_me__wrap {
+      display: block;
+      margin: 0 auto;
+
+      .about_me__title {
+        display: flex;
+        flex-direction: column;
+        max-width: 270px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .about_me__name {
+          text-align: center;
+        }
+        .about_me__profession {
+          font-size: 20px;
+          font-weight: 500;
+          margin: 30px 0 20px 0;
+        }
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .about_me__accordion {
+    width: 100%;
+    border-radius: 20px;
+    li {
+      text-align: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .accordion-item {
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0);
+    }
+  }
+}
