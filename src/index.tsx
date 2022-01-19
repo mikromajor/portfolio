@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { App } from "./components";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
-import "antd/dist/antd";
 //import * as serviceWorker from './serviceWorker';
 import "./index.scss";
 
