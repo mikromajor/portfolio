@@ -1,4 +1,6 @@
-export type ICONS_AND_CONTENT = { [key: string]: string[] };
-export type MY_INF_TYPE = {
-  [key: string]: ICONS_AND_CONTENT;
+export type IconsAndContentType = {
+  [key: string]: Array<string>;
 };
+// export type MyInfType = {
+//   [key: string]: IconsAndContentType;
+// };

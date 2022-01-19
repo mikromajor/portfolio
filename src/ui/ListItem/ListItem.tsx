@@ -3,7 +3,7 @@ import "./ListIem.scss";
 
 type ListItemProps = {
   content: string;
-  contentIcons: string;
+  contentIcons: string | null;
 };
 
 const ListItem = ({
@@ -13,20 +13,14 @@ const ListItem = ({
   return (
     <li className='list_item'>
       <div className='list_item__wrap'>
-        {contentIcons && (
+        {contentIcons ? (
           <img
             src={require(`../../${PATH}${contentIcons}${ICONS_EXT}`)}
             alt='icon'
             className='list_item__icon'
           />
-        )}
-        <p
-          className={`list_item__content ${
-            !contentIcons ? "margin_left__minus_icon" : ""
-          }`}
-        >
-          {content}
-        </p>
+        ) : null}
+        <p className='list_item__content'>{content}</p>
       </div>
     </li>
   );

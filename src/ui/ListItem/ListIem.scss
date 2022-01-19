@@ -2,28 +2,23 @@
 .list_item {
   list-style-type: none;
   .list_item__wrap {
-    display: inline-flex;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-start;
+    display: flex;
     align-items: flex-end;
-    flex-wrap: nowrap;
-  }
-  .list_item__icon {
-    width: 30px;
-    object-fit: scale-down;
-    margin: 0 20px 0 40px;
-    border-radius: 50%;
-  }
-  .list_item__content {
-    @extend %flex-wrap;
-    width: 100%;
-    @extend %flex-center;
-    margin-left: 20px;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-  .margin_left__minus_icon {
-    margin-left: 60px;
+    .list_item__icon {
+      width: 30px;
+      object-fit: scale-down;
+      margin: 0 20px;
+      border-radius: 50%;
+    }
+    .list_item__content {
+      width: 100%;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      font-size: $list_item__content__font-size;
+      font-weight: $list_item__content__font-weight;
+      &::first-letter {
+        color: $list_item__content__first_letter__color;
+      }
+    }
   }
 }

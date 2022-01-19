@@ -1,12 +1,44 @@
+$list_item__content__font-size: 18px;
+$list_item__content__font-weight: 450;
+$list_item__content__first_letter__color: rgb(234, 32, 32);
+
+$accordionItem__title__font-size: 20px;
+$accordionItem__title__font-weight: 550;
+$accordionItem__title__margin-left: 50px;
+$accordionItem__title__margin-right: 30px;
+$accordionItem__title__icon__width: 40px;
+
+$accordionItem__hover: rgb(245, 245, 255);
+%ul_zero {
+  margin: 0;
+  padding: 0;
+}
 %flex-column {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
 }
 %flex-wrap {
   display: flex;
-  flex-flow: wrap;
+  flex-wrap: wrap;
 }
 %flex-center {
   justify-content: center;
   align-items: center;
+}
+%content_column {
+  display: flex;
+  flex-direction: column;
+  max-width: 474px;
+  align-items: center;
+  margin: 20px 0;
+  border: 2px solid rgb(153, 201, 255);
+  border-radius: 20px;
+  box-shadow: 0.5em 0.5em 0.5em gray;
+  background-color: rgb(253, 254, 255);
+  // background: linear-gradient(
+  //   135deg,
+  //   rgb(255, 255, 255) 5%,
+  //   rgba(55, 0, 255, 0.5) 50%,
+  //   rgb(255, 255, 255) 95%
+  // );
 }

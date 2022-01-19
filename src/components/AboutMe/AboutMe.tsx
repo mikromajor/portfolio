@@ -1,18 +1,19 @@
-//import { useState } from "react";
 import { Accordion } from "react-bootstrap";
-import { ABOUT_ME } from "../../content";
-import { ICONS_AND_CONTENT } from "../../types";
+import { ABOUT_ME } from "../../content/content";
 import { AccordionItem } from "../../ui";
+import { IconsAndContentType } from "../../types";
 
 import "./AboutMe.scss";
 
 const AboutMe = () => {
-  const keysAboutMe: string[] = [];
-  const valueAboutMe: ICONS_AND_CONTENT[] = [];
+  const contentKeys: Array<string> = [];
+  const contentValues: Array<IconsAndContentType> = [];
+
   for (const [key, value] of Object.entries(ABOUT_ME)) {
-    keysAboutMe.push(key);
-    valueAboutMe.push(value);
+    contentKeys.push(key);
+    contentValues.push(value);
   }
+
   return (
     <div className='about_me'>
       <header className='about_me__header'>
@@ -39,15 +40,15 @@ const AboutMe = () => {
       <Accordion
         defaultActiveKey={["1"]}
         alwaysOpen
-        className='about_me__accordion'
+        className='accordion'
         flush={true}
       >
-        {keysAboutMe.map((keyAboutMe, i) => (
+        {contentKeys.map((key, i) => (
           <AccordionItem
-            key={keyAboutMe + i}
+            key={key + i}
             eventKey={i}
-            header={keyAboutMe}
-            body={valueAboutMe[i]}
+            header={key}
+            body={contentValues[i]}
           />
         ))}
       </Accordion>

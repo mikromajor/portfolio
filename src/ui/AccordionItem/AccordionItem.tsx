@@ -1,6 +1,6 @@
 import { Accordion } from "react-bootstrap";
 import { ListItem } from "..";
-import { ICONS_AND_CONTENT } from "../../types";
+import { IconsAndContentType } from "../../types";
 import { PATH, ICONS_EXT } from "../../constants";
 
 import "./AccordionItem.scss";
@@ -8,7 +8,7 @@ import "./AccordionItem.scss";
 type AccordionItemProps = {
   eventKey: number;
   header: string;
-  body: ICONS_AND_CONTENT;
+  body: IconsAndContentType;
 };
 
 const AccordionItem = ({
@@ -20,10 +20,7 @@ const AccordionItem = ({
   const [titleIcon] = ICON;
 
   return (
-    <Accordion.Item
-      eventKey={`${eventKey}`}
-      className='accordionItem'
-    >
+    <Accordion.Item eventKey={`${eventKey}`}>
       <Accordion.Header className='accordionItem__header'>
         {titleIcon ? (
           <img
@@ -32,22 +29,18 @@ const AccordionItem = ({
             className='accordionItem__title__icon'
           />
         ) : null}
-        <em
-          className={`accordionItem__title__content ${
-            !titleIcon
-              ? "margin_left__minus_title_icon"
-              : ""
-          }`}
-        >
+        <h3 className='accordionItem__title__content'>
           {header}
-        </em>
+        </h3>
       </Accordion.Header>
       <Accordion.Body>
         <ul className='accordionBody__ul'>
           {CONTENT.map((content, i) => (
             <ListItem
               content={content}
-              contentIcons={CONTENT_ICONS[i]}
+              contentIcons={
+                CONTENT_ICONS ? CONTENT_ICONS[i] : null
+              }
               key={content + i}
             />
           ))}

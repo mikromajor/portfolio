@@ -1,33 +1,39 @@
-.accordionItem {
-  background: rgba(0, 0, 0, 0);
+@import "../../variables";
+
+.accordion {
+  width: 100%;
+  border-radius: 20px;
   :hover {
-    background: rgba(159, 135, 255, 0.1);
+    background: $accordionItem__hover;
     border-radius: 20px;
   }
-  .accordionItem__header {
-    display: inline-block;
-    width: 100%;
-    .accordionItem__title__icon {
-      width: 40px;
-      margin: 0 20px;
-      border-radius: 50%;
-    }
-    .accordionItem__title__content {
-      font-size: 18px;
-      font-weight: 450;
-      margin-left: 30px;
-    }
-    .margin_left__minus_title_icon {
-      margin-left: 80px;
-    }
-    .accordion-button {
-      background: rgba(0, 0, 0, 0);
-      border-radius: 20px;
-    }
-  }
-  .accordionBody__ul {
-    margin: 0;
-    padding: 0;
+  .accordion-item {
+    border-radius: 20px;
     background: rgba(0, 0, 0, 0);
   }
+  .accordion-button {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+  }
+}
+
+.accordionItem__header {
+  display: inline-block;
+  width: 100%;
+  .accordionItem__title__icon {
+    width: $accordionItem__title__icon__width;
+    margin: 0 20px;
+    border-radius: 50%;
+  }
+  .accordionItem__title__content {
+    font-size: $accordionItem__title__font-size;
+    font-weight: $accordionItem__title__font-weight;
+    margin-left: $accordionItem__title__margin-left;
+    margin-right: $accordionItem__title__margin-right;
+    background: rgba(0, 0, 0, 0);
+  }
+}
+.accordionBody__ul {
+  @extend %ul_zero;
+  background: rgba(0, 0, 0, 0);
 }

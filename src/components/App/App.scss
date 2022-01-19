@@ -1,10 +1,7 @@
 .App {
-  // text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-flow: wrap;
-  align-items: flex-start;
-  justify-content: center;
+  display: block;
+  min-width: 100vw;
+  height: 100vh;
   background-color: rgb(245, 245, 245);
 }
 

@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.pet_projects {
+  @extend %content_column;
+  width: 100%;
+  .pet_projects__title {
+    margin-top: 25px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 450;
+  }
+}
