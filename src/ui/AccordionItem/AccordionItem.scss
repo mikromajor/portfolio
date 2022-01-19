@@ -6,14 +6,12 @@
   :hover {
     background: $accordionItem__hover;
     border-radius: 20px;
+    // background: rgba(0, 0, 0, 0.1);
   }
+
   .accordion-item {
     border-radius: 20px;
     background: rgba(0, 0, 0, 0);
-  }
-  .accordion-button {
-    background: rgba(0, 0, 0, 0);
-    border-radius: 20px;
   }
 }
 
@@ -32,8 +30,16 @@
     margin-right: $accordionItem__title__margin-right;
     background: rgba(0, 0, 0, 0);
   }
+  .accordion-button {
+    background: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+  }
 }
 .accordionBody__ul {
   @extend %ul_zero;
   background: rgba(0, 0, 0, 0);
 }
+// .accordion-item:last-of-type .accordion-button.collapsed,
+// .accordion-item:last-of-type .accordion-collapse {
+//   border-radius: 20px;
+// }

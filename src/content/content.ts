@@ -95,14 +95,14 @@ export const PET_PROJECTS = {
       "Used: TypeScript, React, API fetch, Bootstrap, SCSS.",
     ],
   },
-  "Galleria-films": {
+  "Galleria films": {
     ICON: ["films"],
     CONTENT: [
       "A movie gallery with a navigation menu. Allows users to browse selected genres, sort movies, create and manage the favorite list.",
       "Used: React, hooks, TypeScrip, Bootstrap",
     ],
   },
-  covid: {
+  Covid: {
     ICON: ["covid"],
     CONTENT: [
       "Showing statistics information about covid in different countries of the world with the ability to enter a custom period.",
@@ -110,11 +110,18 @@ export const PET_PROJECTS = {
     ],
   },
 
-  "covid-19": {
+  "Covid-19": {
     ICON: ["covid-19"],
     CONTENT: [
       "Showing statistics information about covid in different countries of the world with the ability to enter a custom period.",
       "Used: JS, API fetch.",
+    ],
+  },
+  "Users card list": {
+    ICON: ["users_list"],
+    CONTENT: [
+      "Downloads user data from the server. Creates a user's card list. Using the control buttons can change the size of photos on the cards as well as expand the cards when clicking on them. Also, can sort cards by gender or change the background color.",
+      "Used: Vanilla JS, API fetch.",
     ],
   },
 };
