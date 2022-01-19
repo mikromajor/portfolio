@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mikromajor.github.io/portfolio/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^4.2.4",
@@ -12,8 +13,8 @@
     "@types/react": "^16.14.21",
     "@types/react-dom": "^16.9.14",
     "@types/react-redux": "^7.1.22",
-    "antd": "^4.18.3",
     "bootstrap": "^5.1.3",
+    "gh-pages": "^3.2.3",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.1",
@@ -44,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }

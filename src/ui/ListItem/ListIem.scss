@@ -3,17 +3,18 @@
   list-style-type: none;
   .list_item__wrap {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
+    padding-bottom: 5px;
     .list_item__icon {
-      width: 30px;
+      width: 28px;
       object-fit: scale-down;
-      margin: 0 20px;
+      margin: 0 30px 0 20px;
       border-radius: 50%;
     }
     .list_item__content {
       width: 100%;
       margin-bottom: 0;
-      padding-bottom: 0;
+      padding: auto 0;
       font-size: $list_item__content__font-size;
       font-weight: $list_item__content__font-weight;
       &::first-letter {
