@@ -12,10 +12,6 @@ const PetProjects = () => {
     contentKeys.push(key);
     contentValues.push(value);
   }
-
-  console.log("contentKeys", contentKeys);
-  console.log("contentValues", contentValues);
-
   return (
     <section className='pet_projects'>
       <h2 className='pet_projects__title'>

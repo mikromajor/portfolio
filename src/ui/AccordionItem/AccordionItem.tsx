@@ -16,7 +16,7 @@ const AccordionItem = ({
   header,
   body,
 }: AccordionItemProps) => {
-  const { ICON, CONTENT_ICONS, CONTENT } = body;
+  const { ICON, CONTENT_ICONS, CONTENT, LINK } = body;
   const [titleIcon] = ICON;
 
   return (
@@ -44,6 +44,15 @@ const AccordionItem = ({
               key={content + i}
             />
           ))}
+
+          {LINK ? (
+            <a
+              href={LINK[0]}
+              className='accordionBody__link'
+            >
+              Click to demo
+            </a>
+          ) : null}
         </ul>
       </Accordion.Body>
     </Accordion.Item>

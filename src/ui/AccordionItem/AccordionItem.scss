@@ -3,11 +3,6 @@
 .accordion {
   width: 100%;
   border-radius: 20px;
-  :hover {
-    background: $accordionItem__hover;
-    border-radius: 20px;
-    // background: rgba(0, 0, 0, 0.1);
-  }
 
   .accordion-item {
     border-radius: 20px;
@@ -18,6 +13,11 @@
 .accordionItem__header {
   display: inline-block;
   width: 100%;
+  &:hover {
+    background: $accordionItem__hover;
+    border-radius: 20px;
+    background: rgb(240, 240, 255);
+  }
   .accordionItem__title__icon {
     width: $accordionItem__title__icon__width;
     margin: 0 20px;
@@ -38,6 +38,9 @@
 .accordionBody__ul {
   @extend %ul_zero;
   background: rgba(0, 0, 0, 0);
+  .accordionBody__link {
+    text-align: center;
+  }
 }
 // .accordion-item:last-of-type .accordion-button.collapsed,
 // .accordion-item:last-of-type .accordion-collapse {

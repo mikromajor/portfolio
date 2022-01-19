@@ -17,7 +17,7 @@ export const ABOUT_ME = {
       "css",
       "sass",
       "bootstrap",
-      "ant",
+      // "ant",
       "api",
       "git",
       "figma",
@@ -31,7 +31,7 @@ export const ABOUT_ME = {
       "CSS3 (Responsive, BEM);",
       "Sass/Scss;",
       "Bootstrap;",
-      "Ant",
+      // "Ant Design",
       "REST API (fetch);",
       "Git (GitHub);",
       "Figma.",
@@ -94,6 +94,9 @@ export const PET_PROJECTS = {
       "The web application that is able to search through GitHub users and their corresponding projects",
       "Used: TypeScript, React, API fetch, localStorage, Bootstrap, SCSS.",
     ],
+    LINK: [
+      "https://mikromajor.github.io/searcher-git-hub/",
+    ],
   },
   "Galleria films": {
     ICON: ["films"],
@@ -101,6 +104,7 @@ export const PET_PROJECTS = {
       "A movie gallery with a navigation menu. Allows users to browse selected genres, sort movies, create and manage the favorite list.",
       "Used: React, hooks, TypeScrip, Bootstrap",
     ],
+    LINK: ["https://mikromajor.github.io/Galleria-films/"],
   },
   Covid: {
     ICON: ["covid"],
@@ -108,6 +112,7 @@ export const PET_PROJECTS = {
       "Showing statistics information about covid in different countries of the world with the ability to enter a custom period.",
       "Used: React, hooks, API fetch",
     ],
+    LINK: ["https://mikromajor.github.io/covid/"],
   },
 
   "Covid-19": {
@@ -116,6 +121,7 @@ export const PET_PROJECTS = {
       "Showing statistics information about covid in different countries of the world with the ability to enter a custom period.",
       "Used: JS, API fetch.",
     ],
+    LINK: ["https://mikromajor.github.io/covid-19/"],
   },
   "Users card list": {
     ICON: ["users_list"],
@@ -123,6 +129,7 @@ export const PET_PROJECTS = {
       "Downloads user data from the server. Creates a user's card list. Using the control buttons can change the size of photos on the cards as well as expand the cards when clicking on them. Also, can sort cards by gender or change the background color.",
       "Used: Vanilla JS, API fetch.",
     ],
+    LINK: ["https://mikromajor.github.io/users_card_list/"],
   },
   Stopwatch: {
     ICON: ["stopwatch"],
@@ -130,6 +137,7 @@ export const PET_PROJECTS = {
       'The stopwatch displays on the scoreboard - [hh:mm:ss:ms] and control panel - 4 buttons Wait, Reset, Start/Stop, Check speed. Using the button "Check speed" can check the time double click. In the console can see which buttons and how many times have been re-rendered.',
       "Used React hooks: useRef, useState, useEffect, useCallback; memo.",
     ],
+    LINK: ["https://mikromajor.github.io/stopwatch/"],
   },
 };
 
