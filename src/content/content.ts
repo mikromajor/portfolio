@@ -92,7 +92,7 @@ export const PET_PROJECTS = {
     ICON: ["searcher"],
     CONTENT: [
       "The web application that is able to search through GitHub users and their corresponding projects",
-      "Used: TypeScript, React, API fetch, Bootstrap, SCSS.",
+      "Used: TypeScript, React, API fetch, localStorage, Bootstrap, SCSS.",
     ],
   },
   "Galleria films": {
@@ -122,6 +122,13 @@ export const PET_PROJECTS = {
     CONTENT: [
       "Downloads user data from the server. Creates a user's card list. Using the control buttons can change the size of photos on the cards as well as expand the cards when clicking on them. Also, can sort cards by gender or change the background color.",
       "Used: Vanilla JS, API fetch.",
+    ],
+  },
+  Stopwatch: {
+    ICON: ["stopwatch"],
+    CONTENT: [
+      'The stopwatch displays on the scoreboard - [hh:mm:ss:ms] and control panel - 4 buttons Wait, Reset, Start/Stop, Check speed. Using the button "Check speed" can check the time double click. In the console can see which buttons and how many times have been re-rendered.',
+      "Used React hooks: useRef, useState, useEffect, useCallback; memo.",
     ],
   },
 };
