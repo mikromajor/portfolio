@@ -140,8 +140,3 @@ export const PET_PROJECTS = {
     LINK: ["https://mikromajor.github.io/stopwatch/"],
   },
 };
-
-export type AboutMeType = typeof ABOUT_ME;
-export type PetProjectType = typeof PET_PROJECTS;
-
-export type ContentType = PetProjectType | AboutMeType;

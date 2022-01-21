@@ -1,4 +1,5 @@
 @import "../../variables";
+
 .about_me {
   @extend %content_column;
   .about_me__header {
@@ -12,6 +13,14 @@
       margin-left: auto;
       margin-right: auto;
       object-fit: contain;
+      transition: 1s all;
+      &:hover {
+        cursor: pointer;
+        transform: (rotateZ(20deg));
+      }
+    }
+    .avatar__click {
+      width: 260px;
     }
     .about_me__wrap {
       display: block;

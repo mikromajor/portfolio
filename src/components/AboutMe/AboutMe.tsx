@@ -1,18 +1,20 @@
+import { useState } from "react";
 import { Accordion } from "react-bootstrap";
-import { ABOUT_ME } from "../../content/content";
+import { ABOUT_ME } from "../../content";
+import { KeysAboutMeType } from "../../types";
 import { AccordionItem } from "../../ui";
-import { IconsAndContentType } from "../../types";
 
 import "./AboutMe.scss";
 
 const AboutMe = () => {
-  const contentKeys: Array<string> = [];
-  const contentValues: Array<IconsAndContentType> = [];
+  const [changeAvatar, useChangeAvatar] = useState(false);
 
-  for (const [key, value] of Object.entries(ABOUT_ME)) {
-    contentKeys.push(key);
-    contentValues.push(value);
-  }
+  const useHandleChangeAvatar = (): void => {
+    useChangeAvatar((prevState) => !prevState);
+  };
+  const keys = Object.keys(
+    ABOUT_ME
+  ) as unknown as KeysAboutMeType[];
 
   return (
     <div className='about_me'>
@@ -20,7 +22,10 @@ const AboutMe = () => {
         <img
           src={require("../../img/avatar.png")}
           alt='avatar'
-          className='about_me__avatar'
+          className={`about_me__avatar ${
+            changeAvatar ? "avatar__click" : ""
+          }`}
+          onClick={useHandleChangeAvatar}
         />
         <div className='about_me__wrap'>
           <div className='about_me__title'>
@@ -43,12 +48,12 @@ const AboutMe = () => {
         className='accordion'
         flush={true}
       >
-        {contentKeys.map((key, i) => (
+        {keys.map((key, i) => (
           <AccordionItem
             key={key + i}
             eventKey={i}
             header={key}
-            body={contentValues[i]}
+            body={ABOUT_ME[key]}
           />
         ))}
       </Accordion>
