@@ -50,7 +50,7 @@ const AccordionItem = ({
               href={LINK[0]}
               className='accordionBody__link'
             >
-              Click to demo
+              Click to see the demo
             </a>
           ) : null}
         </ul>

@@ -7,9 +7,8 @@
     padding-bottom: 5px;
     .list_item__icon {
       width: 28px;
-      object-fit: scale-down;
+      object-fit: contain;
       margin: 0 30px 0 20px;
-      border-radius: 50%;
     }
     .list_item__content {
       width: 100%;

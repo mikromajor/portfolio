@@ -13,10 +13,10 @@
       margin-left: auto;
       margin-right: auto;
       object-fit: contain;
-      transition: 1s all;
+      transition: 2s all;
       &:hover {
         cursor: pointer;
-        transform: (rotateZ(20deg));
+        transform: (skew(10deg, 0deg) rotateZ(360deg));
       }
     }
     .avatar__click {
