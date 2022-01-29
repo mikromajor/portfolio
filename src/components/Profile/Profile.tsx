@@ -1,15 +1,18 @@
-import { AboutMe } from "../.";
-import { PetProjects } from "../PetProjects";
-// import {} from "antd";
-// import {} from "react-bootstrap/Button";
+import { AboutMe, PetProjects } from "./components";
+import { Link } from "react-router-dom";
+
 import "./Profile.scss";
 
-const Profile = () => {
+const Profile = ({ mes }: { mes: string }) => {
   return (
-    <div className='profile'>
-      <AboutMe />
-      <PetProjects />
-    </div>
+    <>
+      {/* <div>{mes}</div> */}
+      <div className='profile'>
+        {/* <Link to='/calc'>Go to calculator</Link> */}
+        <AboutMe />
+        <PetProjects />
+      </div>
+    </>
   );
 };
 export default Profile;

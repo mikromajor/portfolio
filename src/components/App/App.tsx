@@ -1,15 +1,21 @@
-import { Profile } from "..";
-//import { Counter } from "../../features/counter/Counter";
-import "./App.scss";
+import { Profile, SimpleCalc } from "..";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className='App'>
-      {/* <img src={logo} className='App-logo' alt='logo' /> 
-        <Counter />*/}
-
-      <Profile />
-    </div>
+    <>
+      <Routes>
+        <Route
+          path='/portfolio'
+          element={<Profile mes='all right' />}
+        />
+        <Route path='/calc' element={<SimpleCalc />} />
+        <Route
+          path='*'
+          element={<Profile mes='not found' />}
+        />
+      </Routes>
+    </>
   );
 }
 

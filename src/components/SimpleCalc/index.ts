@@ -1,0 +1,1 @@
+export { SimpleCalc } from "./components";

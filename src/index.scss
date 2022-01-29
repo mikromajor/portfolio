@@ -1,6 +1,6 @@
 //@import-normalize;
 @import "~bootstrap/scss/bootstrap";
-@import "variables";
+@import "./components/Profile/variables";
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -8,6 +8,10 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(245, 245, 245);
 }
 
 code {

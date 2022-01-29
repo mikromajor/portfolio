@@ -10,6 +10,8 @@ const ListItem = ({
   content,
   contentIcons,
 }: ListItemProps) => {
+  const [soc, link] = content.split(" ");
+  const base = ["Telegram:", "Linkedin:", "GitHub:"];
   return (
     <li className='list_item'>
       <div className='list_item__wrap'>
@@ -20,7 +22,13 @@ const ListItem = ({
             className='list_item__icon'
           />
         ) : null}
-        <p className='list_item__content'>{content}</p>
+        {base.find((e) => e === soc) ? (
+          <a href={link} className='list_item__link'>
+            {soc}
+          </a>
+        ) : (
+          <p className='list_item__content'>{content}</p>
+        )}
       </div>
     </li>
   );

@@ -68,11 +68,11 @@ export const ABOUT_ME = {
     ICON: ["contacts"],
     CONTENT_ICONS: ["mobile", "email", "t", "in", "git"],
     CONTENT: [
-      "MOBILE: +38 063-78-00-753",
-      "E-MAIL: alex.solianyk.ua@gmail.com",
-      "Telegram: AlexSolianyk",
-      "linkedin: linkedin.com/in/alex-solianyk-758639214",
-      "GitHub: github.co/mikromajor",
+      "Mob: +38 063-78-00-753",
+      "E-mail: alex.solianyk.ua@gmail.com",
+      "Telegram: http://t.me/AlexSolianyk",
+      "Linkedin: https://www.linkedin.com/in/alex-solianyk-758639214/",
+      "GitHub: https://github.com/mikromajor",
     ],
   },
   GOALS: {
