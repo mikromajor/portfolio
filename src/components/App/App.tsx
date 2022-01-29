@@ -1,4 +1,4 @@
-import { Profile, SimpleCalc } from "..";
+import { Profile, SimpleCalc, GitHubSearcher } from "..";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,6 +8,10 @@ function App() {
         <Route
           path='/portfolio'
           element={<Profile mes='all right' />}
+        />
+        <Route
+          path='/searcher'
+          element={<GitHubSearcher />}
         />
         <Route path='/calc' element={<SimpleCalc />} />
         <Route

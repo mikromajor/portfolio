@@ -55,7 +55,7 @@ const SimpleCalc = () => {
 
   return (
     <>
-      <Link to='/portfolio'>MY PROFILE</Link>
+      <Link to='/portfolio'>{"<-- MY PROFILE"}</Link>
 
       <div className='simpleCalc'>
         <div

@@ -8,7 +8,8 @@ const Profile = ({ mes }: { mes: string }) => {
     <>
       {/* <div>{mes}</div> */}
       <div className='profile'>
-        {/* <Link to='/calc'>Go to calculator</Link> */}
+        {/* <Link to='/calc'>Go to calculator</Link>
+        <Link to='/searcher'>Go to GitHubSearcher</Link> */}
         <AboutMe />
         <PetProjects />
       </div>
