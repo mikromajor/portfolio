@@ -1,0 +1,10 @@
+.center {
+  display: block;
+  margin-left: 10%;
+}
+.green {
+  color: forestgreen;
+}
+.bgBody {
+  background-color: rgb(231, 253, 133);
+}
