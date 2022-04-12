@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import CountriesList from "./CountriesList/CountriesList";
 import CountryInfo from "./CountryInfo/CountryInfo";
 import Statistics from "./Statistics/Statistics";
@@ -19,6 +20,7 @@ const Covid = () => {
 
   return (
     <>
+      <Link to='/portfolio'>{"<-- BACK"}</Link>
       <CountriesList setCountry={setCountry} />
       <main className='content'>
         {showInputMenu && (

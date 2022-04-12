@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Loader } from "../GalleriaFilms/components/UI";
+import { PET_PROJECTS } from "../Profile/content";
 
 const Profile = lazy(() => import("../Profile"));
 const SimpleCalc = lazy(() => import("../SimpleCalc"));
@@ -17,11 +18,7 @@ export const App = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route
-            path='/portfolio'
-            element={<Profile mes='all right' />}
-          />
-
+          <Route path='/portfolio' element={<Profile />} />
           <Route
             path='/films'
             element={<GalleriaFilms />}
@@ -32,10 +29,7 @@ export const App = () => {
           />
           <Route path='/covid' element={<Covid />} />
           <Route path='/calc' element={<SimpleCalc />} />
-          <Route
-            path='*'
-            element={<Profile mes='not found' />}
-          />
+          <Route path='*' element={<Profile />} />
         </Routes>
       </Suspense>
     </>

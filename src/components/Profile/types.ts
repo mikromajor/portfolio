@@ -13,5 +13,5 @@ export type IconsAndContentType = {
   ICON: Array<string>;
   CONTENT_ICONS?: Array<string>;
   CONTENT: Array<string>;
-  LINK?: Array<string>;
+  LINK?: string;
 };

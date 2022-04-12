@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   ToggleButton,
@@ -38,9 +39,6 @@ const HeadMenu = ({
       <Navbar.Toggle aria-controls='navbar-dark-example' />
       <Navbar.Collapse id='navbar-dark-example'>
         <Nav>
-          <Nav.Item>
-            <Nav.Link href='#home'>Home</Nav.Link>
-          </Nav.Item>
           <DropdownGenre
             getGenre={(
               valGenre: string,
@@ -81,6 +79,11 @@ const HeadMenu = ({
             My favoriteList
           </ToggleButton>
           <Counter favoriteList={favoriteList} />
+          <Nav.Item>
+            <Nav.Link>
+              <Link to='/portfolio'>BACK</Link>
+            </Nav.Link>
+          </Nav.Item>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

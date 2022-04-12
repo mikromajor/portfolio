@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Accordion } from "react-bootstrap";
 import { ListItem } from "..";
 import { IconsAndContentType } from "../../types";
@@ -45,14 +46,18 @@ const AccordionItem = ({
             />
           ))}
 
-          {LINK ? (
-            <a
-              href={LINK[0]}
+          {!LINK ? null : LINK.length < 30 ? (
+            <Link
+              to={"/" + LINK}
               className='accordionBody__link'
             >
-              Click to see the demo
+              Click to see the demo - {header}
+            </Link>
+          ) : (
+            <a href={LINK} className='accordionBody__link'>
+              Click to see the demo - {header}
             </a>
-          ) : null}
+          )}
         </ul>
       </Accordion.Body>
     </Accordion.Item>
