@@ -1,1 +1,1 @@
-export { GalleriaFilms } from "./components";
+export { GalleriaFilms as default } from "./components";

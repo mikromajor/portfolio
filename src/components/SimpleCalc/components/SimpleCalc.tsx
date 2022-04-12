@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import "./SimpleCalc.scss";
 
-const SimpleCalc = () => {
+export const SimpleCalc = () => {
   const [input_1, setInput_1] = useState(0);
   const [input_2, setInput_2] = useState(0);
   const [selectedOperator, setSelectedOperator] =
@@ -108,4 +108,3 @@ const SimpleCalc = () => {
   );
 };
 
-export default SimpleCalc;

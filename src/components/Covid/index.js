@@ -1,1 +1,1 @@
-export { Covid } from "./components";
+export { Covid as default } from "./components";

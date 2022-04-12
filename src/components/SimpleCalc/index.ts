@@ -1,1 +1,1 @@
-export { SimpleCalc } from "./components";
+export { SimpleCalc as default } from "./components";

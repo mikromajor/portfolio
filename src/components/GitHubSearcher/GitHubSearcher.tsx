@@ -4,7 +4,7 @@ import { PageCache } from "./utils";
 
 import "./GitHubSearcher.scss";
 
-const GitHubSearcher = () => {
+export const GitHubSearcher = () => {
   return (
     <PageContext.Provider value={PageCache.get()}>
       <div className={"gitHubSearcher"}>
@@ -13,4 +13,3 @@ const GitHubSearcher = () => {
     </PageContext.Provider>
   );
 };
-export default GitHubSearcher;

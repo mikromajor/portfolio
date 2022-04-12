@@ -1,9 +1,8 @@
 import { AboutMe, PetProjects } from "./components";
 import { Link } from "react-router-dom";
-
 import "./Profile.scss";
 
-const Profile = ({ mes }: { mes: string }) => {
+export const Profile = ({ mes }: { mes: string }) => {
   return (
     <>
       <div className='navigation'>
@@ -20,4 +19,3 @@ const Profile = ({ mes }: { mes: string }) => {
     </>
   );
 };
-export default Profile;

@@ -1,1 +1,1 @@
-export { default as SimpleCalc } from "./SimpleCalc";
+export { SimpleCalc } from "./SimpleCalc";

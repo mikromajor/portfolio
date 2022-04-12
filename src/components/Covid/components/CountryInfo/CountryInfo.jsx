@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import getFetch from "../../api/getFetch";
 import { Button, Card, Loader, Error } from "../UI";
 import { DAY, WEEK, MONTH } from "../../utils/constants";
@@ -23,7 +23,7 @@ const CountryInfo = ({
     if (!country.length) return;
     setLoading(true);
     fetchData();
-  }, [country]);
+  }, [country, setCountryData, setLoading]);
 
   if (loading) {
     return <Loader />;
@@ -37,7 +37,7 @@ const CountryInfo = ({
   const lastData = countryData[countryData.length - 1];
   const name = lastData.Country;
   const date = lastData.Date.slice(0, 10);
-  const periodDays = countryData.length;
+  const maxPeriodDays = countryData.length;
   const active = lastData.Active;
   const confirmed = lastData.Confirmed;
   const deaths = lastData.Deaths;
@@ -51,7 +51,7 @@ const CountryInfo = ({
       <Card
         name={name}
         date={date}
-        maxPeriod={periodDays}
+        maxPeriod={maxPeriodDays}
         active={active}
         confirmed={confirmed}
         deaths={deaths}
