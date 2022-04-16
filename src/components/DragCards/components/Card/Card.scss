@@ -1,0 +1,56 @@
+$b-r: 5px;
+%flex__center {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+%borders {
+  border: 1px solid grey;
+  border-radius: $b-r;
+}
+%box-shadow {
+  box-shadow: 10px 10px 10px rgb(100, 100, 100);
+}
+.header {
+  text-align: center;
+}
+.dragCards {
+  @extend %flex__center;
+  flex-wrap: wrap;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.card {
+  @extend %flex__center;
+  margin: 20px;
+  padding: 10px;
+  max-width: 220px;
+  max-height: 400px;
+  @extend %borders;
+  background-color: rgb(254, 255, 170);
+  @extend %box-shadow;
+  cursor: grab;
+  z-index: 25;
+  &__shine {
+    background-color: rgb(247, 250, 56);
+  }
+  &__red {
+    background-color: rgb(247, 0, 0);
+  }
+  &__img {
+    width: 200px;
+    height: 200px;
+    @extend %box-shadow;
+    @extend %borders;
+  }
+  &__title {
+    @extend %flex__center;
+    flex-wrap: wrap;
+    margin: 10px;
+  }
+}
+.wrapperCard {
+  padding: 5px;
+  @extend %borders;
+}

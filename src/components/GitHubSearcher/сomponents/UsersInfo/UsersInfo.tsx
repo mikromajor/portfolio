@@ -9,9 +9,7 @@ import { CurrentUserType } from "../../types";
 import "./UsersInfo.scss";
 
 type UsersInfoProps = {
-  setCurrentUser: (
-    currentUserType: CurrentUserType
-  ) => void;
+  setCurrentUser: (currentUser: CurrentUserType) => void;
   setIsUserInfoLoad: (value: boolean) => void;
   setIsErrorUserInfo: (value: string) => void;
 };

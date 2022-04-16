@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Loader } from "../GalleriaFilms/components/UI";
-import { PET_PROJECTS } from "../Profile/content";
 
 const Profile = lazy(() => import("../Profile"));
 const SimpleCalc = lazy(() => import("../SimpleCalc"));
+
 const GitHubSearcher = lazy(
   () => import("../GitHubSearcher")
 );
@@ -12,6 +12,7 @@ const GalleriaFilms = lazy(
   () => import("../GalleriaFilms")
 );
 const Covid = lazy(() => import("../Covid"));
+const DragCards = lazy(() => import("../DragCards"));
 
 export const App = () => {
   return (
@@ -29,6 +30,10 @@ export const App = () => {
           />
           <Route path='/covid' element={<Covid />} />
           <Route path='/calc' element={<SimpleCalc />} />
+          <Route
+            path='/dragCards'
+            element={<DragCards />}
+          />
           <Route path='*' element={<Profile />} />
         </Routes>
       </Suspense>

@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "react";
 import { Row } from "react-bootstrap";
 import { Film } from "./components";
 import { FilmsListProps } from "./FilmList.Types";
-import sorting from "./hendlers/sorting";
+import sorting from "./handlers/sorting";
 import cl from "./FilmsList.module.css";
 const CardsFilms = ({
   filmsData,
