@@ -4,8 +4,15 @@ const CardDeck: FC<any> = ({ children, length }) => {
   let wrapper = children;
   while (length > 0) {
     length--;
-    wrapper = <div className='wrapperCard'>{wrapper}</div>;
+    wrapper = (
+      <div
+        className='wrapperCard'
+        style={{ zIndex: `${length}` }}
+      >
+        {wrapper}
+      </div>
+    );
   }
-  return <>{wrapper}</>;
+  return <div className='CardDeckStyle'>{wrapper}</div>;
 };
 export default CardDeck;

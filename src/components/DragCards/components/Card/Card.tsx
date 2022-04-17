@@ -46,11 +46,11 @@ const Card: FC<CardProps> = ({
   };
   const dropHandle = (
     e: React.DragEvent,
-    user: UserType,
+    dropUser: UserType,
     i: number
   ): void => {
     e.preventDefault();
-    console.log("Drop", i, ". ", user.name.first);
+    console.log("Drop", dropUser.name.first);
     console.log(
       "draggingUser in Drop->",
       draggingUser?.name.first
@@ -58,20 +58,24 @@ const Card: FC<CardProps> = ({
 
     const newState = users
       .map((prevUser) => {
-        if (user.id.value === draggingUser?.id.value) {
+        if (
+          dropUser.login.uuid === draggingUser?.login.uuid
+        ) {
           return prevUser;
         }
-        if (prevUser.id.value === draggingUser?.id.value) {
+        if (
+          prevUser.login.uuid === draggingUser?.login.uuid
+        ) {
           return null;
         }
-        if (prevUser.id.value === user.id.value) {
+        if (prevUser.login.uuid === dropUser.login.uuid) {
           if (draggingUser) {
             return {
               ...prevUser,
               another: [
                 ...prevUser.another,
                 ...draggingUser.another,
-                draggingUser,
+                { ...draggingUser, another: [] },
               ],
             };
           }
@@ -86,21 +90,23 @@ const Card: FC<CardProps> = ({
   };
 
   return (
-    <div
-      className='card'
-      draggable={true}
-      onDragStart={(e) => dragStartHandle(e, user, i)}
-      onDragEnd={(e) => dragEndHandle(e, user, i)}
-      onDragLeave={(e) => dragLeaveHandle(e, user, i)}
-      onDragOver={(e) => dragOverHandle(e, user, i)}
-      onDrop={(e) => dropHandle(e, user, i)}
-    >
-      {/* <img
+    <div className='wrap'>
+      <div
+        className='card'
+        draggable={true}
+        onDragStart={(e) => dragStartHandle(e, user, i)}
+        onDragEnd={(e) => dragEndHandle(e, user, i)}
+        onDragLeave={(e) => dragLeaveHandle(e, user, i)}
+        onDragOver={(e) => dragOverHandle(e, user, i)}
+        onDrop={(e) => dropHandle(e, user, i)}
+      >
+        <img
           src={user.picture.large}
           alt={`${user.name.last}`}
           className='card__img'
-        /> */}
-      <h4 className='card__title'>{`${i}. ${user.name.first} ${user.name.last}`}</h4>
+        />
+        <h4 className='card__title'>{`${i}. ${user.name.first} ${user.name.last}`}</h4>
+      </div>
     </div>
   );
 };

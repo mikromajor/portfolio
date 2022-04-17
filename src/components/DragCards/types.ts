@@ -13,3 +13,6 @@ export interface CardProps {
   draggingUser: UserType | undefined;
   i: number;
 }
+
+export type E = React.DragEvent<HTMLDivElement>;
+export type O = { name: string; reducer: any[] };

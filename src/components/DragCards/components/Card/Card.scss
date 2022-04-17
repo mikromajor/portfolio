@@ -23,10 +23,7 @@ $b-r: 5px;
 
 .card {
   @extend %flex__center;
-  margin: 20px;
-  padding: 10px;
-  max-width: 220px;
-  max-height: 400px;
+  padding: 20px;
   @extend %borders;
   background-color: rgb(254, 255, 170);
   @extend %box-shadow;
@@ -47,10 +44,25 @@ $b-r: 5px;
   &__title {
     @extend %flex__center;
     flex-wrap: wrap;
+    width: 180px;
+
     margin: 10px;
   }
 }
+.CardDeckStyle {
+  margin: 20px;
+}
+.wrap {
+  z-index: 24;
+  position: relative;
+  left: 15px;
+  top: 15px;
+}
 .wrapperCard {
-  padding: 5px;
+  position: relative;
+  left: 15px;
+  top: 15px;
   @extend %borders;
+  @extend %box-shadow;
+  background-color: rgb(174, 175, 120);
 }
