@@ -10,52 +10,61 @@ const Card: FC<CardProps> = ({
   setDraggingUser,
   draggingUser,
 }) => {
-  const dragStartHandle = (
-    e: React.DragEvent,
-    user: UserType,
-    i: number
-  ): void => {
-    console.log("Start", i, ". ", user.name.first);
+  const dragStartHandle = (user: UserType): void => {
+    console.log("Start", user.name.first);
     setDraggingUser(user);
   };
-  const dragEndHandle = (
-    e: React.DragEvent,
-    user: UserType,
-    i: number
-  ) => {
-    console.log("End", i, ". ", user.name.first);
-    e.currentTarget.classList.add("card__red");
+  const dragEndHandle = (user: UserType) => {
+    console.log("End", user.name.first);
+
+    if (draggingUser?.another.length) {
+      const anotherLast =
+        draggingUser.another[
+          draggingUser.another.length - 1
+        ];
+      const lastUser = {
+        ...anotherLast,
+        another: draggingUser.another.filter(
+          (o) => o.login.uuid !== anotherLast.login.uuid
+        ),
+      };
+      console.log("lastUser", lastUser);
+
+      //cleaning oldest user who hold arr-stor
+      const onlyOldUsers = users.map((oldUser) => {
+        if (
+          oldUser.login.uuid === draggingUser.login.uuid
+        ) {
+          return { ...draggingUser, another: [] };
+        }
+        return oldUser;
+      });
+      console.log("onlyOldUsers", onlyOldUsers);
+      setUsers([...onlyOldUsers, lastUser]);
+    }
   };
   const dragLeaveHandle = (
     e: React.DragEvent,
-    user: UserType,
-    i: number
+    user: UserType
   ) => {
     e.preventDefault();
-    console.log("Leave", i, ". ", user.name.first);
+    console.log("Leave", user.name.first);
     e.currentTarget.classList.remove("card__shine");
   };
   const dragOverHandle = (
     e: React.DragEvent,
-    user: UserType,
-    i: number
+    user: UserType
   ) => {
     e.preventDefault();
-    console.log("Over", i, ". ", user.name.first);
+    console.log("Over", user.name.first);
     e.currentTarget.classList.add("card__shine");
   };
   const dropHandle = (
     e: React.DragEvent,
-    dropUser: UserType,
-    i: number
+    dropUser: UserType
   ): void => {
     e.preventDefault();
     console.log("Drop", dropUser.name.first);
-    console.log(
-      "draggingUser in Drop->",
-      draggingUser?.name.first
-    );
-
     const newState = users
       .map((prevUser) => {
         if (
@@ -79,7 +88,6 @@ const Card: FC<CardProps> = ({
               ],
             };
           }
-          setDraggingUser(undefined);
         }
         return prevUser;
       })
@@ -94,11 +102,11 @@ const Card: FC<CardProps> = ({
       <div
         className='card'
         draggable={true}
-        onDragStart={(e) => dragStartHandle(e, user, i)}
-        onDragEnd={(e) => dragEndHandle(e, user, i)}
-        onDragLeave={(e) => dragLeaveHandle(e, user, i)}
-        onDragOver={(e) => dragOverHandle(e, user, i)}
-        onDrop={(e) => dropHandle(e, user, i)}
+        onDragStart={() => dragStartHandle(user)}
+        onDragEnd={() => dragEndHandle(user)}
+        onDragLeave={(e) => dragLeaveHandle(e, user)}
+        onDragOver={(e) => dragOverHandle(e, user)}
+        onDrop={(e) => dropHandle(e, user)}
       >
         <img
           src={user.picture.large}
