@@ -66,3 +66,12 @@ $b-r: 5px;
   @extend %box-shadow;
   background-color: rgb(174, 175, 120);
 }
+.newUsersButton {
+  margin: 30px;
+  background-color: blue;
+  @extend %borders;
+  @extend %box-shadow;
+  &:active {
+    background-color: green;
+  }
+}

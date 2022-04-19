@@ -13,9 +13,7 @@ const {
   SEPARATE_USERS,
 } = TYPE_ACTIONS;
 
-const initState: { users: UserType[] } = {
-  users: [],
-};
+const initState: UserType[] = [];
 
 type UsersAction = {
   type: ActionType;
@@ -30,23 +28,19 @@ export default function userReducer(
 ) {
   switch (action.type) {
     case SET_USERS:
-      return {
-        ...state,
-        users: [...action.payload],
-      };
+      return [...action.payload];
     case COMBINE_USERS:
-      const combineState = combineUsersUtils(
-        state.users,
+      return combineUsersUtils(
+        state,
         action.currentDruggingUser,
         action.currentDropUser
       );
-      return { ...state, users: combineState };
+
     case SEPARATE_USERS:
-      const separateState = separateUsersUtils(
-        state.users,
+      return separateUsersUtils(
+        state,
         action.currentDruggingUser
       );
-      return { ...state, users: separateState };
     default:
       return state;
   }
