@@ -7,14 +7,20 @@ interface ObjAction {
   type: ActionType;
   payload: UserType;
 }
+const initDruggingUserReducer: {
+  currentDraggingUser: UserType | undefined;
+} = { currentDraggingUser: undefined };
 
 export default function druggingUserReducer(
-  state: UserType | undefined,
+  state = initDruggingUserReducer,
   action: ObjAction
 ) {
   switch (action.type) {
     case SET_CURRENT_DRAGGING_USER:
-      return { ...action.payload };
+      return {
+        ...state,
+        currentDraggingUser: action.payload,
+      };
     default:
       return state;
   }

@@ -10,7 +10,11 @@ import {
   // getLoaderSelector,
 } from "./store/selectors";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "./store/reducers/userReducer";
+import {
+  fetchUsers,
+  fetchMan,
+  fetchWomen,
+} from "./store/reducers/userReducer";
 
 export const DragCards: FC = () => {
   const dispatch = useDispatch();
@@ -28,13 +32,31 @@ export const DragCards: FC = () => {
     <>
       <Link to='/portfolio'>{"<-- BACK"}</Link>
 
-      <h1 className='header'>Drag and drop</h1>
-      <button
-        className='newUsersButton'
-        onClick={() => dispatch(fetchUsers())}
-      >
-        Get new users
-      </button>
+      <h1 className='header'>Drag and drop.</h1>
+      <h2 className='header'>
+        Put in or pull out of the cards deck.
+      </h2>
+      <div className='buttonsRow'>
+        <button
+          className='newUsersButton'
+          onClick={() => dispatch(fetchUsers())}
+        >
+          Get new users
+        </button>
+        <button
+          className='newUsersButton'
+          onClick={() => dispatch(fetchMan())}
+        >
+          Get only mans
+        </button>
+        <button
+          className='newUsersButton'
+          onClick={() => dispatch(fetchWomen("20"))}
+        >
+          Get only women
+        </button>
+      </div>
+
       <div className='dragCards'>
         {!!users?.length &&
           users.map((user) => (

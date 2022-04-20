@@ -3,12 +3,15 @@ import {
   UserType,
   CurrentUser,
   ActionType,
+  RawUserType,
 } from "../types";
 import combineUsersUtils from "./utilities/combineUsersUtils";
 import separateUsersUtils from "./utilities/separateUsersUtils";
 const {
   SET_USERS,
   FETCH_USERS,
+  FETCH_MAN,
+  FETCH_WOMEN,
   COMBINE_USERS,
   SEPARATE_USERS,
 } = TYPE_ACTIONS;
@@ -48,8 +51,19 @@ export const setUsers = (payload: UserType[]) => ({
   type: SET_USERS,
   payload,
 });
-export const fetchUsers = () => ({
+export const fetchUsers = (payload?: string) => ({
   type: FETCH_USERS,
+  payload,
+});
+export const fetchMan = (payload?: string) => ({
+  type: FETCH_MAN,
+  payload,
+  gender: "male",
+});
+export const fetchWomen = (payload?: string) => ({
+  type: FETCH_WOMEN,
+  payload,
+  gender: "female",
 });
 export const combineUsers = (
   currentDruggingUser: CurrentUser,

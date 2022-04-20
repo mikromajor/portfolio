@@ -75,3 +75,9 @@ $b-r: 5px;
     background-color: green;
   }
 }
+
+.buttonsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

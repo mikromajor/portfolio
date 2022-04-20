@@ -10,10 +10,10 @@ export type ActionType = keyof Actions;
 
 export interface RawUserType {
   name: { title: string; first: string; last: string };
+  gender: "male" | "female";
   picture: { large: string };
   id: number;
   login: { uuid: string };
-  //another: UserType[];
 }
 export type UserType = RawUserType & {
   another: RawUserType[];
