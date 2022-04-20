@@ -8,13 +8,19 @@ export type rootReducerType = ReturnType<
 type Actions = typeof TYPE_ACTIONS;
 export type ActionType = keyof Actions;
 
-export interface UserType {
+export interface RawUserType {
   name: { title: string; first: string; last: string };
   picture: { large: string };
-  id: { value: string };
+  id: number;
   login: { uuid: string };
-  another: UserType[];
+  //another: UserType[];
 }
+export type UserType = RawUserType & {
+  another: RawUserType[];
+};
+// interface UserType2 extends  RawUserType{another:RawUserType[]} //the same
+
+// export type RawUserType = Partial<UserType>;
 export type CurrentUser = UserType | undefined;
 
 export interface LoadReducer {

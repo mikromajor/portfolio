@@ -15,6 +15,7 @@ import { fetchUsers } from "./store/reducers/userReducer";
 export const DragCards: FC = () => {
   const dispatch = useDispatch();
   const users = useSelector(getUsersSelector);
+  console.log("users in DragCards =>", users);
 
   // const error = useSelector(getErrorSelector);
   // const loader = useSelector(getLoaderSelector);

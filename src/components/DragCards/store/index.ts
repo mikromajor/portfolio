@@ -4,23 +4,23 @@ import {
   createStore,
 } from "redux";
 import createSagaMiddleware from "redux-saga";
-import logger from "redux-logger";
-// import { rootWatcher } from "./saga";
-
-// const composeEnhancers =
-//   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+import logger from "redux-logger"; // - dev_tools
+import { rootWatcher } from "./saga";
+import userReducer from "./reducers/userReducer";
+import loadReducer from "./reducers/loadReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const rootReducer = combineReducers({
-  // countReducer,
-  // userReducer,
-  // loadReducer,
+  userReducer,
+  loadReducer,
 });
 
-export const store = createStore(
+const store = createStore(
   rootReducer,
   applyMiddleware(sagaMiddleware, logger)
 );
 
-//sagaMiddleware.run(rootWatcher);
+sagaMiddleware.run(rootWatcher);
+
+export default store;

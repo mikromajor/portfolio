@@ -1,6 +1,8 @@
 import {
   put,
   takeEvery,
+  all,
+  takeLatest,
   call,
   SagaReturnType,
 } from "redux-saga/effects";
@@ -11,7 +13,7 @@ import {
   setError,
 } from "../reducers/loadReducer";
 import { TYPE_ACTIONS } from "../constants";
-import { UserType } from "../types";
+import { UserType, RawUserType } from "../types";
 
 const { FETCH_USERS } = TYPE_ACTIONS;
 
@@ -23,18 +25,22 @@ type FetchType = SagaReturnType<typeof fetchUsersFromApi>;
 
 function* fetchUserWorker() {
   yield put(setLoading());
-
   try {
     const response: FetchType = yield call(
       fetchUsersFromApi
     );
 
     if (response.ok) {
-      const users: UserType[] = yield response.json();
+      const rawUsers: RawUserType[] = yield response.json();
+      const users = rawUsers.map((o, i) => ({
+        ...o,
+        another: [],
+        id: i + Math.random(),
+      }));
       yield put(setLoaded());
       yield put(setUsers(users));
     } else {
-      throw response;
+      throw response.status;
     }
   } catch (error) {
     yield put(setLoaded());
@@ -49,5 +55,5 @@ function* fetchUserWorker() {
 }
 
 export function* userWatcher() {
-  yield takeEvery(FETCH_USERS, fetchUserWorker);
+  yield takeLatest(FETCH_USERS, fetchUserWorker);
 }

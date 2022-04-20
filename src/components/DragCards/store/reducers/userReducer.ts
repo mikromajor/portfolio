@@ -13,8 +13,6 @@ const {
   SEPARATE_USERS,
 } = TYPE_ACTIONS;
 
-const initState: UserType[] = [];
-
 type UsersAction = {
   type: ActionType;
   payload: UserType[];
@@ -23,7 +21,7 @@ type UsersAction = {
 };
 
 export default function userReducer(
-  state = initState,
+  state: UserType[] = [],
   action: UsersAction
 ) {
   switch (action.type) {
