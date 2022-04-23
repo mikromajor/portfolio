@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-const CardDeck: FC<any> = ({ children, length }) => {
+export const CardDeck: FC<any> = ({ children, length }) => {
   let wrapper = children;
   while (length > 0) {
     length--;
@@ -15,4 +15,3 @@ const CardDeck: FC<any> = ({ children, length }) => {
   }
   return <div className='CardDeckStyle'>{wrapper}</div>;
 };
-export default CardDeck;

@@ -7,13 +7,11 @@ export const TYPE_ACTIONS = {
   COMBINE_USERS: "COMBINE_USERS",
   SEPARATE_USERS: "SEPARATE_USERS",
   SET_CURRENT_DRAGGING_USER: "SET_CURRENT_DRAGGING_USER",
+  START_FLIP_THROUGH: "START_FLIP_THROUGH",
+  SET_FLIP_THROUGH: "SET_FLIP_THROUGH",
+  STOP_FLIP_THROUGH: "STOP_FLIP_THROUGH",
   LOADED: "LOADED",
   LOADING: "LOADING",
   ERROR: "ERROR",
+  TIK: "TIK",
 };
-
-//export const dragStart=(user)=>({type: , payload: user,})
-//export const dragEnd(user)=>({type: , payload: user,})
-//export const dragLeave(e, user)=>({type: , payload: user,})
-//export const dragOver(e, user)=>({type: , payload: user,})
-//export const drop(e, user)=>({type: , payload: user,})

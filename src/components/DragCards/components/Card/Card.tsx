@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { UserType } from "../../store/types";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentDruggingUser } from "../../store/reducers/draggingUserReducer";
@@ -6,32 +6,45 @@ import {
   combineUsers,
   separateUsers,
 } from "../../store/reducers/userReducer";
-import { getCurrentDraggingUserSelector } from "../../store/selectors";
+import {
+  getFlipThroughSelector,
+  getCurrentDraggingUserSelector,
+} from "../../store/selectors";
+import {
+  startFlipThrough,
+  stopFlipThrough,
+} from "../../store/reducers/flipThroughReducer";
+import {
+  removeShine,
+  addShine,
+} from "./utils/changeCarStyles";
 import "./Card.scss";
 
 interface CardProps {
   user: UserType;
 }
 
-const Card: FC<CardProps> = ({ user }) => {
+export const Card: FC<CardProps> = ({ user }) => {
   const { currentDraggingUser } = useSelector(
     getCurrentDraggingUserSelector
   );
+  const { showImg, userId } = useSelector(
+    getFlipThroughSelector
+  );
+
   const dispatch = useDispatch();
 
-  const removeShine = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.currentTarget.classList.remove("card__shine");
-  };
-  const addShine = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.currentTarget.classList.add("card__shine");
-  };
+  //TODO: add it to reducer
+  let changeGenderColor = true; //it will be change by button
+  const cardGenderStylesHandle = (): string =>
+    changeGenderColor
+      ? `card card__${user.gender}`
+      : "card";
 
   return (
     <div className='wrap'>
       <div
-        className='card'
+        className={cardGenderStylesHandle()}
         draggable={true}
         onDragStart={() =>
           dispatch(setCurrentDruggingUser(user))
@@ -47,7 +60,15 @@ const Card: FC<CardProps> = ({ user }) => {
         }
       >
         <img
-          src={user.picture.large}
+          onMouseOver={() =>
+            dispatch(startFlipThrough(user))
+          }
+          onMouseLeave={() => dispatch(stopFlipThrough())}
+          src={
+            showImg && user.id === userId
+              ? showImg
+              : user.picture.large
+          }
           alt={`${user.name.last}`}
           className='card__img'
         />
@@ -56,4 +77,3 @@ const Card: FC<CardProps> = ({ user }) => {
     </div>
   );
 };
-export default Card;

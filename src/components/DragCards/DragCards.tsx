@@ -4,7 +4,7 @@ import {
   Card,
   CardDeck,
   NavBar,
-  MyGoogleMap,
+  // MyGoogleMap,
 } from "./components";
 import { DragCardsHeader } from "./ui";
 import "./components/Card/Card.scss";
@@ -30,7 +30,7 @@ export const DragCards: FC = () => {
 
   return (
     <>
-      <Link to='/portfolio'>{"<-- BACK"}</Link>
+      <Link to='/portfolio'>{"BACK"}</Link>
       <DragCardsHeader />
       <NavBar />
       <div className='dragCards'>

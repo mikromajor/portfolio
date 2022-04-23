@@ -3,10 +3,11 @@ import {
   combineReducers,
   createStore,
 } from "redux";
+import createSagaMiddleware from "redux-saga";
 import loadReducer from "./loadReducer";
 import userReducer from "./userReducer";
 import druggingUserReducer from "./draggingUserReducer";
-import createSagaMiddleware from "redux-saga";
+import { flipThroughReducer } from "./flipThroughReducer";
 import { rootWatcher } from "../saga";
 
 import logger from "redux-logger";
@@ -17,12 +18,15 @@ const rootReducer = combineReducers({
   loadReducer,
   userReducer,
   druggingUserReducer,
+  flipThroughReducer,
 });
 
 export type StateType = ReturnType<typeof rootReducer>;
 
-export const store = createStore(
+const store = createStore(
   rootReducer,
   applyMiddleware(sagaMiddleware, logger)
 );
 sagaMiddleware.run(rootWatcher);
+
+export default store;

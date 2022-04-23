@@ -11,6 +11,12 @@ $b-r: 5px;
 %box-shadow {
   box-shadow: 10px 10px 10px rgb(100, 100, 100);
 }
+//-- map
+$status-color: (
+  male: rgb(128, 128, 250),
+  female: rgb(252, 147, 147),
+); //--\
+
 .header {
   text-align: center;
 }
@@ -22,6 +28,13 @@ $b-r: 5px;
 }
 
 .card {
+  //--map
+  @each $status, $color in $status-color {
+    &__#{$status} {
+      background-color: $color;
+    }
+  } //--\
+
   @extend %flex__center;
   padding: 20px;
   @extend %borders;

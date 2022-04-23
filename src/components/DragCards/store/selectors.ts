@@ -1,5 +1,4 @@
 import { createSelector } from "reselect";
-
 import { StateType } from "./reducers";
 
 const getUsers = (state: StateType) => state.userReducer;
@@ -9,6 +8,8 @@ const getError = (state: StateType) =>
   state.loadReducer.error;
 const getCurrentDraggingUser = (state: StateType) =>
   state.druggingUserReducer;
+const getFlipThrough = (state: StateType) =>
+  state.flipThroughReducer;
 
 export const getUsersSelector = createSelector(
   getUsers,
@@ -25,3 +26,8 @@ export const getErrorSelector = createSelector(
 );
 export const getCurrentDraggingUserSelector =
   createSelector(getCurrentDraggingUser, (c) => c);
+
+export const getFlipThroughSelector = createSelector(
+  getFlipThrough,
+  (url) => url
+);
