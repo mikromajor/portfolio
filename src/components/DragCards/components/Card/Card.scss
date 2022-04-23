@@ -19,12 +19,16 @@ $status-color: (
 
 .header {
   text-align: center;
+  text-shadow: 10px 10px 10px rgb(100, 100, 100);
 }
 .dragCards {
   @extend %flex__center;
   flex-wrap: wrap;
   min-width: 100vw;
   min-height: 100vh;
+  button {
+    @extend %box-shadow;
+  }
 }
 
 .card {

@@ -38,7 +38,7 @@ function* flipThroughWorker(action: StartStopFlipThrough) {
     }
     yield delay(500);
   }
-  if (!condition && !action.user.another.length) {
+  if (!condition || !action.user.another.length) {
     yield put(
       setFlipThrough(action.user, action.user.picture.large)
     );
@@ -49,12 +49,12 @@ function stopFlipThroughWorker() {
 }
 
 export function* flipThroughWatcher() {
-  yield takeEvery(
-    TYPE_ACTIONS.STOP_FLIP_THROUGH,
-    stopFlipThroughWorker
-  );
   yield takeLatest(
     TYPE_ACTIONS.START_FLIP_THROUGH,
     flipThroughWorker
+  );
+  yield takeEvery(
+    TYPE_ACTIONS.STOP_FLIP_THROUGH,
+    stopFlipThroughWorker
   );
 }
