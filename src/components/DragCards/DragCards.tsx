@@ -1,58 +1,50 @@
-import React, { useState, useEffect, FC } from "react";
+import React, { useEffect, FC } from "react";
 import { Link } from "react-router-dom";
+import {
+  Card,
+  CardDeck,
+  NavBar,
+  // MyGoogleMap,
+} from "./components";
+import { DragCardsHeader } from "./ui";
 import "./components/Card/Card.scss";
-import Card from "./components/Card/Card";
-import CardDeck from "./components/CardDeck/CardDeck";
-import { getFetch } from "./api/getFetch";
-import { UserType } from "./types";
-// import {  E, O } from "./types";
+
+import {
+  getUsersSelector,
+  //getErrorSelector,
+  // getLoaderSelector,
+} from "./store/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "./store/reducers/userReducer";
 
 export const DragCards: FC = () => {
-  const [users, setUsers] = useState<UserType[]>([]);
-  const [draggingUser, setDraggingUser] =
-    useState<UserType>();
-  console.log("draggingUser", draggingUser?.name.first);
-  console.log("users", users);
+  const dispatch = useDispatch();
+  const users = useSelector(getUsersSelector);
+
+  // const error = useSelector(getErrorSelector);
+  // const loader = useSelector(getLoaderSelector);
 
   useEffect(() => {
-    const getFetchResults = async () => {
-      const response = await getFetch();
-      const objUsers = await response.json();
-
-      const arrUser = (await objUsers.results.map(
-        (r: { another: any }) => {
-          r.another = [];
-          return r;
-        }
-      )) as unknown as UserType[];
-      setUsers(arrUser);
-    };
-    getFetchResults();
-  }, []);
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
   return (
     <>
-      <Link to='/portfolio'>{"<-- BACK"}</Link>
-
-      <h1 className='header'>Drag and drop</h1>
+      <Link to='/portfolio'>{"BACK"}</Link>
+      <DragCardsHeader />
+      <NavBar />
       <div className='dragCards'>
-        {!!users.length &&
-          users.map((user, i) => (
+        {!!users?.length &&
+          users.map((user) => (
             <CardDeck
               length={user.another.length}
-              key={user.login.uuid + i + Math.random()}
+              key={user.login.uuid + Math.random()}
             >
-              <Card
-                users={users}
-                user={user}
-                setUsers={setUsers}
-                draggingUser={draggingUser}
-                setDraggingUser={setDraggingUser}
-                i={i}
-              />
+              <Card user={user} />
             </CardDeck>
           ))}
       </div>
+      {/* <MyGoogleMap /> */}
     </>
   );
 };
