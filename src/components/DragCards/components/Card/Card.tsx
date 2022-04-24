@@ -28,18 +28,18 @@ export const Card: FC<CardProps> = ({ user }) => {
   const { currentDraggingUser } = useSelector(
     getCurrentDraggingUserSelector
   );
-  const { showImg, userId } = useSelector(
+  const { liningUser, idUser } = useSelector(
     getFlipThroughSelector
   );
+  const { name, gender, picture } =
+    liningUser && idUser === user.id ? liningUser : user;
 
   const dispatch = useDispatch();
 
   //TODO: add it to reducer
   let changeGenderColor = true; //it will be change by button
   const cardGenderStylesHandle = (): string =>
-    changeGenderColor
-      ? `card card__${user.gender}`
-      : "card";
+    changeGenderColor ? `card card__${gender}` : "card";
 
   return (
     <div className='wrap'>
@@ -64,15 +64,11 @@ export const Card: FC<CardProps> = ({ user }) => {
             dispatch(startFlipThrough(user))
           }
           onMouseLeave={() => dispatch(stopFlipThrough())}
-          src={
-            showImg && user.id === userId
-              ? showImg
-              : user.picture.large
-          }
-          alt={`${user.name.last}`}
+          src={picture.large}
+          alt={`${name.last}`}
           className='card__img'
         />
-        <h4 className='card__title'>{`${user.name.first} ${user.name.last}`}</h4>
+        <h4 className='card__title'>{`${name.first} ${name.last}`}</h4>
       </div>
     </div>
   );

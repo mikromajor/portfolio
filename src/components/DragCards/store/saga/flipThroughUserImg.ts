@@ -6,14 +6,14 @@ import {
 } from "redux-saga/effects";
 import { TYPE_ACTIONS } from "../constants";
 import {
-  StartStopFlipThrough,
+  StartFlipThrough,
   setFlipThrough,
 } from "../reducers/flipThroughReducer";
 
 //  const delay = (ms:number) => new Promise(resolve => setTimeout(()=>resolve, ms))
 let condition: boolean;
 
-function* flipThroughWorker(action: StartStopFlipThrough) {
+function* flipThroughWorker(action: StartFlipThrough) {
   let counter = 0;
   condition = true;
 
@@ -22,16 +22,13 @@ function* flipThroughWorker(action: StartStopFlipThrough) {
     if (counter === action.user.another.length) {
       counter = 0;
       yield put(
-        setFlipThrough(
-          action.user,
-          action.user.picture.large
-        )
+        setFlipThrough(action.user, action.user.id)
       );
     } else {
       yield put(
         setFlipThrough(
-          action.user,
-          action.user.another[counter].picture.large
+          action.user.another[counter],
+          action.user.id
         )
       );
       yield counter++;
@@ -39,9 +36,7 @@ function* flipThroughWorker(action: StartStopFlipThrough) {
     yield delay(500);
   }
   if (!condition || !action.user.another.length) {
-    yield put(
-      setFlipThrough(action.user, action.user.picture.large)
-    );
+    yield put(setFlipThrough(action.user, action.user.id));
   }
 }
 function stopFlipThroughWorker() {
