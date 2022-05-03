@@ -43,7 +43,9 @@ const FavoriteList = ({
           <Card.Img
             variant='top'
             src={`${BASE_IMG_URL}${cardData.poster_path}`}
+            alt='not found'
           />
+
           <Card.Body>
             <Card.Title>{cardData.title}</Card.Title>
             <Card.Subtitle className='mb-2'>

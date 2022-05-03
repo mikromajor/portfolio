@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { PageContext } from "../../context";
 import { UsersInfo } from "../.";
 import { UserInfo } from "../UserInfo";
@@ -15,9 +15,13 @@ const Layout = () => {
     useState(false);
   const [isErrorUserInfo, setIsErrorUserInfo] =
     useState("");
+  const layoutRef = useRef<HTMLDivElement>(null);
+  const scrollToLayout = () => {
+    layoutRef.current?.scrollIntoView();
+  };
 
   return (
-    <div className={"layout"}>
+    <div className={"layout"} ref={layoutRef}>
       <UsersInfo
         setCurrentUser={setCurrentUser}
         setIsUserInfoLoad={setIsUserInfoLoad}
@@ -30,7 +34,10 @@ const Layout = () => {
           <Loader />
         </div>
       ) : (
-        <UserInfo currentUser={currentUser} />
+        <UserInfo
+          currentUser={currentUser}
+          callback={scrollToLayout}
+        />
       )}
     </div>
   );

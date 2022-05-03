@@ -12,7 +12,7 @@ const CheckGenre = ({
 }) => {
   const [checked, setChecked] = useState(false);
   return (
-    <form
+    <div
       className={
         checked
           ? `${style.form} ${style.checked}`
@@ -24,15 +24,8 @@ const CheckGenre = ({
         setChecked(!checked);
       }}
     >
-      <input
-        className={style.checkbox}
-        type='checkbox'
-        checked={checked}
-        readOnly
-      />
-
       {label}
-    </form>
+    </div>
   );
 };
 export default CheckGenre;
