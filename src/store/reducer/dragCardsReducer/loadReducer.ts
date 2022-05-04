@@ -1,7 +1,10 @@
-import { TYPE_ACTIONS } from "../constants";
-import { ActionType, LoadReducer } from "../types";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
+import {
+  ActionType,
+  LoadReducer,
+} from "../../types/dragCardsType";
 
-const { LOADED, LOADING, ERROR } = TYPE_ACTIONS;
+const { LOADED, LOADING, ERROR } = DRAG_CARDS_ACTIONS;
 
 const initLoadState: LoadReducer = {
   loader: false,
