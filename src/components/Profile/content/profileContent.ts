@@ -108,6 +108,14 @@ export const PET_PROJECTS = {
     LINK: "films",
     //"https://mikromajor.github.io/Galleria-films/"
   },
+  "Drag and drop card": {
+    ICON: ["dragAndDrop"],
+    CONTENT: [
+      "Downloads user data from the server. Creates a user's cards. Using drag and drop user cards and. Auto slideshow of cards in a deck.",
+      "Used: React, Redux-Saga , TypeScrip, Bootstrap, API fetch",
+    ],
+    LINK: "dragCards",
+  },
   Covid: {
     ICON: ["covid"],
     CONTENT: [
