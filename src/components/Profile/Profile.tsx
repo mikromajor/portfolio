@@ -7,9 +7,6 @@ export const Profile = () => {
   return (
     <>
       <div className='navigation'>
-        <Link to='/calc'>
-          <Button variant={"secondary"}>Calculator</Button>
-        </Link>
         <Link to='/searcher'>
           <Button variant={"secondary"}>
             GitHubSearcher
@@ -20,18 +17,25 @@ export const Profile = () => {
             GalleriaFilms
           </Button>
         </Link>
+        <Link to='/dragCards'>
+          <Button variant={"secondary"}>DragCards</Button>
+        </Link>
         <Link to='/covid'>
           <Button variant={"secondary"}>Covid</Button>{" "}
         </Link>
         <Link to='/covid-19'>
           <Button variant={"secondary"}>Covid-19</Button>
         </Link>
+
         {/* <Link to='/users_card_list'>
           Go to users_card_list
         </Link> */}
         {/* <Link to='/stopwatch'>Go to stopwatch</Link> */}
-        <Link to='/dragCards'>
-          <Button variant={"secondary"}>DragCards</Button>
+        <Link to='/stopWatch'>
+          <Button variant={"secondary"}>StopWatch</Button>
+        </Link>
+        <Link to='/calc'>
+          <Button variant={"secondary"}>Calculator</Button>
         </Link>
       </div>
       <div className='profile'>

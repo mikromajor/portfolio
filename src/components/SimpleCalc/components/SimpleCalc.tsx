@@ -57,7 +57,7 @@ export const SimpleCalc = () => {
 
   return (
     <>
-      <Link to='/portfolio'>{"<-- BACK"}</Link>
+      <Link to='/portfolio'>{" BACK"}</Link>
 
       <div className='simpleCalc'>
         <div
