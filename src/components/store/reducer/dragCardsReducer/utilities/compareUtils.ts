@@ -1,4 +1,4 @@
-import { UserType } from "../../types";
+import { UserType } from "../../../types/dragCardsType";
 export const compareUtils = (
   a: UserType,
   b: UserType

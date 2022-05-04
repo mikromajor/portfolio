@@ -1,15 +1,15 @@
-import { TYPE_ACTIONS } from "../constants";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
 import {
   UserType,
   RawUserType,
   ActionType,
-} from "../types";
+} from "../../types/dragCardsType";
 
 const {
   START_FLIP_THROUGH,
   SET_FLIP_THROUGH,
   STOP_FLIP_THROUGH,
-} = TYPE_ACTIONS;
+} = DRAG_CARDS_ACTIONS;
 
 interface stateFlipThroughReducer {
   liningUser: undefined | UserType;

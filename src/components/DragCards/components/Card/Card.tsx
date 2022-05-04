@@ -1,23 +1,26 @@
 import { FC } from "react";
-import { UserType } from "../../store/types";
+import { UserType } from "../../../store/types/dragCardsType";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentDruggingUser } from "../../store/reducers/draggingUserReducer";
+import { 
+  setCurrentDruggingUser 
+} from '../../../store/reducer/dragCardsReducer/draggingUserReducer'
+
 import {
   combineUsers,
   separateUsers,
-} from "../../store/reducers/userReducer";
+} from "../../../store/reducer/dragCardsReducer/userReducer";
 import {
   getFlipThroughSelector,
   getCurrentDraggingUserSelector,
-} from "../../store/selectors";
+} from "../../../store/selectors/dragCardsSelectors";
 import {
   startFlipThrough,
   stopFlipThrough,
-} from "../../store/reducers/flipThroughReducer";
+} from "../../../store/reducer/dragCardsReducer/flipThroughReducer";
 import {
   removeShine,
   addShine,
-} from "./utils/changeCarStyles";
+} from "./utils/changeCardStyles";
 import "./Card.scss";
 
 interface CardProps {

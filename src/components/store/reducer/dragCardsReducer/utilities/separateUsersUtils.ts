@@ -1,5 +1,8 @@
 import { compareUtils } from "./compareUtils";
-import { UserType, CurrentUser } from "../../types";
+import {
+  UserType,
+  CurrentUser,
+} from "../../../types/dragCardsType";
 
 const separateUsersUtils = (
   users: UserType[],

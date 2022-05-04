@@ -4,10 +4,7 @@ import {
   createStore,
 } from "redux";
 import createSagaMiddleware from "redux-saga";
-import loadReducer from "./loadReducer";
-import userReducer from "./userReducer";
-import druggingUserReducer from "./draggingUserReducer";
-import { flipThroughReducer } from "./flipThroughReducer";
+import dragCardsReducer from "./dragCardsReducer";
 import { rootWatcher } from "../saga";
 
 import logger from "redux-logger";
@@ -15,10 +12,8 @@ import logger from "redux-logger";
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-  loadReducer,
-  userReducer,
-  druggingUserReducer,
-  flipThroughReducer,
+  dragCardsReducer,
+  //gitHubSearcherReducer.....
 });
 
 export type StateType = ReturnType<typeof rootReducer>;

@@ -1,4 +1,4 @@
-export const TYPE_ACTIONS = {
+export const DRAG_CARDS_ACTIONS = {
   SET_USERS: "SET_USERS",
   FETCH_USERS: "FETCH_USERS",
   FETCH_MAN: "FETCH_MAN",

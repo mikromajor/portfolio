@@ -4,7 +4,7 @@ import {
   fetchUsers,
   fetchMan,
   fetchWomen,
-} from "../../store/reducers/userReducer";
+} from "../../../store/reducer/dragCardsReducer/userReducer";
 
 export const NavBar: FC = () => {
   const dispatch = useDispatch();

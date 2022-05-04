@@ -4,11 +4,11 @@ import {
   takeEvery,
   takeLatest,
 } from "redux-saga/effects";
-import { TYPE_ACTIONS } from "../constants";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
 import {
   StartFlipThrough,
   setFlipThrough,
-} from "../reducers/flipThroughReducer";
+} from "../../reducer/dragCardsReducer/flipThroughReducer";
 
 //  const delay = (ms:number) => new Promise(resolve => setTimeout(()=>resolve, ms))
 let condition: boolean;
@@ -45,11 +45,11 @@ function stopFlipThroughWorker() {
 
 export function* flipThroughWatcher() {
   yield takeLatest(
-    TYPE_ACTIONS.START_FLIP_THROUGH,
+    DRAG_CARDS_ACTIONS.START_FLIP_THROUGH,
     flipThroughWorker
   );
   yield takeEvery(
-    TYPE_ACTIONS.STOP_FLIP_THROUGH,
+    DRAG_CARDS_ACTIONS.STOP_FLIP_THROUGH,
     stopFlipThroughWorker
   );
 }

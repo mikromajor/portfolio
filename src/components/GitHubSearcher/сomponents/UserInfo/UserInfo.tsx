@@ -11,7 +11,7 @@ type Props = {
   callback: () => void;
 };
 
-const UserInfo = ({ currentUser, callback }: Props) => {
+const UserInfo: FC<Props> = ({ currentUser, callback }) => {
   const userInfoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -14,9 +14,9 @@ import {
   getUsersSelector,
   //getErrorSelector,
   // getLoaderSelector,
-} from "./store/selectors";
+} from "../store/selectors/dragCardsSelectors";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "./store/reducers/userReducer";
+import { fetchUsers } from "../store/reducer/dragCardsReducer/userReducer";
 
 export const DragCards: FC = () => {
   const dispatch = useDispatch();
