@@ -108,6 +108,14 @@ export const PET_PROJECTS = {
     LINK: "films",
     //"https://mikromajor.github.io/Galleria-films/"
   },
+  "Drag and drop card": {
+    ICON: ["dragAndDrop"],
+    CONTENT: [
+      "Downloads user data from the server. Creates a user's cards. Using drag and drop user cards and. Auto slideshow of cards in a deck.",
+      "Used: React, Redux-Saga , TypeScrip, Bootstrap, API fetch",
+    ],
+    LINK: "dragCards",
+  },
   Covid: {
     ICON: ["covid"],
     CONTENT: [
@@ -140,6 +148,7 @@ export const PET_PROJECTS = {
       'The stopwatch displays on the scoreboard - [hh:mm:ss:ms] and control panel - 4 buttons Wait, Reset, Start/Stop, Check speed. Using the button "Check speed" can check the time double click. In the console can see which buttons and how many times have been re-rendered.',
       "Used React hooks: useRef, useState, useEffect, useCallback; memo.",
     ],
-    LINK: "https://mikromajor.github.io/stopwatch/",
+    LINK: "stopWatch",
+    //"https://mikromajor.github.io/stopwatch/",
   },
 };

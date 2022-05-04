@@ -1,7 +1,10 @@
-import { TYPE_ACTIONS } from "../constants";
-import { UserType, ActionType } from "../types";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
+import {
+  UserType,
+  ActionType,
+} from "../../types/dragCardsType";
 
-const { SET_CURRENT_DRAGGING_USER } = TYPE_ACTIONS;
+const { SET_CURRENT_DRAGGING_USER } = DRAG_CARDS_ACTIONS;
 
 interface ObjAction {
   type: ActionType;

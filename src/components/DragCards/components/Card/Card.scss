@@ -19,12 +19,16 @@ $status-color: (
 
 .header {
   text-align: center;
+  text-shadow: 10px 10px 10px rgb(100, 100, 100);
 }
 .dragCards {
   @extend %flex__center;
   flex-wrap: wrap;
   min-width: 100vw;
   min-height: 100vh;
+  button {
+    @extend %box-shadow;
+  }
 }
 
 .card {
@@ -37,6 +41,8 @@ $status-color: (
 
   @extend %flex__center;
   padding: 20px;
+  padding-bottom: 0px;
+  height: 300px;
   @extend %borders;
   background-color: rgb(254, 255, 170);
   @extend %box-shadow;
@@ -44,9 +50,6 @@ $status-color: (
   z-index: 25;
   &__shine {
     background-color: rgb(247, 250, 56);
-  }
-  &__red {
-    background-color: rgb(247, 0, 0);
   }
   &__img {
     width: 200px;

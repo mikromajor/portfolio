@@ -1,31 +1,35 @@
-import { TYPE_ACTIONS } from "../constants";
-import { UserType, ActionType } from "../types";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
+import {
+  UserType,
+  RawUserType,
+  ActionType,
+} from "../../types/dragCardsType";
 
 const {
   START_FLIP_THROUGH,
   SET_FLIP_THROUGH,
   STOP_FLIP_THROUGH,
-} = TYPE_ACTIONS;
+} = DRAG_CARDS_ACTIONS;
 
 interface stateFlipThroughReducer {
-  showImg: undefined | string;
-  userId: undefined | number;
+  liningUser: undefined | UserType;
+  idUser: undefined | number;
 }
 const initState: stateFlipThroughReducer = {
-  showImg: undefined,
-  userId: undefined,
+  liningUser: undefined,
+  idUser: undefined,
 };
 
 export function flipThroughReducer(
   state = initState,
-  action: { type: ActionType; user: UserType; url: string }
+  action: ActionSetFlipThrough
 ) {
   switch (action.type) {
     case SET_FLIP_THROUGH:
       return {
         ...state,
-        showImg: action.url,
-        userId: action.user.id,
+        liningUser: action.liningUser,
+        idUser: action.idUser,
       };
     default:
       return state;
@@ -34,20 +38,22 @@ export function flipThroughReducer(
 
 export const startFlipThrough = (user: UserType) => ({
   type: START_FLIP_THROUGH,
-  condition: true,
   user,
 });
-export type StartStopFlipThrough = ReturnType<
+export type StartFlipThrough = ReturnType<
   typeof startFlipThrough
 >;
 export const setFlipThrough = (
-  user: UserType,
-  url: string
+  liningUser: RawUserType,
+  idUser: number
 ) => ({
   type: SET_FLIP_THROUGH,
-  user,
-  url,
+  liningUser,
+  idUser,
 });
+export type ActionSetFlipThrough = ReturnType<
+  typeof setFlipThrough
+>;
 export const stopFlipThrough = () => ({
   type: STOP_FLIP_THROUGH,
 });

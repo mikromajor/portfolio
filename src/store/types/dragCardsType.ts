@@ -1,6 +1,6 @@
-import { TYPE_ACTIONS } from "./constants";
+import { DRAG_CARDS_ACTIONS } from "../ACTIONS/DRAG_CARDS_ACTIONS";
 
-type Actions = typeof TYPE_ACTIONS;
+type Actions = typeof DRAG_CARDS_ACTIONS;
 export type ActionType = keyof Actions;
 
 export interface RawUserType {

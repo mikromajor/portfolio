@@ -12,7 +12,7 @@ const DropdownGenre = ({
       title='Choose genre'
       menuVariant='dark'
     >
-      <div className='center green'>
+      <div className='center'>
         <CheckGenre
           label='Action'
           genreId='28'

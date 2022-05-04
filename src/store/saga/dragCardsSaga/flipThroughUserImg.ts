@@ -4,16 +4,16 @@ import {
   takeEvery,
   takeLatest,
 } from "redux-saga/effects";
-import { TYPE_ACTIONS } from "../constants";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
 import {
-  StartStopFlipThrough,
+  StartFlipThrough,
   setFlipThrough,
-} from "../reducers/flipThroughReducer";
+} from "../../reducer/dragCardsReducer/flipThroughReducer";
 
 //  const delay = (ms:number) => new Promise(resolve => setTimeout(()=>resolve, ms))
 let condition: boolean;
 
-function* flipThroughWorker(action: StartStopFlipThrough) {
+function* flipThroughWorker(action: StartFlipThrough) {
   let counter = 0;
   condition = true;
 
@@ -22,26 +22,21 @@ function* flipThroughWorker(action: StartStopFlipThrough) {
     if (counter === action.user.another.length) {
       counter = 0;
       yield put(
-        setFlipThrough(
-          action.user,
-          action.user.picture.large
-        )
+        setFlipThrough(action.user, action.user.id)
       );
     } else {
       yield put(
         setFlipThrough(
-          action.user,
-          action.user.another[counter].picture.large
+          action.user.another[counter],
+          action.user.id
         )
       );
       yield counter++;
     }
     yield delay(500);
   }
-  if (!condition && !action.user.another.length) {
-    yield put(
-      setFlipThrough(action.user, action.user.picture.large)
-    );
+  if (!condition || !action.user.another.length) {
+    yield put(setFlipThrough(action.user, action.user.id));
   }
 }
 function stopFlipThroughWorker() {
@@ -49,12 +44,12 @@ function stopFlipThroughWorker() {
 }
 
 export function* flipThroughWatcher() {
-  yield takeEvery(
-    TYPE_ACTIONS.STOP_FLIP_THROUGH,
-    stopFlipThroughWorker
-  );
   yield takeLatest(
-    TYPE_ACTIONS.START_FLIP_THROUGH,
+    DRAG_CARDS_ACTIONS.START_FLIP_THROUGH,
     flipThroughWorker
+  );
+  yield takeEvery(
+    DRAG_CARDS_ACTIONS.STOP_FLIP_THROUGH,
+    stopFlipThroughWorker
   );
 }

@@ -1,15 +1,15 @@
 import { createSelector } from "reselect";
-import { StateType } from "./reducers";
+import { StateType } from "../reducer";
 
-const getUsers = (state: StateType) => state.userReducer;
+const getUsers = (state: StateType) => state.dragCardsReducer.userReducer;
 const getLoader = (state: StateType) =>
-  state.loadReducer.loader;
+  state.dragCardsReducer.loadReducer.loader;
 const getError = (state: StateType) =>
-  state.loadReducer.error;
+  state.dragCardsReducer.loadReducer.error;
 const getCurrentDraggingUser = (state: StateType) =>
-  state.druggingUserReducer;
+  state.dragCardsReducer.druggingUserReducer;
 const getFlipThrough = (state: StateType) =>
-  state.flipThroughReducer;
+  state.dragCardsReducer.flipThroughReducer;
 
 export const getUsersSelector = createSelector(
   getUsers,

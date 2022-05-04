@@ -1,23 +1,24 @@
 import { FC } from "react";
-import { UserType } from "../../store/types";
+import { UserType } from "../../../../store/types/dragCardsType";
 import { useDispatch, useSelector } from "react-redux";
-import { setCurrentDruggingUser } from "../../store/reducers/draggingUserReducer";
+import { setCurrentDruggingUser } from "../../../../store/reducer/dragCardsReducer/draggingUserReducer";
+
 import {
   combineUsers,
   separateUsers,
-} from "../../store/reducers/userReducer";
+} from "../../../../store/reducer/dragCardsReducer/userReducer";
 import {
   getFlipThroughSelector,
   getCurrentDraggingUserSelector,
-} from "../../store/selectors";
+} from "../../../../store/selectors/dragCardsSelectors";
 import {
   startFlipThrough,
   stopFlipThrough,
-} from "../../store/reducers/flipThroughReducer";
+} from "../../../../store/reducer/dragCardsReducer/flipThroughReducer";
 import {
   removeShine,
   addShine,
-} from "./utils/changeCarStyles";
+} from "./utils/changeCardStyles";
 import "./Card.scss";
 
 interface CardProps {
@@ -28,18 +29,18 @@ export const Card: FC<CardProps> = ({ user }) => {
   const { currentDraggingUser } = useSelector(
     getCurrentDraggingUserSelector
   );
-  const { showImg, userId } = useSelector(
+  const { liningUser, idUser } = useSelector(
     getFlipThroughSelector
   );
+  const { name, gender, picture } =
+    liningUser && idUser === user.id ? liningUser : user;
 
   const dispatch = useDispatch();
 
   //TODO: add it to reducer
   let changeGenderColor = true; //it will be change by button
   const cardGenderStylesHandle = (): string =>
-    changeGenderColor
-      ? `card card__${user.gender}`
-      : "card";
+    changeGenderColor ? `card card__${gender}` : "card";
 
   return (
     <div className='wrap'>
@@ -64,15 +65,11 @@ export const Card: FC<CardProps> = ({ user }) => {
             dispatch(startFlipThrough(user))
           }
           onMouseLeave={() => dispatch(stopFlipThrough())}
-          src={
-            showImg && user.id === userId
-              ? showImg
-              : user.picture.large
-          }
-          alt={`${user.name.last}`}
+          src={picture.large}
+          alt={`${name.last}`}
           className='card__img'
         />
-        <h4 className='card__title'>{`${user.name.first} ${user.name.last}`}</h4>
+        <h4 className='card__title'>{`${name.first} ${name.last}`}</h4>
       </div>
     </div>
   );

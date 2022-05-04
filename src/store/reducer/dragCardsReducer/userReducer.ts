@@ -1,10 +1,10 @@
-import { TYPE_ACTIONS } from "../constants";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
 import {
   UserType,
   CurrentUser,
   ActionType,
   RawUserType,
-} from "../types";
+} from "../../types/dragCardsType";
 import combineUsersUtils from "./utilities/combineUsersUtils";
 import separateUsersUtils from "./utilities/separateUsersUtils";
 const {
@@ -14,7 +14,7 @@ const {
   FETCH_WOMEN,
   COMBINE_USERS,
   SEPARATE_USERS,
-} = TYPE_ACTIONS;
+} = DRAG_CARDS_ACTIONS;
 
 type UsersAction = {
   type: ActionType;

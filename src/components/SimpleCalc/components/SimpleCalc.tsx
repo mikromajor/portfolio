@@ -9,7 +9,9 @@ export const SimpleCalc = () => {
   const [input_2, setInput_2] = useState(0);
   const [selectedOperator, setSelectedOperator] =
     useState("0");
-  const [result, setResult] = useState<number | null>(null);
+  const [result, setResult] = useState<
+    string | undefined
+  >();
   const [warning, setWarning] = useState("");
 
   console.log(
@@ -33,17 +35,17 @@ export const SimpleCalc = () => {
         setWarning("You forgot select the operation");
         break;
       case "+":
-        setResult(Math.round(input_1 + input_2));
+        setResult(String(Math.round(input_1 + input_2)));
         break;
       case "-":
-        setResult(Math.round(input_1 - input_2));
+        setResult(String(Math.round(input_1 - input_2)));
         break;
       case "*":
-        setResult(Math.round(input_1 * input_2));
+        setResult(String(Math.round(input_1 * input_2)));
         break;
       case "/":
         if (input_2 !== 0) {
-          setResult(Math.round(input_1 / input_2));
+          setResult(String(Math.round(input_1 / input_2)));
         } else {
           setWarning("Cannot be divided by zero.");
         }
@@ -55,13 +57,13 @@ export const SimpleCalc = () => {
 
   return (
     <>
-      <Link to='/portfolio'>{"<-- BACK"}</Link>
+      <Link to='/portfolio'>{" BACK"}</Link>
 
       <div className='simpleCalc'>
         <div
           className='simpleCalc__monitor'
           style={
-            warning || result
+            warning || typeof result == "string"
               ? { visibility: "visible" }
               : { visibility: "hidden" }
           }

@@ -4,7 +4,7 @@ import { Loader } from "../GalleriaFilms/components/UI";
 
 const Profile = lazy(() => import("../Profile"));
 const SimpleCalc = lazy(() => import("../SimpleCalc"));
-
+const StopWatch = lazy(() => import("../StopWatch"));
 const GitHubSearcher = lazy(
   () => import("../GitHubSearcher")
 );
@@ -33,6 +33,10 @@ export const App = () => {
           <Route
             path='/dragCards'
             element={<DragCards />}
+          />
+          <Route
+            path='/stopWatch'
+            element={<StopWatch />}
           />
           <Route path='*' element={<Profile />} />
         </Routes>

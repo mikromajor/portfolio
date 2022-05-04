@@ -4,20 +4,19 @@ import {
   call,
   SagaReturnType,
 } from "redux-saga/effects";
-import { setUsers } from "../reducers/userReducer";
+import { setUsers } from "../../reducer/dragCardsReducer/userReducer";
 import {
   setLoading,
   setLoaded,
   setError,
-} from "../reducers/loadReducer";
-import { TYPE_ACTIONS } from "../constants";
-import { RawUserType } from "../types";
-import { compareUtils } from "../../store/reducers/utilities/compareUtils";
-//  import { action } from "typesafe-actions";
-import { ActionType } from "../types";
+} from "../../reducer/dragCardsReducer/loadReducer";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
+import { RawUserType } from "../../types/dragCardsType";
+import { compareUtils } from "../../reducer/dragCardsReducer/utilities/compareUtils";
+import { ActionType } from "../../types/dragCardsType";
 
 const { FETCH_USERS, FETCH_MAN, FETCH_WOMEN } =
-  TYPE_ACTIONS;
+  DRAG_CARDS_ACTIONS;
 
 const fetchUsersFromApi = (amountUsers: string = "10") =>
   fetch(

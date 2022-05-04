@@ -26,7 +26,13 @@ const HeadMenu = ({
   favoriteList,
   setIsLoading,
 }: HeadMenuProps) => {
-  const [genres, setGenres] = useState<string[]>([]);
+  const [genres, setGenres] = useState<string[]>([
+    "14",
+    "16",
+    "28",
+    "35",
+    "878",
+  ]);
 
   return (
     <Navbar
@@ -80,9 +86,7 @@ const HeadMenu = ({
           </ToggleButton>
           <Counter favoriteList={favoriteList} />
           <Nav.Item>
-            <Nav.Link>
-              <Link to='/portfolio'>BACK</Link>
-            </Nav.Link>
+            <Link to='/portfolio'>BACK</Link>
           </Nav.Item>
         </Nav>
       </Navbar.Collapse>
