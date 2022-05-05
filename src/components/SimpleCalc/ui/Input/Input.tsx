@@ -1,30 +1,32 @@
-import "./Input.scss";
+import { useDispatch } from "react-redux";
+import { setX } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
 
-interface InputProps {
+interface InputPropsType {
   labelText: string;
   id: string;
-  state: number;
-  setState: React.Dispatch<React.SetStateAction<number>>;
-  styles: string;
+  val: number;
+  setVal: typeof setX;
 }
+
 const Input = ({
   labelText,
   id,
-  state,
-  setState,
-  styles,
-}: InputProps) => {
+  val,
+  setVal,
+}: InputPropsType) => {
+  const dispatch = useDispatch();
+
   return (
-    <div className={styles}>
+    <div className='simpleCalc__input'>
       <label htmlFor={id}>{labelText}</label>
       <input
-        className='input'
         step={"any"}
         id={id}
         type={"number"}
-        value={state}
+        value={val}
         onChange={(e) => {
-          setState(Number(e.currentTarget.value));
+          const value = e.currentTarget.value;
+          value && dispatch(setVal(value));
         }}
       ></input>
     </div>

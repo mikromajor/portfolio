@@ -1,32 +1,28 @@
-import { OPERATORS } from "../../constants";
-interface SelectProps {
-  id: string;
-  state: string;
-  setState: React.Dispatch<React.SetStateAction<string>>;
-  styles: string;
-}
+import { ALL_OPERATORS } from "../../../../store/constants/simpleCalcConstants";
+import { setOperator } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+import { useDispatch, useSelector } from "react-redux";
+import { getStoreSelector } from "../../../../store/selectors/simpleCalcSelector";
 
-const Select = ({
-  id,
-  state,
-  setState,
-  styles,
-}: SelectProps) => {
+const Select = () => {
+  const dispatch = useDispatch();
+  const { operator } = useSelector(getStoreSelector);
   return (
     <>
-      <label htmlFor={id}>
+      <label htmlFor={"simpleCalc_selector"}>
         "Please, select the operation:"
       </label>
       <select
-        className={styles}
-        id={id}
-        value={state}
-        onChange={(e) => setState(e.currentTarget.value)}
+        className='simpleCalc__selector'
+        id={"simpleCalc_selector"}
+        value={operator}
+        onChange={(e) =>
+          dispatch(setOperator(e.currentTarget.value))
+        }
       >
         <option disabled={true} value='0'>
           Math operators
         </option>
-        {OPERATORS.map((operator) => (
+        {ALL_OPERATORS.map((operator) => (
           <option key={operator} value={operator}>
             {operator}
           </option>

@@ -1,103 +1,60 @@
 import React, { useState } from "react";
 import { Input, Select, Results, Warning } from "../ui";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getStoreSelector } from "../../../store/selectors/simpleCalcSelector";
+import {
+  setX,
+  setY,
+  calculate,
+} from "../../../store/actions/SIMPLE_CALC_ACTIONS";
 
 import "./SimpleCalc.scss";
 
 export const SimpleCalc = () => {
-  const [input_1, setInput_1] = useState(0);
-  const [input_2, setInput_2] = useState(0);
-  const [selectedOperator, setSelectedOperator] =
-    useState("0");
-  const [result, setResult] = useState<
-    string | undefined
-  >();
-  const [warning, setWarning] = useState("");
-
-  console.log(
-    "Check states",
-    selectedOperator,
-    input_1,
-    input_2,
-    result,
-    warning
+  const dispatch = useDispatch();
+  const { x, y, operator, result, error } = useSelector(
+    getStoreSelector
   );
-
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    calculate();
-  };
-
-  const calculate = () => {
-    setWarning("");
-    switch (selectedOperator) {
-      case "0":
-        setWarning("You forgot select the operation");
-        break;
-      case "+":
-        setResult(String(Math.round(input_1 + input_2)));
-        break;
-      case "-":
-        setResult(String(Math.round(input_1 - input_2)));
-        break;
-      case "*":
-        setResult(String(Math.round(input_1 * input_2)));
-        break;
-      case "/":
-        if (input_2 !== 0) {
-          setResult(String(Math.round(input_1 / input_2)));
-        } else {
-          setWarning("Cannot be divided by zero.");
-        }
-        break;
-      default:
-        setWarning("Error");
-    }
-  };
-
   return (
     <>
-      <Link to='/portfolio'>{" BACK"}</Link>
+      <Link to='/portfolio'>{"BACK"}</Link>
 
       <div className='simpleCalc'>
         <div
           className='simpleCalc__monitor'
           style={
-            warning || typeof result == "string"
+            error || result !== ""
               ? { visibility: "visible" }
               : { visibility: "hidden" }
           }
         >
-          {warning ? (
-            <Warning message={warning} styles={"warning"} />
-          ) : result !== null ? (
+          {error ? (
+            <Warning message={error} styles={"warning"} />
+          ) : (
             <Results result={result} styles={"results"} />
-          ) : null}
+          )}
         </div>
-        <Select
-          id={"select_1"}
-          state={selectedOperator}
-          setState={setSelectedOperator}
-          styles={"simpleCalc__selectors"}
-        />
+        <Select />
 
         <form
           className={"simpleCalc__form"}
-          onSubmit={handleSubmit}
+          onSubmit={(e) => {
+            e.preventDefault();
+            dispatch(calculate());
+          }}
         >
           <Input
             labelText={"Input first number"}
             id={"input_1"}
-            state={input_1}
-            setState={setInput_1}
-            styles={"simpleCalc__input"}
+            val={x}
+            setVal={setX}
           />
           <Input
             labelText={"Input second number"}
             id={"input_2"}
-            state={input_2}
-            setState={setInput_2}
-            styles={"simpleCalc__input"}
+            val={y}
+            setVal={setY}
           />
           <input
             type={"submit"}

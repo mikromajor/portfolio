@@ -10,7 +10,7 @@ import {
   setLoaded,
   setError,
 } from "../../reducer/dragCardsReducer/loadReducer";
-import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
+import { DRAG_CARDS_ACTIONS } from "../../actions/DRAG_CARDS_ACTIONS";
 import { RawUserType } from "../../types/dragCardsType";
 import { compareUtils } from "../../reducer/dragCardsReducer/utilities/compareUtils";
 import { ActionType } from "../../types/dragCardsType";
