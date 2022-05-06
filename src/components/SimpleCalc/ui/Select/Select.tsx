@@ -1,9 +1,9 @@
-import { ALL_OPERATORS } from "../../../../store/constants/simpleCalcConstants";
+import { ALL_OPERATORS } from "../../constants/constants";
 import { setOperator } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
 import { useDispatch, useSelector } from "react-redux";
 import { getStoreSelector } from "../../../../store/selectors/simpleCalcSelector";
 
-const Select = () => {
+export const Select = () => {
   const dispatch = useDispatch();
   const { operator } = useSelector(getStoreSelector);
   return (
@@ -19,11 +19,11 @@ const Select = () => {
           dispatch(setOperator(e.currentTarget.value))
         }
       >
-        <option disabled={true} value='0'>
-          Math operators
-        </option>
-        {ALL_OPERATORS.map((operator) => (
-          <option key={operator} value={operator}>
+        {/* <option disabled={false} value='Operation'>
+          Operation
+        </option> */}
+        {ALL_OPERATORS.map((operator, i) => (
+          <option key={operator + i} value={operator}>
             {operator}
           </option>
         ))}
@@ -31,4 +31,3 @@ const Select = () => {
     </>
   );
 };
-export default Select;

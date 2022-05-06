@@ -4,11 +4,11 @@ import { setX } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
 interface InputPropsType {
   labelText: string;
   id: string;
-  val: number;
+  val: string;
   setVal: typeof setX;
 }
 
-const Input = ({
+export const Input = ({
   labelText,
   id,
   val,
@@ -32,4 +32,3 @@ const Input = ({
     </div>
   );
 };
-export default Input;

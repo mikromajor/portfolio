@@ -1,8 +1,11 @@
 interface ResultsProps {
-  result: string | undefined;
+  result: string | number;
   styles: string;
 }
-const Results = ({ result, styles }: ResultsProps) => {
+export const Results = ({
+  result,
+  styles,
+}: ResultsProps) => {
   return (
     <div className={styles}>
       <h3>Rounded result: </h3>
@@ -10,4 +13,3 @@ const Results = ({ result, styles }: ResultsProps) => {
     </div>
   );
 };
-export default Results;

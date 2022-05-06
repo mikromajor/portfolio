@@ -2,6 +2,8 @@ export const SIMPLE_CALC_ACTIONS = {
   SET_X: "SET_X",
   SET_Y: "SET_Y",
   SET_OPERATOR: "SET_OPERATOR",
+  RESET: "RESET",
+  ADD_TO_NUMBER: "ADD_TO_NUMBER",
   CALCULATE: "CALCULATE",
 
   LOADED: "LOADED",
@@ -9,8 +11,13 @@ export const SIMPLE_CALC_ACTIONS = {
   ERROR: "ERROR",
 };
 
-const { SET_X, SET_Y, SET_OPERATOR, CALCULATE } =
-  SIMPLE_CALC_ACTIONS;
+const {
+  SET_X,
+  SET_Y,
+  SET_OPERATOR,
+  CALCULATE,
+  ADD_TO_NUMBER,
+} = SIMPLE_CALC_ACTIONS;
 
 export const setX = (x: string) => {
   if (!x) {
@@ -18,7 +25,7 @@ export const setX = (x: string) => {
   }
   return {
     type: SET_X,
-    payload: Number(x),
+    payload: x,
   };
 };
 export const setY = (y: string) => {
@@ -27,11 +34,19 @@ export const setY = (y: string) => {
   }
   return {
     type: SET_Y,
-    payload: Number(y),
+    payload: y,
   };
 };
 export const setOperator = (payload: string) => ({
   type: SET_OPERATOR,
   payload,
 });
-export const calculate = () => ({ type: CALCULATE });
+export const calculate = () => ({
+  type: CALCULATE,
+  payload: "",
+});
+
+export const addToNumber = (payload: string) => ({
+  type: ADD_TO_NUMBER,
+  payload,
+});
