@@ -23,7 +23,7 @@ export const Input = ({
         step={"any"}
         id={id}
         type={"number"}
-        value={val}
+        value={Number(val)}
         onChange={(e) => {
           const value = e.currentTarget.value;
           value && dispatch(setVal(value));

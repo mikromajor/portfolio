@@ -5,8 +5,8 @@ $shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.7);
 $color-border: grey;
 $color-calc: linear-gradient(
   white,
-  rgb(176, 202, 223) 25%,
-  rgb(176, 202, 223) 75%,
+  rgb(226, 226, 255) 25%,
+  rgb(226, 226, 255) 75%,
   white
 );
 $color-error: rgb(255, 188, 188);
@@ -18,20 +18,12 @@ $color-results: linear-gradient(
 );
 $color-btn: linear-gradient(
   white,
-  rgb(176, 202, 223) 25%,
-  rgb(176, 202, 223) 75%,
+  rgb(226, 226, 255) 30%,
+  rgb(226, 226, 255) 70%,
   white
 );
-$color-hover: linear-gradient(
-  135deg,
-  rgb(255, 255, 255),
-  rgb(255, 248, 144)
-);
-$color-btn-active: linear-gradient(
-  135deg,
-  rgb(255, 255, 255),
-  rgb(80, 255, 173)
-);
+$color-hover: rgb(255, 248, 144);
+$color-btn-active: rgb(80, 255, 173);
 $color-scroll: linear-gradient(
   90deg,
   white,
@@ -103,7 +95,7 @@ $color-scroll: linear-gradient(
     text-align: center;
   }
   &__form {
-    @extend %flex-column; //********
+    @extend %flex-column;
   }
   &__input {
     margin-bottom: 10px;
@@ -134,6 +126,7 @@ $color-scroll: linear-gradient(
     background: $color-btn;
     color: blue;
     box-shadow: $shadow;
+    transition: background 300ms;
     cursor: pointer;
     &:hover {
       background: $color-hover;

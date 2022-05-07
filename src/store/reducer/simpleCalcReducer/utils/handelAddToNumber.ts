@@ -8,7 +8,7 @@ const handelNewAmount = (
     if (amount.includes(".")) {
       return amount;
     }
-    return amount + addAmount;
+    return amount.concat(".");
   }
   return (amount =
     amount === "0" ? addAmount : amount + addAmount);
