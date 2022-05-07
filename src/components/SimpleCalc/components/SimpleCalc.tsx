@@ -22,7 +22,7 @@ export const SimpleCalc = () => {
       <div className='wrap'>
         <div className='simpleCalc'>
           <div
-            className='simpleCalc__monitor'
+            className='simpleCalc__screen'
             style={
               error || result !== ""
                 ? { visibility: "visible" }
@@ -30,9 +30,15 @@ export const SimpleCalc = () => {
             }
           >
             {error ? (
-              <Warning message={error} styles={"warning"} />
+              <Warning
+                message={error}
+                styles={"simpleCalc__warning"}
+              />
             ) : (
-              <Results result={result} styles={"results"} />
+              <Results
+                result={result}
+                styles={"simpleCalc__results"}
+              />
             )}
           </div>
           <Select />

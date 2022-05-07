@@ -16,7 +16,7 @@ export const calculation = (newState: MathReducerState) => {
         break;
       case "/":
         if (Y === 0) {
-          newState.error = "Cannot be divided by zero.";
+          newState.error = "Can't be divided by zero.";
         } else {
           newState.result = (Math.floor(X / Y) * 100) / 100;
         }

@@ -1,23 +1,43 @@
 $radius-big: 20px;
 $radius-btn: 5px;
 $thickness-border: 1px;
-$shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.7);
+$shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.7);
 $color-border: grey;
-$color-calc: #cecbff;
-$color-main: linear-gradient(
-  135deg,
-  rgb(240, 240, 240),
-  blue
+$color-calc: linear-gradient(
+  white,
+  rgb(176, 202, 223) 25%,
+  rgb(176, 202, 223) 75%,
+  white
 );
-$color__btn-hover: linear-gradient(
+$color-error: rgb(255, 188, 188);
+$color-results: linear-gradient(
+  rgb(211, 235, 255),
+  rgb(187, 255, 155) 25%,
+  rgb(187, 255, 155) 75%,
+  rgb(211, 235, 255)
+);
+$color-btn: linear-gradient(
+  white,
+  rgb(176, 202, 223) 25%,
+  rgb(176, 202, 223) 75%,
+  white
+);
+$color-hover: linear-gradient(
   135deg,
   rgb(255, 255, 255),
-  rgb(80, 80, 255)
+  rgb(255, 248, 144)
 );
-$color__btn-active: linear-gradient(
+$color-btn-active: linear-gradient(
   135deg,
   rgb(255, 255, 255),
   rgb(80, 255, 173)
+);
+$color-scroll: linear-gradient(
+  90deg,
+  white,
+  rgb(176, 202, 223) 25%,
+  rgb(176, 202, 223) 75%,
+  white
 );
 %flex-column {
   display: flex;
@@ -29,6 +49,29 @@ $color__btn-active: linear-gradient(
   align-items: center;
   width: 100vw;
 }
+%monitor {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  padding-left: 5px;
+  font: 22px Roboto;
+  font-weight: bold;
+  overflow: auto;
+  border: $thickness-border solid $color-border;
+  border-radius: $radius-big;
+  -webkit-overflow-scrolling: auto;
+  &::-webkit-scrollbar {
+    height: 15px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-scroll;
+    border-radius: $radius-big;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $color-hover;
+  }
+}
 
 .simpleCalc {
   width: 244px;
@@ -39,10 +82,19 @@ $color__btn-active: linear-gradient(
   border-radius: $radius-big;
   background: $color-calc;
   box-shadow: $shadow;
-  &__monitor {
+
+  &__screen {
     visibility: hidden;
     height: 120px;
     box-sizing: border-box;
+  }
+  &__results {
+    background: $color-results;
+    @extend %monitor;
+  }
+  &__warning {
+    background-color: $color-error;
+    @extend %monitor;
   }
   &__selector {
     display: block;
@@ -55,9 +107,11 @@ $color__btn-active: linear-gradient(
   }
   &__input {
     margin-bottom: 10px;
+
     input {
       width: 100%;
       border-radius: 5px;
+      box-shadow: $shadow;
     }
   }
   &__buttons {
@@ -77,51 +131,19 @@ $color__btn-active: linear-gradient(
     margin: 3px;
     border: 1px solid $color-border;
     border-radius: 5px;
-    background-color: rgb(221, 221, 221);
+    background: $color-btn;
     color: blue;
     box-shadow: $shadow;
     cursor: pointer;
     &:hover {
-      background: $color__btn-hover;
+      background: $color-hover;
     }
     &:active {
-      background: $color__btn-active;
+      background: $color-btn-active;
     }
     &-calculate {
       width: 100%;
       height: 30px;
     }
   }
-  .results,
-  .warning {
-    @extend %flex-column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: yellow;
-    overflow: auto;
-    border: $thickness-border solid $color-border;
-    border-radius: $radius-big;
-    h2,
-    h3 {
-      margin: 0;
-    }
-    &::-webkit-scrollbar {
-      height: 15px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $color-calc;
-      border-radius: $radius-big;
-    }
-  }
-  // .results::-webkit-scrollbar {
-  //   height: 15px;
-  // }
-
-  // .results::-webkit-scrollbar-thumb {
-  //   background-color: $color-calc;
-  //   border-radius: $radius-big;
-  // }
 }

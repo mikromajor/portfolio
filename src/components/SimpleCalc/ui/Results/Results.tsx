@@ -8,8 +8,8 @@ export const Results = ({
 }: ResultsProps) => {
   return (
     <div className={styles}>
-      <h3>Rounded result: </h3>
-      <h2>{result}</h2>
+      <h4>Rounded result: </h4>
+      <p>{result}</p>
     </div>
   );
 };
