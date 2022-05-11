@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import getFetch from "../../api/getFetch";
 import { Button, Card, Loader, Error } from "../UI";
 import { DAY, WEEK, MONTH } from "../../utils/constants";
-import "./CountryInfo.scss";
 
 const CountryInfo = ({
   country,
@@ -47,7 +46,7 @@ const CountryInfo = ({
     setShowStatistics(true);
   };
   return (
-    <div className='countryInfo'>
+    <div className='covid__countryInfo'>
       <Card
         name={name}
         date={date}

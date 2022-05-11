@@ -8,7 +8,7 @@ import {
   calculate,
 } from "../../../store/actions/SIMPLE_CALC_ACTIONS";
 import Buttons from "./Buttons/Buttons";
-
+import { Back } from "../../../ui";
 import "./SimpleCalc.scss";
 
 export const SimpleCalc = () => {
@@ -18,8 +18,8 @@ export const SimpleCalc = () => {
   );
   return (
     <>
-      <Link to='/portfolio'>{"BACK"}</Link>
-      <div className='wrap'>
+      <Back />
+      <div className='wrap__simpleCalc'>
         <div className='simpleCalc'>
           <div
             className='simpleCalc__screen'

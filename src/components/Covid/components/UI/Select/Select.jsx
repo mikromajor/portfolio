@@ -1,6 +1,3 @@
-import React from "react";
-import "./Select.scss";
-
 const Select = ({ children, handleOnChange }) => {
   return (
     <select
@@ -8,7 +5,6 @@ const Select = ({ children, handleOnChange }) => {
       id='countriesList'
       autoFocus
       defaultValue='default'
-      className='countriesList'
       aria-label='Default select example'
       onChange={(e) => handleOnChange(e.target.value)}
     >

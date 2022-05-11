@@ -29,6 +29,7 @@ export const App = () => {
             element={<GitHubSearcher />}
           />
           <Route path='/covid' element={<Covid />} />
+
           <Route path='/calc' element={<SimpleCalc />} />
           <Route
             path='/dragCards'

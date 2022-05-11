@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Back } from "../../../ui";
 import CountriesList from "./CountriesList/CountriesList";
 import CountryInfo from "./CountryInfo/CountryInfo";
 import Statistics from "./Statistics/Statistics";
@@ -19,37 +19,39 @@ const Covid = () => {
     useState(false);
 
   return (
-    <>
-      <Link to='/portfolio'>{"<-- BACK"}</Link>
-      <CountriesList setCountry={setCountry} />
-      <main className='content'>
-        {showInputMenu && (
-          <InputMenu
-            maxPeriod={countryData.length}
-            setPeriod={setPeriod}
-            setShowInputMenu={setShowInputMenu}
-            setShowStatistics={setShowStatistics}
-          />
-        )}
-        {!!country.length && (
-          <CountryInfo
-            country={country}
-            countryData={countryData}
-            setCountryData={setCountryData}
-            setPeriod={setPeriod}
-            setShowInputMenu={setShowInputMenu}
-            setShowStatistics={setShowStatistics}
-          />
-        )}
-        {showStatistics && (
-          <Statistics
-            period={period}
-            countryData={countryData}
-            setShowStatistics={setShowStatistics}
-          />
-        )}
+    <div className='covid'>
+      <Back />
+      <main className='covid'>
+        <CountriesList setCountry={setCountry} />
+        <div className='covid__wrapBlocks'>
+          {showInputMenu && (
+            <InputMenu
+              maxPeriod={countryData.length}
+              setPeriod={setPeriod}
+              setShowInputMenu={setShowInputMenu}
+              setShowStatistics={setShowStatistics}
+            />
+          )}
+          {!!country.length && (
+            <CountryInfo
+              country={country}
+              countryData={countryData}
+              setCountryData={setCountryData}
+              setPeriod={setPeriod}
+              setShowInputMenu={setShowInputMenu}
+              setShowStatistics={setShowStatistics}
+            />
+          )}
+          {showStatistics && (
+            <Statistics
+              period={period}
+              countryData={countryData}
+              setShowStatistics={setShowStatistics}
+            />
+          )}
+        </div>
       </main>
-    </>
+    </div>
   );
 };
 

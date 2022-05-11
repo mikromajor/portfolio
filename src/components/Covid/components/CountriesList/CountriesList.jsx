@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
 import getFetch from "../../api/getFetch";
 import CountriesSelection from "./components/CountriesSelection";
-import { Loader } from '../UI'
+import { Loader } from "../UI";
 
 const CountriesList = ({ setCountry }) => {
   const [items, setItems] = useState([]);
@@ -15,16 +16,19 @@ const CountriesList = ({ setCountry }) => {
   }, []);
 
   return (
-
-    !items.length ? <Loader /> :
-    <header>
-      <nav>
-        <form id="form">
-          <label form="countriesList"></label>
-          <CountriesSelection data={items} setCountry={setCountry} />
+    <>
+      {!items.length ? (
+        <Loader />
+      ) : (
+        <form id='form' className='covid__countriesList'>
+          <label form='countriesList'></label>
+          <CountriesSelection
+            data={items}
+            setCountry={setCountry}
+          />
         </form>
-      </nav>
-    </header>
+      )}
+    </>
   );
 };
 

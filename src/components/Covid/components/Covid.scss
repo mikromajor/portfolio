@@ -1,18 +1,64 @@
-body,
-#root,
-header,
-nav,
-form,
-.content {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+$color-bgd: linear-gradient(
+  90deg,
+  white,
+  rgb(15, 207, 255)
+);
+@mixin dispDirAlign($dis, $direct, $just, $align) {
+  display: $dis;
+  flex-flow: $direct;
+  justify-content: $just;
+  align-items: $align;
 }
-body {
-  background-image: linear-gradient(90deg, white, rgb(15, 207, 255));
+%contentBox {
+  width: 280px;
+  min-height: 450px;
+  margin-top: 20px;
+  padding: 20px 10px 10px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  text-align: center;
 }
-.content {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+
+.covid {
+  width: 100vw;
+  min-height: 100vh;
+  background: $color-bgd;
+
+  &__countriesList {
+    width: 100%;
+    margin-top: 10px;
+    @include dispDirAlign(flex, "", center, center);
+  }
+  &__wrapBlocks {
+    @include dispDirAlign(flex, wrap, space-around, center);
+  }
+  &__countryInfo {
+    @include dispDirAlign(flex, column, flex-start, center);
+    @extend %contentBox;
+    /* box-shadow: 30px 25px 5px rgb(255, 255, 255); */
+    background-image: $color-bgd;
+  }
+  &__inputMenu {
+    @include dispDirAlign(flex, column, flex-start, center);
+    @extend %contentBox;
+    background-image: $color-bgd;
+    > h4 {
+      text-align: center;
+      // justify-content: center;
+    }
+  }
+  &__statisticsInfo {
+    @include dispDirAlign(flex, column, flex-start, center);
+    @extend %contentBox;
+    background-image: $color-bgd;
+  }
+  h2 ~ p {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+}
+
+a[href="#statisticsInfo"],
+a[href="#inputMenu"] {
+  text-decoration: none;
 }

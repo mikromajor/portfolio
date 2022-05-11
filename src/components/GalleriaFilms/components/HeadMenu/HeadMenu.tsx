@@ -42,6 +42,7 @@ const HeadMenu = ({
       fixed='top'
     >
       <Navbar.Brand>FilmsTime</Navbar.Brand>
+
       <Navbar.Toggle aria-controls='navbar-dark-example' />
       <Navbar.Collapse id='navbar-dark-example'>
         <Nav>
@@ -85,11 +86,11 @@ const HeadMenu = ({
             My favoriteList
           </ToggleButton>
           <Counter favoriteList={favoriteList} />
-          <Nav.Item>
-            <Link to='/portfolio'>BACK</Link>
-          </Nav.Item>
         </Nav>
       </Navbar.Collapse>
+      <Navbar.Brand>
+        <Link to='/portfolio'>BACK</Link>
+      </Navbar.Brand>
     </Navbar>
   );
 };
