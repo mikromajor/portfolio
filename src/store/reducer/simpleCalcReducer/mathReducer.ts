@@ -39,7 +39,8 @@ export const mathReducer = (
   action: MathReducerAction
 ) => {
   const newState = { ...state, error: "" };
-  if (action.payload === "=") action.type = "CALCULATE";
+  if (action.payload === "=") action.type = CALCULATE;
+  if (action.payload === "C") action.type = RESET;
 
   switch (action.type) {
     case SET_X:

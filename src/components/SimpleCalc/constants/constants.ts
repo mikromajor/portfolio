@@ -1,5 +1,6 @@
 export const ALL_OPERATORS = [
   "Operation",
+  "C",
   "=",
   "+",
   "-",
@@ -8,7 +9,7 @@ export const ALL_OPERATORS = [
   "^",
   ".",
 ];
-export const BUTTONS = [
+const BUTTONS = [
   ".",
   "0",
   "=",
