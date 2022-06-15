@@ -3,7 +3,7 @@ export const ABOUT_ME = {
     ICON: ["profile"],
     CONTENT_ICONS: [],
     CONTENT: [
-      'Hello, I’m Alex. 1,5 years ago I decided to change my profession and began to actively study the "front-end". During this time, I took various courses. Studied a lot of new: approaches, methodologies, algorithms, libraries… Created interesting PET projects. I have some commercial experience and I want to work and develop in the chosen direction.',
+      'Hello, I’m Alex. I am a University graduate in “electronics systems and computers technologies”. 1,5 years ago I decided to change my life and began to actively study the "front-end". During this time, I took various courses. Studied a lot of new: approaches, methodologies, algorithms, libraries… Created interesting PET projects. I have some commercial experience and I am currently looking for a job.',
     ],
   },
   SKILLS: {
