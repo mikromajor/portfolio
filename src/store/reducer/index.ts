@@ -5,6 +5,7 @@ import {
 } from "redux";
 import createSagaMiddleware from "redux-saga";
 import dragCardsReducer from "./dragCardsReducer";
+import simpleCalcReducer from "./simpleCalcReducer";
 import { rootWatcher } from "../saga";
 
 import logger from "redux-logger";
@@ -13,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
   dragCardsReducer,
-  //gitHubSearcherReducer.....
+  simpleCalcReducer,
 });
 
 export type StateType = ReturnType<typeof rootReducer>;

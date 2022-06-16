@@ -21,16 +21,8 @@ export const Profile = () => {
           <Button variant={"secondary"}>DragCards</Button>
         </Link>
         <Link to='/covid'>
-          <Button variant={"secondary"}>Covid</Button>{" "}
+          <Button variant={"secondary"}>Covid</Button>
         </Link>
-        <Link to='/covid-19'>
-          <Button variant={"secondary"}>Covid-19</Button>
-        </Link>
-
-        {/* <Link to='/users_card_list'>
-          Go to users_card_list
-        </Link> */}
-        {/* <Link to='/stopwatch'>Go to stopwatch</Link> */}
         <Link to='/stopWatch'>
           <Button variant={"secondary"}>StopWatch</Button>
         </Link>

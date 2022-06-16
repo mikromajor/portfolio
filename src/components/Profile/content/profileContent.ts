@@ -3,7 +3,7 @@ export const ABOUT_ME = {
     ICON: ["profile"],
     CONTENT_ICONS: [],
     CONTENT: [
-      "I am a University graduate in “electronics systems and computers technologies”. Last 6 years I have lived and worked in Poland. That’s why I speak Polish fluently. I am used to working in an international team, focused on results, and taking full responsibility for my work.",
+      'Hello, I’m Alex. I am a University graduate in “electronics systems and computers technologies”. 1,5 years ago I decided to change my life and began to actively study the "front-end". During this time, I took various courses. Studied a lot of new: approaches, methodologies, algorithms, libraries… Created interesting PET projects. I have some commercial experience and I am currently looking for a job.',
     ],
   },
   SKILLS: {
@@ -15,6 +15,7 @@ export const ABOUT_ME = {
       "ts",
       "html",
       "css",
+      "bem",
       "sass",
       "bootstrap",
       // "ant",
@@ -29,7 +30,8 @@ export const ABOUT_ME = {
       "Redux (Saga, Toolkit);",
       "TypeScript;",
       "HTML5;",
-      "CSS3 (Responsive adaptive, BEM);",
+      "CSS3 (Responsive adaptive);",
+      "BEM methodology",
       "Sass/Scss;",
       "Bootstrap;",
       // "Ant Design",

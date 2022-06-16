@@ -3,8 +3,6 @@ import { Button, Error, Input } from "../UI";
 import handleDate from "../../utils/handleDate";
 import { INIT_RESULTS } from "../../utils/constants";
 
-import "./InputMenu.scss";
-
 const InputMenu = ({
   maxPeriod,
   setPeriod,
@@ -43,7 +41,7 @@ const InputMenu = ({
   ]);
 
   return (
-    <div className='inputMenu' id='inputMenu'>
+    <div className='covid__inputMenu' id='inputMenu'>
       <h4>
         Period must be limited no more {maxPeriod} days ago
         to last statistics day.

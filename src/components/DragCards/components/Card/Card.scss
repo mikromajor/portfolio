@@ -66,6 +66,7 @@ $status-color: (
   }
 }
 .CardDeckStyle {
+  @extend %flex__center;
   margin: 20px;
 }
 .wrap {

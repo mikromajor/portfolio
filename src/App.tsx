@@ -1,20 +1,26 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Loader } from "../GalleriaFilms/components/UI";
+import { Loader } from "./components/GalleriaFilms/components/UI";
 
-const Profile = lazy(() => import("../Profile"));
-const SimpleCalc = lazy(() => import("../SimpleCalc"));
-const StopWatch = lazy(() => import("../StopWatch"));
+const Profile = lazy(() => import("./components/Profile"));
+const SimpleCalc = lazy(
+  () => import("./components/SimpleCalc")
+);
+const StopWatch = lazy(
+  () => import("./components/StopWatch")
+);
 const GitHubSearcher = lazy(
-  () => import("../GitHubSearcher")
+  () => import("./components/GitHubSearcher")
 );
 const GalleriaFilms = lazy(
-  () => import("../GalleriaFilms")
+  () => import("./components/GalleriaFilms")
 );
-const Covid = lazy(() => import("../Covid"));
-const DragCards = lazy(() => import("../DragCards"));
+const Covid = lazy(() => import("./components/Covid"));
+const DragCards = lazy(
+  () => import("./components/DragCards")
+);
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <Suspense fallback={<Loader />}>
@@ -29,6 +35,7 @@ export const App = () => {
             element={<GitHubSearcher />}
           />
           <Route path='/covid' element={<Covid />} />
+
           <Route path='/calc' element={<SimpleCalc />} />
           <Route
             path='/dragCards'
@@ -44,3 +51,4 @@ export const App = () => {
     </>
   );
 };
+export default App;
