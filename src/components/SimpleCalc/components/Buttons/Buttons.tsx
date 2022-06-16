@@ -1,13 +1,28 @@
+import { FC } from "react";
 import { Button } from "../../ui";
-import { SORTED_BUTTONS } from "../../constants/constants";
+import {
+  setNumbType,
+  setOperatorType,
+} from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
 
-const Buttons = () => {
+type ButtonsType = {
+  buttons: string[];
+  callback: setNumbType | setOperatorType;
+};
+
+export const Buttons: FC<ButtonsType> = ({
+  buttons,
+  callback,
+}) => {
   return (
     <div className='simpleCalc__buttons'>
-      {SORTED_BUTTONS.reverse().map((btnName, i) => (
-        <Button key={i + btnName} name={btnName} i={i} />
+      {buttons.map((btnName, i) => (
+        <Button
+          key={i + btnName}
+          btnName={btnName}
+          callback={callback}
+        />
       ))}
     </div>
   );
 };
-export default Buttons;

@@ -6,5 +6,5 @@ const getStore = (state: StateType) =>
 
 export const getStoreSelector = createSelector(
   getStore,
-  (u) => u
+  (e) => e
 ); //  - создает мемоизированый селектор

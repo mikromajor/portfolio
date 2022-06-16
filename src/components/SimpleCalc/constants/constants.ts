@@ -1,5 +1,20 @@
-export const ALL_OPERATORS = [
-  "Operation",
+export const BUTTONS = [
+  "7",
+  "8",
+  "9",
+  "4",
+  "5",
+  "6",
+  "1",
+  "2",
+  "3",
+  "0",
+  "",
+  ".",
+];
+
+export const OPERATORS = [
+  "",
   "C",
   "=",
   "+",
@@ -7,30 +22,5 @@ export const ALL_OPERATORS = [
   "*",
   "/",
   "^",
-  ".",
+  "sqrt",
 ];
-const BUTTONS = [
-  ".",
-  "0",
-  "=",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-];
-
-const putOnRows = (arr: string[]) => {
-  const auxiliary = [];
-  while (arr.length) {
-    auxiliary.push(arr.splice(0, 3));
-  }
-  return auxiliary
-    .reverse()
-    .reduce((ak, el) => [...ak, ...el]);
-};
-export const SORTED_BUTTONS = putOnRows(BUTTONS);

@@ -1,31 +1,13 @@
 import { SIMPLE_CALC_ACTIONS } from "../../actions/SIMPLE_CALC_ACTIONS";
 import { ActionType } from "../../types/simpleCalcType";
-import {
-  checkArgs,
-  calculation,
-  handelAddToNumber,
-} from "./utils";
-const {
-  SET_X,
-  SET_Y,
-  SET_OPERATOR,
-  CALCULATE,
-  ADD_TO_NUMBER,
-  RESET,
-} = SIMPLE_CALC_ACTIONS;
+import { calculation, handelAddToNumber } from "./utils";
+const { SET_NUMBER, SET_OPERATOR } = SIMPLE_CALC_ACTIONS;
 
-const initState = {
-  x: "0",
-  y: "0",
-  operator: "Operation",
-  result: "",
-  error: "",
-};
 export type MathReducerState = {
   x: string;
   y: string;
   operator: string;
-  result: number | string;
+  result: string;
   error: string;
 };
 
@@ -34,31 +16,39 @@ type MathReducerAction = {
   payload: string;
 };
 
+const initState: MathReducerState = {
+  x: "",
+  y: "",
+  operator: "",
+  result: "",
+  error: "",
+};
+
 export const mathReducer = (
   state: MathReducerState = initState,
   action: MathReducerAction
 ) => {
   const newState = { ...state, error: "" };
-  if (action.payload === "=") action.type = CALCULATE;
-  if (action.payload === "C") action.type = RESET;
 
   switch (action.type) {
-    case SET_X:
-      return { ...state, x: action.payload };
-    case SET_Y:
-      return { ...state, y: action.payload };
-    case SET_OPERATOR:
-      return { ...state, operator: action.payload };
-    case ADD_TO_NUMBER:
+    case SET_NUMBER:
       return handelAddToNumber(newState, action.payload);
-    case CALCULATE:
-      let validMessage = checkArgs(state);
-      if (validMessage) {
-        return { ...state, error: validMessage };
+    case SET_OPERATOR:
+      if (action.payload === "=") {
+        return calculation(newState, undefined);
       }
-      return calculation(newState);
-    case RESET:
-      return initState;
+
+      if (action.payload === "C") {
+        return initState;
+      }
+
+      if (newState.x && newState.y && action.payload) {
+        return calculation(newState, action.payload);
+      }
+
+      newState.result += action.payload;
+      newState.operator = action.payload;
+      return newState;
     default:
       return { ...state };
   }

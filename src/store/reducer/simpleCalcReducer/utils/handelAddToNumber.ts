@@ -10,8 +10,7 @@ const handelNewAmount = (
     }
     return amount.concat(".");
   }
-  return (amount =
-    amount === "0" ? addAmount : amount + addAmount);
+  return amount === "0" ? addAmount : amount + addAmount;
 };
 
 export const handelAddToNumber = (
@@ -19,11 +18,12 @@ export const handelAddToNumber = (
   payload: string
 ) => {
   const { x, y, operator } = newState;
-
-  if (operator === "Operation") {
+  if (!operator) {
     newState.x = handelNewAmount(x, payload);
+    newState.result += newState.x;
   } else {
     newState.y = handelNewAmount(y, payload);
+    newState.result += newState.y;
   }
 
   return newState;

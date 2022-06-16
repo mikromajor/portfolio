@@ -1,5 +1,5 @@
 interface ResultsProps {
-  result: string | number;
+  result: string;
   styles: string;
 }
 export const Results = ({

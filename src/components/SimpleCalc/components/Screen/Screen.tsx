@@ -4,11 +4,12 @@ import { getStoreSelector } from "../../../../store/selectors/simpleCalcSelector
 
 export const Screen = () => {
   const { result, error } = useSelector(getStoreSelector);
+
   return (
     <div
       className='simpleCalc__screen'
       style={
-        error
+        !error || result
           ? { visibility: "visible" }
           : { visibility: "hidden" }
       }

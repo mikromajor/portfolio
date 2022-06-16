@@ -1,21 +1,26 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { addToNumber } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+import {
+  setNumbType,
+  setOperatorType,
+} from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
 
 interface PropsType {
-  name: string;
-  i: number;
+  btnName: string;
+  callback: setNumbType | setOperatorType;
 }
 
-export const Button: FC<PropsType> = ({ name, i }) => {
+export const Button: FC<PropsType> = ({
+  btnName,
+  callback,
+}) => {
   const dispatch = useDispatch();
-
   return (
     <div
-      onClick={() => dispatch(addToNumber(name))}
+      onClick={() => dispatch(callback(btnName))}
       className='simpleCalc__button'
     >
-      {name}
+      {btnName}
     </div>
   );
 };
