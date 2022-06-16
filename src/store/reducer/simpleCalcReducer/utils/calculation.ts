@@ -39,6 +39,10 @@ export const calculation = (
         newState.result =
           Math.floor(Math.pow(X, Y) * 100) / 100 + "";
         break;
+      case "sqrt":
+        newState.result =
+          Math.floor(Math.sqrt(X) * 100) / 100 + "";
+        break;
     }
   } catch (e) {
     newState.error = "ups " + e;
