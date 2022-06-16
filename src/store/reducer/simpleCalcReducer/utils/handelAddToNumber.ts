@@ -25,7 +25,7 @@ export const handelAddToNumber = (
     newState.result = newState.x;
   } else {
     newState.y = handelNewAmount(y, payload);
-    newState.result = newState.y;
+    newState.result += newState.y;
   }
 
   return newState;
