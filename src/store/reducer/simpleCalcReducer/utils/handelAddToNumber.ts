@@ -1,16 +1,18 @@
 import { MathReducerState } from "../mathReducer";
 
 const handelNewAmount = (
-  amount: string,
-  addAmount: string
+  oldNumber: string,
+  newNumber: string
 ) => {
-  if (addAmount === ".") {
-    if (amount.includes(".")) {
-      return amount;
+  if (newNumber === ".") {
+    if (oldNumber.includes(".")) {
+      return oldNumber;
     }
-    return amount.concat(".");
+    return oldNumber.concat(".");
   }
-  return amount === "0" ? addAmount : amount + addAmount;
+  return oldNumber === "0"
+    ? newNumber
+    : oldNumber + newNumber;
 };
 
 export const handelAddToNumber = (
@@ -20,10 +22,10 @@ export const handelAddToNumber = (
   const { x, y, operator } = newState;
   if (!operator) {
     newState.x = handelNewAmount(x, payload);
-    newState.result += newState.x;
+    newState.result = newState.x;
   } else {
     newState.y = handelNewAmount(y, payload);
-    newState.result += newState.y;
+    newState.result = newState.y;
   }
 
   return newState;
