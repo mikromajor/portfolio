@@ -9,14 +9,14 @@ export const BUTTONS = [
   "2",
   "3",
   "0",
-  "",
+  "000",
   ".",
 ];
 
 export const OPERATORS = [
-  "",
-  "C",
   "=",
+  "C",
+  "",
   "+",
   "-",
   "*",

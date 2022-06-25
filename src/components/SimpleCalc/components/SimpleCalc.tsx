@@ -1,31 +1,24 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Back } from "../../../ui";
-import { Screen, Buttons } from "./";
-import {
-  setNumb,
-  setOperator,
-} from "../../../store/actions/SIMPLE_CALC_ACTIONS";
-import {
-  BUTTONS,
-  OPERATORS,
-} from "../../SimpleCalc/constants/constants";
+import { useSelector } from "react-redux";
+import { Screen, BlockButtons, SidePanel } from "./";
+import { getSideBare } from "../../../store/selectors/simpleCalcSelector";
 import "./SimpleCalc.scss";
 
 export const SimpleCalc = () => {
+  const sideBare = useSelector(getSideBare);
   return (
     <>
       <Back />
-      <div className='wrap__simpleCalc'>
-        <div className='simpleCalc'>
+      <div
+        className='simpleCalc'
+        style={{ width: sideBare ? "750px" : "445px" }}
+      >
+        <div className='simpleCalc__main'>
           <Screen />
-          <div className='simpleCalc__BlockButtons'>
-            <Buttons buttons={BUTTONS} callback={setNumb} />
-            <Buttons
-              buttons={OPERATORS}
-              callback={setOperator}
-            />
-          </div>
+          <BlockButtons />
         </div>
+        <SidePanel />
       </div>
     </>
   );

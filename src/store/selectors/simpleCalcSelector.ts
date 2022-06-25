@@ -1,8 +1,11 @@
 import { createSelector } from "reselect";
 import { StateType } from "../reducer";
 
-const getStore = (state: StateType) =>
+export const getStore = (state: StateType) =>
   state.simpleCalcReducer.mathReducer;
+
+export const getSideBare = (state: StateType) =>
+  state.simpleCalcReducer.effectsReducer.sideBare;
 
 export const getStoreSelector = createSelector(
   getStore,
