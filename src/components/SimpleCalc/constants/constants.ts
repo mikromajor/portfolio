@@ -9,14 +9,28 @@ export const BUTTONS = [
   "2",
   "3",
   "0",
-  "000",
+  "+/-",
   ".",
+];
+
+export const EXTRA_BUTTONS = [
+  "sin",
+  "asin",
+  "acos",
+  "cos",
+  "tg",
+  "atg",
+  "ctg",
+  "actg",
+  "PI",
+  "ArCr",
+  "VolCr",
 ];
 
 export const OPERATORS = [
   "=",
   "C",
-  "",
+  "DEL",
   "+",
   "-",
   "*",

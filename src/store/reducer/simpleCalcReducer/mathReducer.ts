@@ -1,7 +1,13 @@
 import { SIMPLE_CALC_ACTIONS } from "../../actions/SIMPLE_CALC_ACTIONS";
 import { ActionType } from "../../types/simpleCalcType";
-import { calculation, handelAddToNumber } from "./utils";
-const { SET_NUMBER, SET_OPERATOR } = SIMPLE_CALC_ACTIONS;
+import {
+  calculation,
+  deleteLastChar,
+  handelAddToNumber,
+  calculateExtraOperators,
+} from "./utils";
+const { SET_NUMBER, SET_OPERATOR, SET_EXTRA_OPERATOR } =
+  SIMPLE_CALC_ACTIONS;
 
 export type MathReducerState = {
   x: string;
@@ -41,6 +47,9 @@ export const mathReducer = (
       if (action.payload === "C") {
         return initState;
       }
+      if (action.payload === "DEL") {
+        return deleteLastChar(newState);
+      }
 
       if (newState.x && newState.y && action.payload) {
         return calculation(newState, action.payload);
@@ -49,6 +58,11 @@ export const mathReducer = (
       newState.result += action.payload;
       newState.operator = action.payload;
       return newState;
+    case SET_EXTRA_OPERATOR:
+      return calculateExtraOperators(
+        newState,
+        action.payload
+      );
     default:
       return { ...state };
   }

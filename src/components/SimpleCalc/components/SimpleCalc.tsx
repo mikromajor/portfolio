@@ -12,7 +12,7 @@ export const SimpleCalc = () => {
       <Back />
       <div
         className='simpleCalc'
-        style={{ width: sideBare ? "750px" : "445px" }}
+        style={{ width: sideBare ? "675px" : "445px" }}
       >
         <div className='simpleCalc__main'>
           <Screen />

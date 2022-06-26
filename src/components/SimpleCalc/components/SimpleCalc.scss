@@ -58,16 +58,16 @@ $color-scroll: linear-gradient(
     background: $color-hover;
   }
 }
-%mainBorder {
+%mainBorders {
   border: $thickness-border solid $color-border;
-  border-radius: $radius-big;
   background: $color-calc;
   box-shadow: $shadow;
 }
 
 .simpleCalc {
   display: block;
-  @extend %mainBorder;
+  @extend %mainBorders;
+  border-radius: $radius-big;
   position: relative;
   transition: width 1s ease-in-out;
   z-index: 1;
@@ -76,7 +76,8 @@ $color-scroll: linear-gradient(
     box-sizing: border-box;
     align-items: center;
     padding: 10px;
-    @extend %mainBorder;
+    @extend %mainBorders;
+    border-radius: $radius-big;
     width: 420px;
     z-index: 11;
   }
@@ -135,25 +136,28 @@ $color-scroll: linear-gradient(
     }
   }
   &__sidePanel {
-    @extend %mainBorder;
+    border-radius: 0 $radius-big $radius-big 0;
     position: absolute;
     right: 0px;
     top: 0;
     height: 100%;
-    width: 360px;
+    width: 270px;
     z-index: -1;
   }
   &__calendar {
-    height: 50%;
-    width: 100%;
-    @extend %mainBorder;
+    height: 33%;
+    padding-left: 100px;
+    border: $thickness-border solid $color-border;
+    border-radius: 0 $radius-big $radius-big 0;
     z-index: 2;
   }
   &__extraButtons {
-    @extend %mainBorder;
-    height: 50%;
-    width: 100%;
+    border: $thickness-border solid $color-border;
+    border-radius: 0 $radius-big $radius-big 0;
+    height: 67%;
     z-index: 2;
+    padding-left: 35px;
+    padding-right: 25px;
   }
   &__openCloseButton {
     display: inline-block;
@@ -162,7 +166,8 @@ $color-scroll: linear-gradient(
     top: 173px;
     padding: 5px;
     z-index: 3;
-    @extend %mainBorder;
+    @extend %mainBorders;
+    border-radius: $radius-big;
     &:hover {
       cursor: pointer;
     }
