@@ -1,4 +1,4 @@
-import { MathReducerState } from "../mathReducer";
+import { MathReducerState } from "../../../types/simpleCalcType";
 
 const handelNewAmount = (
   oldNumber: string,

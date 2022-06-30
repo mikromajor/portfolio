@@ -1,30 +1,28 @@
 import { SIMPLE_CALC_ACTIONS } from "../../actions/SIMPLE_CALC_ACTIONS";
-import { ActionType } from "../../types/simpleCalcType";
+import {
+  MathReducerState,
+  MathReducerAction,
+} from "../../types/simpleCalcType";
 import {
   calculation,
   deleteLastChar,
   handelAddToNumber,
   calculateExtraOperators,
+  handelDate,
 } from "./utils";
-const { SET_NUMBER, SET_OPERATOR, SET_EXTRA_OPERATOR } =
-  SIMPLE_CALC_ACTIONS;
 
-export type MathReducerState = {
-  x: string;
-  y: string;
-  operator: string;
-  result: string;
-  error: string;
-};
-
-type MathReducerAction = {
-  type: ActionType;
-  payload: string;
-};
+const {
+  SET_NUMBER,
+  SET_OPERATOR,
+  SET_EXTRA_OPERATOR,
+  SAVE_DATE,
+} = SIMPLE_CALC_ACTIONS;
 
 const initState: MathReducerState = {
   x: "",
   y: "",
+  firstDate: undefined,
+  secondDate: undefined,
   operator: "",
   result: "",
   error: "",
@@ -63,6 +61,8 @@ export const mathReducer = (
         newState,
         action.payload
       );
+    case SAVE_DATE:
+      return handelDate(newState, action.date);
     default:
       return { ...state };
   }

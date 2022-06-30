@@ -23,8 +23,9 @@ export const EXTRA_BUTTONS = [
   "ctg",
   "actg",
   "PI",
+  "RND",
   "ArCr",
-  "VolCr",
+  "VolBall",
 ];
 
 export const OPERATORS = [

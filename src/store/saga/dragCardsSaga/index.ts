@@ -4,5 +4,4 @@ import { flipThroughWatcher } from "./flipThroughUserImg";
 
 export function* dragCardsRootWatcher() {
   yield all([userWatcher(), flipThroughWatcher()]);
-  //здесь через запятую остальные асинхр вотчеры ,
 }

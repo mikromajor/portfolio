@@ -47,8 +47,8 @@ export const ABOUT_ME = {
     CONTENT: [
       "Ukrainian – native;",
       "Russian – native;",
-      "Polish – upper-intermediate;",
-      "English – pre-intermediate.",
+      "Polish – upper-intermediate B2;",
+      "English – pre-intermediate A2;",
     ],
   },
 
@@ -65,7 +65,7 @@ export const ABOUT_ME = {
     ICON: ["experience"],
     CONTENT_ICONS: [],
     CONTENT: [
-      "Junior front-end developer at Headway-Consulting, Bydgoszcz, Poland, March 2021 – September 2021. I worked on a development team. My main tasks were to create a one-page app with advertising offers, modernize the existing site.",
+      "Junior front-end developer at Headway-Consulting, Kyiv, Ukraine, December 2021 – February 2022. I worked on a development team. My main tasks were to create a SPA with advertising offers",
     ],
   },
   CONTACTS: {

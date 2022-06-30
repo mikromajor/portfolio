@@ -1,12 +1,11 @@
-import { MathReducerState } from "../mathReducer";
+import { MathReducerState } from "../../../types/simpleCalcType";
 
 export const calculateExtraOperators = (
   newState: MathReducerState,
   extraOperator: string
 ) => {
-  const { x, operator } = newState;
-  const X = Number(x);
-  switch (operator) {
+  const X = Number(newState.x);
+  switch (extraOperator) {
     case "sin":
       newState.result = Math.sin(X) + "";
       break;
@@ -36,7 +35,12 @@ export const calculateExtraOperators = (
       newState.result = Math.PI + "";
       break;
     case "ArCr":
-    case "VolCr":
+      newState.result = Math.PI * Math.pow(X, 2) + "";
+      break;
+    case "VolBall":
+      newState.result =
+        (4 / 3) * Math.PI * Math.pow(X, 2) + "";
+      break;
   }
   return newState;
 };
