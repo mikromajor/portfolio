@@ -13,21 +13,21 @@ const ListItem = ({
   const [soc, link] = content.split(" ");
   const base = ["Telegram:", "Linkedin:", "GitHub:"];
   return (
-    <li className='list_item'>
-      <div className='list_item__wrap'>
+    <li className='listItem'>
+      <div className='listItem__wrap'>
         {contentIcons ? (
           <img
             src={require(`../../${PATH}${contentIcons}${ICONS_EXT}`)}
             alt='icon'
-            className='list_item__icon'
+            className='listItem__icon'
           />
         ) : null}
         {base.find((e) => e === soc) ? (
-          <a href={link} className='list_item__link'>
+          <a href={link} className='listItem__link'>
             {soc}
           </a>
         ) : (
-          <p className='list_item__content'>{content}</p>
+          <p className='listItem__content'>{content}</p>
         )}
       </div>
     </li>

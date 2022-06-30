@@ -3,66 +3,62 @@
 .accordion {
   width: 100%;
   border-radius: 20px;
-  .accordion-button {
-    padding: 0 20px;
-  }
-
-  .accordion-item {
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0);
-  }
-  .accordionItem__header {
+  &__header {
     display: inline-block;
     width: 100%;
     height: 66px;
     transition: all 0.1s;
-    .accordionItem__title__icon {
-      width: 40px;
-      object-fit: contain;
-      border-radius: 50%;
-      margin: 10px;
-    }
-    .accordionItem__title__content {
-      font-size: 20px;
-      font-weight: 550;
-      margin: auto 30px auto 40px;
-      background: rgba(0, 0, 0, 0);
-    }
-    .accordion-button {
-      background: rgba(0, 0, 0, 0);
-      border-radius: 20px;
-    }
+    border-radius: 20px;
     &:hover {
-      background: $accordionItem__bgc__hover;
+      background: $hover__color;
       border-radius: 20px;
-      .accordionItem__title__content {
-        transition: margin-left 0.3s;
+      .accordion__content {
         margin-left: 45px;
       }
-      .accordionItem__title__icon {
+      .accordion__icon {
         animation: title__icon 0.3s ease-in-out 1;
-        @keyframes title__icon {
-          from {
-            width: 40px;
-            margin: 10px;
-            padding: 0;
-            background-color: rgba(0, 0, 255, 0.5);
-          }
-          to {
-            width: 60px;
-            margin: 0px;
-            padding: 10px;
-            background-color: rgba(0, 0, 255, 0);
-          }
-        }
       }
     }
   }
-  .accordionBody__ul {
+
+  &-button {
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 20px !important;
+  }
+  &__icon {
+    width: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin: 10px;
+    @keyframes title__icon {
+      from {
+        width: 40px;
+        margin: 10px;
+        padding: 0;
+        background-color: rgba(0, 0, 255, 0.5);
+      }
+      to {
+        width: 60px;
+        margin: 0px;
+        padding: 10px;
+        background-color: rgba(0, 0, 255, 0);
+      }
+    }
+  }
+  &__content {
+    font-size: 20px;
+    font-weight: 550;
+    margin: auto 30px auto 40px;
+    background: rgba(0, 0, 0, 0);
+    transition: margin-left 0.3s;
+  }
+
+  &__ul {
     @extend %ul_zero;
     background: rgba(0, 0, 0, 0);
-    .accordionBody__link {
-      text-align: center;
-    }
+  }
+  &__link {
+    text-align: center;
   }
 }
