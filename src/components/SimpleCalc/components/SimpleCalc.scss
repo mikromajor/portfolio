@@ -35,12 +35,6 @@ $color-scroll: linear-gradient(
   display: flex;
   flex-flow: column;
 }
-.wrap__simpleCalc {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-}
 %monitor {
   text-align: center;
   width: 100%;
@@ -64,33 +58,50 @@ $color-scroll: linear-gradient(
     background: $color-hover;
   }
 }
-
-.simpleCalc {
-  width: 420px;
-  box-sizing: border-box;
-  align-items: center;
-  padding: 10px;
+%mainBorders {
   border: $thickness-border solid $color-border;
-  border-radius: $radius-big;
   background: $color-calc;
   box-shadow: $shadow;
+}
+
+.simpleCalc {
+  display: block;
+  @extend %mainBorders;
+  border-radius: $radius-big;
+  position: relative;
+  transition: width 1s ease-in-out;
+  z-index: 1;
+  &__main {
+    display: inline-block;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 10px;
+    @extend %mainBorders;
+    border-radius: $radius-big;
+    width: 420px;
+    z-index: 11;
+  }
 
   &__screen {
     visibility: hidden;
     height: 120px;
     box-sizing: border-box;
+    z-index: 12;
   }
   &__results {
     background: $color-results;
     @extend %monitor;
+    z-index: 13;
   }
   &__warning {
     background-color: $color-error;
     @extend %monitor;
+    z-index: 13;
   }
   &__BlockButtons {
     display: flex;
     justify-content: space-between;
+    z-index: 12;
   }
   &__buttons {
     display: flex;
@@ -100,6 +111,7 @@ $color-scroll: linear-gradient(
     margin: 5px;
     margin-top: 15px;
     width: 200px;
+    z-index: 13;
   }
   &__button {
     display: flex;
@@ -115,11 +127,49 @@ $color-scroll: linear-gradient(
     box-shadow: $shadow;
     transition: background 300ms;
     cursor: pointer;
+    z-index: 14;
     &:hover {
       background: $color-hover;
     }
     &:active {
       background: $color-btn-active;
+    }
+  }
+  &__sidePanel {
+    border-radius: 0 $radius-big $radius-big 0;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    height: 100%;
+    width: 270px;
+    z-index: -1;
+  }
+  &__calendar {
+    height: 33%;
+    padding-left: 100px;
+    border: $thickness-border solid $color-border;
+    border-radius: 0 $radius-big $radius-big 0;
+    z-index: 2;
+  }
+  &__extraButtons {
+    border: $thickness-border solid $color-border;
+    border-radius: 0 $radius-big $radius-big 0;
+    height: 67%;
+    z-index: 2;
+    padding-left: 35px;
+    padding-right: 25px;
+  }
+  &__openCloseButton {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 173px;
+    padding: 5px;
+    z-index: 3;
+    @extend %mainBorders;
+    border-radius: $radius-big;
+    &:hover {
+      cursor: pointer;
     }
   }
 }

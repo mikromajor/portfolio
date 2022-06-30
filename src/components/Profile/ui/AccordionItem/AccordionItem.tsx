@@ -4,7 +4,7 @@ import { ListItem } from "..";
 import { IconsAndContentType } from "../../types";
 import { PATH, ICONS_EXT } from "../../constants";
 
-import "./AccordionItem.scss";
+import "./accordionItem.scss";
 
 type AccordionItemProps = {
   eventKey: number;
@@ -12,7 +12,7 @@ type AccordionItemProps = {
   body: IconsAndContentType;
 };
 
-const AccordionItem = ({
+export const AccordionItem = ({
   eventKey,
   header,
   body,
@@ -22,20 +22,18 @@ const AccordionItem = ({
 
   return (
     <Accordion.Item eventKey={`${eventKey}`}>
-      <Accordion.Header className='accordionItem__header'>
+      <Accordion.Header className='accordion__header'>
         {titleIcon ? (
           <img
             src={require(`../../${PATH}${titleIcon}${ICONS_EXT}`)}
             alt='title icons'
-            className='accordionItem__title__icon'
+            className='accordion__icon'
           />
         ) : null}
-        <h3 className='accordionItem__title__content'>
-          {header}
-        </h3>
+        <h3 className='accordion__content'>{header}</h3>
       </Accordion.Header>
       <Accordion.Body>
-        <ul className='accordionBody__ul'>
+        <ul className='accordion__ul'>
           {CONTENT.map((content, i) => (
             <ListItem
               content={content}
@@ -49,7 +47,7 @@ const AccordionItem = ({
           {!LINK ? null : LINK.length < 30 ? (
             <Link
               to={"/" + LINK}
-              className='accordionBody__link'
+              className='accordion__link'
             >
               Click to see the demo - {header}
             </Link>
@@ -63,4 +61,3 @@ const AccordionItem = ({
     </Accordion.Item>
   );
 };
-export default AccordionItem;

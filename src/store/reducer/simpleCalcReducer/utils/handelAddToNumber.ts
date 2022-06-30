@@ -1,9 +1,15 @@
-import { MathReducerState } from "../mathReducer";
+import { MathReducerState } from "../../../types/simpleCalcType";
 
 const handelNewAmount = (
   oldNumber: string,
   newNumber: string
 ) => {
+  if (newNumber === "+/-") {
+    return (newNumber =
+      oldNumber[0] === "-"
+        ? oldNumber.slice(1)
+        : "-" + oldNumber);
+  }
   if (newNumber === ".") {
     if (oldNumber.includes(".")) {
       return oldNumber;
@@ -25,7 +31,7 @@ export const handelAddToNumber = (
     newState.result = newState.x;
   } else {
     newState.y = handelNewAmount(y, payload);
-    newState.result += newState.y;
+    newState.result += payload;
   }
 
   return newState;

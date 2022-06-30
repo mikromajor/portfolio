@@ -1,6 +1,10 @@
 import { all } from "redux-saga/effects";
 import { dragCardsRootWatcher } from "./dragCardsSaga";
+import { simpleCalcRootWatcher } from "./simpleCalcSaga";
 
 export function* rootWatcher() {
-  yield all([dragCardsRootWatcher()]); //здесь через запятую остальные асинхр вотчеры ,
+  yield all([
+    dragCardsRootWatcher(),
+    simpleCalcRootWatcher(),
+  ]);
 }

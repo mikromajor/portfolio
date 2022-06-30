@@ -1,25 +1,25 @@
 @import "../../variablesProfile";
 
-.list_item {
+.listItem {
   list-style-type: none;
-  .list_item__wrap {
+  &__wrap {
     display: flex;
     align-items: flex-start;
     padding-bottom: 5px;
-    .list_item__icon {
-      width: 28px;
-      object-fit: contain;
-      margin: 0 30px 0 20px;
-    }
-    .list_item__content,
-    .list_item__link {
-      margin-bottom: 0;
-      padding: auto 0;
-      font-size: $list_item__content__font-size;
-      font-weight: $list_item__content__font-weight;
-      &::first-letter {
-        color: $list_item__content__first_letter__color;
-      }
+  }
+  &__icon {
+    width: 28px;
+    object-fit: contain;
+    margin: 0 30px 0 20px;
+  }
+  &__content,
+  &__link {
+    margin-bottom: 0;
+    padding: auto 0;
+    font-size: 18px;
+    font-weight: 450;
+    &::first-letter {
+      color: $firstLetter--color;
     }
   }
 }
