@@ -1,14 +1,14 @@
 @import "../../variablesProfile";
 
-.about_me {
+.aboutMe {
   @extend %content_column;
-  .about_me__header {
+  .aboutMe__header {
     @extend %flex-wrap;
     max-width: 100%;
     justify-content: space-between;
     align-items: flex-start;
     margin: 20px;
-    .about_me__avatar {
+    .aboutMe__avatar {
       width: 160px;
       margin-left: auto;
       margin-right: auto;
@@ -22,21 +22,21 @@
     .avatar__click {
       width: 260px;
     }
-    .about_me__wrap {
+    .aboutMe__wrap {
       display: block;
       margin: 0 auto;
 
-      .about_me__title {
+      .aboutMe__title {
         display: flex;
         flex-direction: column;
         max-width: 270px;
         justify-content: center;
         align-items: center;
         text-align: center;
-        .about_me__name {
+        .aboutMe__name {
           text-align: center;
         }
-        .about_me__profession {
+        .aboutMe__profession {
           font-size: 20px;
           font-weight: 500;
           margin: 30px 0 20px 0;
