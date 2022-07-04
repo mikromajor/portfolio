@@ -8,21 +8,21 @@ import {
   deleteLastChar,
   handelAddToNumber,
   calculateExtraOperators,
-  handelDate,
 } from "./utils";
 
 const {
   SET_NUMBER,
   SET_OPERATOR,
   SET_EXTRA_OPERATOR,
-  SAVE_DATE,
+  SET_DATE_1,
+  SET_DATE_2,
 } = SIMPLE_CALC_ACTIONS;
 
 const initState: MathReducerState = {
   x: "",
   y: "",
-  firstDate: undefined,
-  secondDate: undefined,
+  firstDate: "",
+  secondDate: "",
   operator: "",
   result: "",
   error: "",
@@ -61,9 +61,13 @@ export const mathReducer = (
         newState,
         action.payload
       );
-    case SAVE_DATE:
-      return handelDate(newState, action.date);
+    case SET_DATE_1:
+      newState.firstDate = action.payload;
+      return newState;
+    case SET_DATE_2:
+      newState.secondDate = action.payload;
+      return newState;
     default:
-      return { ...state };
+      return newState;
   }
 };

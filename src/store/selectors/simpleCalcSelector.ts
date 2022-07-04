@@ -7,10 +7,10 @@ export const getStore = (state: StateType) =>
 export const getSideBare = (state: StateType) =>
   state.simpleCalcReducer.effectsReducer.sideBare;
 
-export const getFirstUserDate = (state: StateType) =>
+export const getFirstDate = (state: StateType) =>
   state.simpleCalcReducer.mathReducer.firstDate;
 
-export const getSecondUserDate = (state: StateType) =>
+export const getSecondDate = (state: StateType) =>
   state.simpleCalcReducer.mathReducer.secondDate;
 
 export const getStoreSelector = createSelector(

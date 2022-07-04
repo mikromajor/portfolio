@@ -145,8 +145,12 @@ $color-scroll: linear-gradient(
     z-index: -1;
   }
   &__calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 33%;
-    padding-left: 100px;
+    padding: 10px 35px;
+    padding-left: 45px;
     border: $thickness-border solid $color-border;
     border-radius: 0 $radius-big $radius-big 0;
     z-index: 2;

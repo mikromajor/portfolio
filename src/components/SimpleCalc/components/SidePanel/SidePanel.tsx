@@ -1,46 +1,49 @@
 import { useDispatch, useSelector } from "react-redux";
 import {
   getSideBare,
-  getFirstUserDate,
-  getSecondUserDate,
+  getFirstDate,
+  getSecondDate,
 } from "../../../../store/selectors/simpleCalcSelector";
 import { Buttons } from "../Buttons/Buttons";
 import {
   setExtraOperator,
-  setUserDate,
+  setDate1,
+  setDate2,
+  calcDate,
   setSideBar,
 } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
 import { EXTRA_BUTTONS } from "../../constants/constants";
 
 export const SidePanel = () => {
   const sideBare = useSelector(getSideBare);
-  const firstDate = useSelector(getFirstUserDate);
-  const secondDate = useSelector(getSecondUserDate);
+  const firstDate = useSelector(getFirstDate);
+  const secondDate = useSelector(getSecondDate);
   const dispatch = useDispatch();
 
   return (
     <>
       <div className='simpleCalc__sidePanel'>
         <div className='simpleCalc__calendar'>
-          TODO
-          {/* <label htmlFor='1st'>1st date</label>
+          <button
+            className='simpleCalc__calcBtn'
+            onClick={() =>
+              dispatch(calcDate(firstDate, secondDate))
+            }
+          >
+            Difference in days
+          </button>
           <input
             type='date'
-            name='1st'
-            value={firstDate ? firstDate.toString() : ""}
             onChange={(e) => {
-              dispatch(setUserDate(e.currentTarget.value));
+              dispatch(setDate1(e.currentTarget.value));
             }}
           />
-          <label htmlFor='2st'>2nd date</label>
           <input
             type='date'
-            name='2st'
-            value={secondDate ? secondDate.toString() : ""}
             onChange={(e) => {
-              dispatch(setUserDate(e.currentTarget.value));
+              dispatch(setDate2(e.currentTarget.value));
             }}
-          /> */}
+          />
         </div>
         <div className='simpleCalc__extraButtons'>
           <Buttons

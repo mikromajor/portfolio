@@ -6,8 +6,8 @@ import { SIMPLE_CALC_ACTIONS } from "../actions/SIMPLE_CALC_ACTIONS";
 export type MathReducerState = {
   x: string;
   y: string;
-  firstDate: Date | undefined;
-  secondDate: Date | undefined;
+  firstDate: string;
+  secondDate: string;
   operator: string;
   result: string;
   error: string;

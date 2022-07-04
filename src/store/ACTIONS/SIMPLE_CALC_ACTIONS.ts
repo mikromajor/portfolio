@@ -2,8 +2,9 @@ export enum SIMPLE_CALC_ACTIONS {
   SET_NUMBER = "SET_NUMBER",
   SET_OPERATOR = "SET_OPERATOR",
   SET_EXTRA_OPERATOR = "SET_EXTRA_OPERATOR",
-  SET_DATE = "SET_DATE",
-  SAVE_DATE = "SAVE_DATE",
+  SET_DATE_1 = "SET_DATE_1",
+  SET_DATE_2 = "SET_DATE_2",
+  CALC_DATE = "CALC_DATE",
 
   OPEN_CLOSE_SIDE_BAR = "OPEN_CLOSE_SIDE_BAR",
   LOADED = "LOADED",
@@ -16,8 +17,9 @@ const {
   SET_OPERATOR,
   OPEN_CLOSE_SIDE_BAR,
   SET_EXTRA_OPERATOR,
-  SET_DATE,
-  SAVE_DATE,
+  SET_DATE_1,
+  SET_DATE_2,
+  CALC_DATE,
 } = SIMPLE_CALC_ACTIONS;
 
 export const setNumb = (payload: string) => {
@@ -46,18 +48,25 @@ export const setSideBar = () => ({
   type: OPEN_CLOSE_SIDE_BAR,
 });
 
-export type SetDateActionType = {
-  type: typeof SET_DATE;
-  payload: string;
-};
-
-export const setUserDate = (
-  payload: string
-): SetDateActionType => ({
-  type: SET_DATE,
+export const setDate1 = (payload: string) => ({
+  type: SET_DATE_1,
   payload,
 });
-export const saveUserDate = (date: Date) => ({
-  type: SAVE_DATE,
-  date,
+
+export const setDate2 = (payload: string) => ({
+  type: SET_DATE_2,
+  payload,
+});
+export type CalcDateType = {
+  type: SIMPLE_CALC_ACTIONS.CALC_DATE;
+  firstDate: string;
+  secondDate: string;
+};
+export const calcDate = (
+  firstDate: string,
+  secondDate: string
+) => ({
+  type: CALC_DATE,
+  firstDate,
+  secondDate,
 });
