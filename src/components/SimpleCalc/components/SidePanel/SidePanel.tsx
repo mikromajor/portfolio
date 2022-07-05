@@ -34,12 +34,14 @@ export const SidePanel = () => {
           </button>
           <input
             type='date'
+            value={firstDate}
             onChange={(e) => {
               dispatch(setDate1(e.currentTarget.value));
             }}
           />
           <input
             type='date'
+            value={secondDate}
             onChange={(e) => {
               dispatch(setDate2(e.currentTarget.value));
             }}

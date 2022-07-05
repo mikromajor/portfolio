@@ -154,7 +154,18 @@ $color-scroll: linear-gradient(
     border: $thickness-border solid $color-border;
     border-radius: 0 $radius-big $radius-big 0;
     z-index: 2;
+    input {
+      @extend %mainBorders;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
   }
+  &__calcBtn {
+    @extend %mainBorders;
+    border-radius: 5px;
+  }
+
   &__extraButtons {
     border: $thickness-border solid $color-border;
     border-radius: 0 $radius-big $radius-big 0;
