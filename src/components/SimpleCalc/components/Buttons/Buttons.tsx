@@ -8,14 +8,16 @@ import {
 type ButtonsType = {
   buttons: string[];
   callback: setNumbType | setOperatorType;
+  styles: string;
 };
 
 export const Buttons: FC<ButtonsType> = ({
   buttons,
   callback,
+  styles,
 }) => {
   return (
-    <div className='simpleCalc__buttons'>
+    <div className={styles}>
       {buttons.map((btnName, i) => (
         <Button
           key={i + btnName}

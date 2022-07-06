@@ -30,7 +30,7 @@ const Layout = () => {
       {!!isErrorUserInfo ? (
         <Error message={isErrorUserInfo} />
       ) : isUserInfoLoad ? (
-        <div className='layout__wrapper_for_loader'>
+        <div className='loader__wrap'>
           <Loader />
         </div>
       ) : (

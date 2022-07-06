@@ -1,9 +1,13 @@
-.load {
+.loader {
   display: block;
   position: fixed;
   left: 60%;
   top: 20%;
   width: 6em;
+  &__wrap {
+    display: block;
+    width: 400px;
+  }
   &::before {
     content: "";
     display: inline-block;

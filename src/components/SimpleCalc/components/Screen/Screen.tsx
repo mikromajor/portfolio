@@ -6,25 +6,22 @@ export const Screen = () => {
   const { result, error } = useSelector(getStoreSelector);
 
   return (
-    <div
-      className='simpleCalc__screen'
-      style={
-        !error || result
-          ? { visibility: "visible" }
-          : { visibility: "hidden" }
-      }
-    >
+    <>
       {error ? (
         <Warning
           message={error}
-          styles={"simpleCalc__warning"}
+          styles={
+            "simpleCalc__screen simpleCalc__screen-warning"
+          }
         />
       ) : (
         <Results
           result={result}
-          styles={"simpleCalc__results"}
+          styles={
+            "simpleCalc__screen simpleCalc__screen-results"
+          }
         />
       )}
-    </div>
+    </>
   );
 };

@@ -5,5 +5,5 @@ export const Warning = ({
   styles: string;
   message: string;
 }) => {
-  return <p className={styles}>{message}</p>;
+  return <div className={styles}>{message}</div>;
 };

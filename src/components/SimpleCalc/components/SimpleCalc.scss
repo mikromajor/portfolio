@@ -1,6 +1,5 @@
 $radius-big: 20px;
-$radius-btn: 5px;
-$thickness-border: 1px;
+$line-thin: 1px;
 $shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.7);
 $color-border: grey;
 $color-calc: linear-gradient(
@@ -35,17 +34,12 @@ $color-scroll: linear-gradient(
   display: flex;
   flex-flow: column;
 }
-%monitor {
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  padding-top: 10px;
-  padding-left: 5px;
+%font {
   font: 22px Roboto;
   font-weight: bold;
+}
+%scroll {
   overflow: auto;
-  border: $thickness-border solid $color-border;
-  border-radius: $radius-big;
   -webkit-overflow-scrolling: auto;
   &::-webkit-scrollbar {
     height: 15px;
@@ -59,75 +53,74 @@ $color-scroll: linear-gradient(
   }
 }
 %mainBorders {
-  border: $thickness-border solid $color-border;
-  background: $color-calc;
+  border: $line-thin solid $color-border;
+  border-radius: 5px;
   box-shadow: $shadow;
+}
+%button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 3px;
 }
 
 .simpleCalc {
   display: block;
   @extend %mainBorders;
+  background: $color-calc;
   border-radius: $radius-big;
-  position: relative;
-  transition: width 1s ease-in-out;
-  z-index: 1;
-  &__main {
-    display: inline-block;
+
+  &-own {
+    position: relative;
+    transition: width 1s ease-in-out;
+    z-index: 1;
+  }
+  &__mainPanel {
     box-sizing: border-box;
-    align-items: center;
-    padding: 10px;
-    @extend %mainBorders;
-    border-radius: $radius-big;
     width: 420px;
+    padding: 10px;
+    align-items: center;
     z-index: 11;
   }
-
   &__screen {
-    visibility: hidden;
     height: 120px;
     box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 5px;
+    @extend %mainBorders;
+    border-radius: $radius-big;
+    @extend %scroll;
+    @extend %font;
     z-index: 12;
+    text-align: center;
+    &-warning {
+      background-color: $color-error;
+    }
+    &-results {
+      background: $color-results;
+    }
   }
-  &__results {
-    background: $color-results;
-    @extend %monitor;
-    z-index: 13;
-  }
-  &__warning {
-    background-color: $color-error;
-    @extend %monitor;
-    z-index: 13;
-  }
-  &__BlockButtons {
+  &__buttonsPanel {
     display: flex;
     justify-content: space-between;
     z-index: 12;
   }
   &__buttons {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     margin: 5px;
     margin-top: 15px;
     width: 200px;
-    z-index: 13;
   }
   &__button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    margin: 3px;
-    border: 1px solid $color-border;
-    border-radius: 5px;
+    @extend %button-container;
+    @extend %mainBorders;
     background: $color-btn;
     color: blue;
-    box-shadow: $shadow;
     transition: background 300ms;
     cursor: pointer;
-    z-index: 14;
     &:hover {
       background: $color-hover;
     }
@@ -144,30 +137,30 @@ $color-scroll: linear-gradient(
     width: 270px;
     z-index: -1;
   }
-  &__calendar {
+  &__dateBlock {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 33%;
     padding: 10px 35px;
     padding-left: 45px;
-    border: $thickness-border solid $color-border;
+    border: $line-thin solid $color-border;
     border-radius: 0 $radius-big $radius-big 0;
     z-index: 2;
     input {
       @extend %mainBorders;
-      border-radius: 5px;
+      background: $color-calc;
       text-align: center;
       cursor: pointer;
     }
   }
-  &__calcBtn {
+  &__calculateDateBtn {
     @extend %mainBorders;
-    border-radius: 5px;
+    background: $color-calc;
   }
 
   &__extraButtons {
-    border: $thickness-border solid $color-border;
+    @extend %mainBorders;
     border-radius: 0 $radius-big $radius-big 0;
     height: 67%;
     z-index: 2;
@@ -175,7 +168,7 @@ $color-scroll: linear-gradient(
     padding-right: 25px;
   }
   &__openCloseButton {
-    display: inline-block;
+    display: block;
     position: absolute;
     right: 0;
     top: 173px;
@@ -185,6 +178,7 @@ $color-scroll: linear-gradient(
     border-radius: $radius-big;
     &:hover {
       cursor: pointer;
+      background-color: $color-hover;
     }
   }
 }
