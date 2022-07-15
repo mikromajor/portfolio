@@ -12,7 +12,7 @@ type AccordionItemProps = {
   body: IconsAndContentType;
 };
 
-export const AccordionItem = ({
+const AccordionItem = ({
   eventKey,
   header,
   body,
@@ -61,3 +61,4 @@ export const AccordionItem = ({
     </Accordion.Item>
   );
 };
+export default AccordionItem;

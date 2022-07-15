@@ -76,7 +76,7 @@ const HeadMenu = ({
           <ToggleButton
             id='toggle-check'
             type='checkbox'
-            variant='outline-success'
+            variant='outline-light'
             checked={showFavoriteList}
             value=''
             onChange={(e) =>

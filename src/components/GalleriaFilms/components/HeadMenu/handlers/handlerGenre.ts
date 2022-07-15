@@ -9,7 +9,8 @@ const handlerGenre = (
     if (!genres.some((genre) => genre === valGenre)) {
       setGenres([...genres, valGenre]);
     }
-  } else if (!checked) {
+  }
+  if (!checked) {
     setGenres(genres.filter((genre) => genre !== valGenre));
   }
 };
