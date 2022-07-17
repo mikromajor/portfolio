@@ -1,12 +1,11 @@
 import { Accordion } from "react-bootstrap";
-import { Ul } from "..";
+import { PrimaryInf, SecondaryInf } from "..";
 import {
   KeysAboutMe,
   KeysPetProject,
   ValueAboutMe,
   ValuePetProject,
 } from "../../types";
-import { PetLink } from "../.";
 import { requireImg } from "../../handlers";
 import "./accordionItem.scss";
 
@@ -23,42 +22,19 @@ const AccordionItem = ({
   header,
   body,
 }: AccordionItemProps) => {
-  const headerContent = header.toUpperCase();
-  const bodyKeys: string[] = [];
-  const bodyValues: string[] = [];
-
-  const hasNestedObj = typeof body === "object";
-  if (hasNestedObj) {
-    for (const [key, val] of Object.entries(body)) {
-      bodyKeys.push(key);
-      bodyValues.push(val);
-    }
-  }
-  const child = hasNestedObj ? (
-    <Ul bodyKeys={bodyKeys} bodyValues={bodyValues} />
-  ) : (
-    <>
-      <div className='accordion__body'>{body}</div>
-      {showLink && <PetLink header={header} />}
-    </>
-  );
   let icon = requireImg(header);
   return (
     <Accordion.Item eventKey={`${eventKey}`}>
       <Accordion.Header className='accordion__header'>
-        {!!icon && (
-          <img
-            src={icon}
-            alt={header}
-            className='accordion__icon'
-          />
-        )}
-
-        <h3 className='accordion__content accordion__content-margin'>
-          {headerContent}
-        </h3>
+        <PrimaryInf icon={icon} header={header} />
       </Accordion.Header>
-      <Accordion.Body>{child}</Accordion.Body>
+      <Accordion.Body>
+        <SecondaryInf
+          body={body}
+          showLink={showLink}
+          header={header}
+        />
+      </Accordion.Body>
     </Accordion.Item>
   );
 };
