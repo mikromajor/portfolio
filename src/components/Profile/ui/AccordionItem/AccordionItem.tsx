@@ -54,7 +54,7 @@ const AccordionItem = ({
           />
         )}
 
-        <h3 className='accordion__content'>
+        <h3 className='accordion__content accordion__content-margin'>
           {headerContent}
         </h3>
       </Accordion.Header>

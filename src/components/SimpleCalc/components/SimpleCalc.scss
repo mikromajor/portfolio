@@ -76,6 +76,8 @@ $color-scroll: linear-gradient(
     position: relative;
     transition: width 1s ease-in-out;
     z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
   }
   &__mainPanel {
     box-sizing: border-box;

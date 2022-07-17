@@ -12,17 +12,20 @@
     &:hover {
       background: $hover-color;
       border-radius: 20px;
-      .accordion__content {
-        margin-left: 45px;
+      .accordion__content-margin {
+        margin-left: 15px;
+        margin-right: 60px;
       }
       .accordion__icon {
         animation: title__icon 0.3s ease-in-out 1;
       }
     }
   }
-
   &-button {
-    min-width: 470px;
+    display: flex;
+    // width: 470px;
+    width: 100%;
+
     padding: 0 20px;
     background: rgba(0, 0, 0, 0);
     border-radius: 20px !important;
@@ -50,11 +53,13 @@
   &__content {
     font-size: 20px;
     font-weight: 550;
-    margin: auto 30px auto 40px;
     background: rgba(0, 0, 0, 0);
-    transition: margin-left 0.3s;
+    width: 274px;
+    &-margin {
+      margin: auto 30px auto 45px;
+      transition: margin 0.3s;
+    }
   }
-
   &__ul {
     @extend %ul_zero;
     background: rgba(0, 0, 0, 0);
@@ -64,8 +69,5 @@
   }
   &-flush &-item {
     border-radius: 20px;
-  }
-  &__body {
-    width: 100%;
   }
 }

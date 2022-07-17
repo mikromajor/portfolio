@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import { Back } from "../../../ui";
 import { useSelector } from "react-redux";
 import { Screen, ButtonsPanel, SidePanel } from "./";
