@@ -27,18 +27,18 @@ const App = () => {
         <Routes>
           <Route path='/portfolio' element={<Profile />} />
           <Route
-            path='/films'
+            path='/galleria_films'
             element={<GalleriaFilms />}
           />
           <Route
-            path='/searcher'
+            path='/git_hub_searcher'
             element={<GitHubSearcher />}
           />
           <Route path='/covid' element={<Covid />} />
 
           <Route path='/calc' element={<SimpleCalc />} />
           <Route
-            path='/dragCards'
+            path='/drag_and_drop_card'
             element={<DragCards />}
           />
           <Route
