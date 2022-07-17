@@ -1,6 +1,5 @@
-$firstLetter--color: rgb(234, 32, 32);
-
-$hover__color: rgb(245, 245, 255);
+$firstLetter-color: rgb(234, 32, 32);
+$hover-color: rgb(245, 245, 255);
 %ul_zero {
   margin: 0;
   padding: 0;
@@ -18,8 +17,7 @@ $hover__color: rgb(245, 245, 255);
   align-items: center;
 }
 %content_column {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   max-width: 474px;
   align-items: center;
   margin: 20px 0;

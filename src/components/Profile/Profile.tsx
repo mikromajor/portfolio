@@ -7,24 +7,26 @@ export const Profile = () => {
   return (
     <>
       <div className='navigation'>
-        <Link to='/searcher'>
+        <Link to='/git_hub_searcher'>
           <Button variant={"secondary"}>
-            GitHubSearcher
+            Git Hub Searcher
           </Button>
         </Link>
-        <Link to='/films'>
+        <Link to='/galleria_films'>
           <Button variant={"secondary"}>
-            GalleriaFilms
+            Galleria Films
           </Button>
         </Link>
-        <Link to='/dragCards'>
-          <Button variant={"secondary"}>DragCards</Button>
+        <Link to='/drag_and_drop_card'>
+          <Button variant={"secondary"}>
+            Drag and drop card
+          </Button>
         </Link>
         <Link to='/covid'>
           <Button variant={"secondary"}>Covid</Button>
         </Link>
-        <Link to='/stopWatch'>
-          <Button variant={"secondary"}>StopWatch</Button>
+        <Link to='/stopwatch'>
+          <Button variant={"secondary"}>Stopwatch</Button>
         </Link>
         <Link to='/calc'>
           <Button variant={"secondary"}>Calculator</Button>

@@ -1,33 +1,39 @@
-import { PATH, ICONS_EXT } from "../../constants";
+import { FC } from "react";
+import { SOC_SIGNS } from "../../constants";
+import { requireImg } from "../../handlers";
 import "./ListIem.scss";
 
 type ListItemProps = {
   content: string;
-  contentIcons: string | null;
+  contentHeader: string;
 };
 
-const ListItem = ({
+const ListItem: FC<ListItemProps> = ({
   content,
-  contentIcons,
-}: ListItemProps) => {
-  const [soc, link] = content.split(" ");
-  const base = ["Telegram:", "Linkedin:", "GitHub:"];
+  contentHeader,
+}) => {
+  const [socName, link] = content.split(" ");
+  const icon = requireImg(contentHeader);
+  const isFullLink = SOC_SIGNS.find(
+    (el) => el === contentHeader
+  );
   return (
     <li className='listItem'>
       <div className='listItem__wrap'>
-        {contentIcons ? (
+        {!!icon && (
           <img
-            src={require(`../../${PATH}${contentIcons}${ICONS_EXT}`)}
-            alt='icon'
+            src={icon}
+            alt={contentHeader}
             className='listItem__icon'
           />
-        ) : null}
-        {base.find((e) => e === soc) ? (
+        )}
+
+        {!!isFullLink ? (
           <a href={link} className='listItem__link'>
-            {soc}
+            {socName}
           </a>
         ) : (
-          <p className='listItem__content'>{content}</p>
+          <div className='listItem__content'>{content}</div>
         )}
       </div>
     </li>

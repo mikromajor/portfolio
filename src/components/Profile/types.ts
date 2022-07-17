@@ -3,12 +3,8 @@ import {
   PET_PROJECTS,
 } from "./content/profileContent";
 
-export type KeysAboutMeType = keyof typeof ABOUT_ME;
-export type KeysPetProjectType = keyof typeof PET_PROJECTS;
-
-export type IconsAndContentType = {
-  ICON: Array<string>;
-  CONTENT_ICONS?: Array<string>;
-  CONTENT: Array<string>;
-  LINK?: string;
-};
+export type KeysAboutMe = keyof typeof ABOUT_ME;
+export type ValueAboutMe = typeof ABOUT_ME[KeysAboutMe];
+export type KeysPetProject = keyof typeof PET_PROJECTS;
+export type ValuePetProject =
+  typeof PET_PROJECTS[KeysPetProject];

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, FC } from "react";
 
-export const Header = () => {
+export const Header: FC = () => {
   const [changeAvatar, setChangeAvatar] = useState(false);
 
   return (
@@ -9,7 +9,7 @@ export const Header = () => {
         src={require("../../img/avatar.png")}
         alt='avatar'
         className={`aboutMe__avatar ${
-          changeAvatar ? "avatar__click" : ""
+          changeAvatar ? "aboutMe__avatar-click" : ""
         }`}
         onClick={() => {
           setChangeAvatar((prevState) => !prevState);

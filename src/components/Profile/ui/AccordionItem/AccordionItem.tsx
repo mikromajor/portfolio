@@ -1,63 +1,64 @@
-import { Link } from "react-router-dom";
 import { Accordion } from "react-bootstrap";
-import { ListItem } from "..";
-import { IconsAndContentType } from "../../types";
-import { PATH, ICONS_EXT } from "../../constants";
-
+import { Ul } from "..";
+import {
+  KeysAboutMe,
+  KeysPetProject,
+  ValueAboutMe,
+  ValuePetProject,
+} from "../../types";
+import { PetLink } from "../.";
+import { requireImg } from "../../handlers";
 import "./accordionItem.scss";
 
 type AccordionItemProps = {
   eventKey: number;
-  header: string;
-  body: IconsAndContentType;
+  showLink: boolean;
+  header: KeysAboutMe | KeysPetProject;
+  body: ValueAboutMe | ValuePetProject;
 };
 
 const AccordionItem = ({
   eventKey,
+  showLink,
   header,
   body,
 }: AccordionItemProps) => {
-  const { ICON, CONTENT_ICONS, CONTENT, LINK } = body;
-  const [titleIcon] = ICON;
+  const headerContent = header.toUpperCase();
+  const bodyKeys: string[] = [];
+  const bodyValues: string[] = [];
 
+  const hasNestedObj = typeof body === "object";
+  if (hasNestedObj) {
+    for (const [key, val] of Object.entries(body)) {
+      bodyKeys.push(key);
+      bodyValues.push(val);
+    }
+  }
+  const child = hasNestedObj ? (
+    <Ul bodyKeys={bodyKeys} bodyValues={bodyValues} />
+  ) : (
+    <>
+      <div className='accordion__body'>{body}</div>
+      {showLink && <PetLink header={header} />}
+    </>
+  );
+  let icon = requireImg(header);
   return (
     <Accordion.Item eventKey={`${eventKey}`}>
       <Accordion.Header className='accordion__header'>
-        {titleIcon ? (
+        {!!icon && (
           <img
-            src={require(`../../${PATH}${titleIcon}${ICONS_EXT}`)}
-            alt='title icons'
+            src={icon}
+            alt={header}
             className='accordion__icon'
           />
-        ) : null}
-        <h3 className='accordion__content'>{header}</h3>
-      </Accordion.Header>
-      <Accordion.Body>
-        <ul className='accordion__ul'>
-          {CONTENT.map((content, i) => (
-            <ListItem
-              content={content}
-              contentIcons={
-                CONTENT_ICONS ? CONTENT_ICONS[i] : null
-              }
-              key={content + i}
-            />
-          ))}
+        )}
 
-          {!LINK ? null : LINK.length < 30 ? (
-            <Link
-              to={"/" + LINK}
-              className='accordion__link'
-            >
-              Click to see the demo - {header}
-            </Link>
-          ) : (
-            <a href={LINK} className='accordionBody__link'>
-              Click to see the demo - {header}
-            </a>
-          )}
-        </ul>
-      </Accordion.Body>
+        <h3 className='accordion__content'>
+          {headerContent}
+        </h3>
+      </Accordion.Header>
+      <Accordion.Body>{child}</Accordion.Body>
     </Accordion.Item>
   );
 };

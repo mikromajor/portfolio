@@ -1,14 +1,15 @@
+import { FC } from "react";
 import { Accordion } from "react-bootstrap";
 import { ABOUT_ME } from "../../content";
-import { KeysAboutMeType } from "../../types";
+import { KeysAboutMe } from "../../types";
 import { AccordionItem, Header } from "../../ui";
 
 import "./AboutMe.scss";
 
-const AboutMe = () => {
+const AboutMe: FC = () => {
   const keys = Object.keys(
     ABOUT_ME
-  ) as unknown as KeysAboutMeType[];
+  ) as unknown as KeysAboutMe[];
 
   return (
     <div className='aboutMe'>
@@ -16,13 +17,13 @@ const AboutMe = () => {
       <Accordion
         defaultActiveKey={["1"]}
         alwaysOpen
-        className='accordion'
         flush={true}
       >
         {keys.map((key, i) => (
           <AccordionItem
             key={key + i}
             eventKey={i}
+            showLink={false}
             header={key}
             body={ABOUT_ME[key]}
           />

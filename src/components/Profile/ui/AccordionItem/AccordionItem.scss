@@ -1,8 +1,8 @@
 @import "../../variablesProfile";
 
 .accordion {
-  width: 100%;
   border-radius: 20px;
+  box-sizing: border-box;
   &__header {
     display: inline-block;
     width: 100%;
@@ -10,7 +10,7 @@
     transition: all 0.1s;
     border-radius: 20px;
     &:hover {
-      background: $hover__color;
+      background: $hover-color;
       border-radius: 20px;
       .accordion__content {
         margin-left: 45px;
@@ -22,6 +22,7 @@
   }
 
   &-button {
+    min-width: 470px;
     padding: 0 20px;
     background: rgba(0, 0, 0, 0);
     border-radius: 20px !important;
@@ -60,5 +61,11 @@
   }
   &__link {
     text-align: center;
+  }
+  &-flush &-item {
+    border-radius: 20px;
+  }
+  &__body {
+    width: 100%;
   }
 }

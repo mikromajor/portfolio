@@ -2,49 +2,46 @@
 
 .aboutMe {
   @extend %content_column;
-  .aboutMe__header {
+  &__header {
     @extend %flex-wrap;
     max-width: 100%;
     justify-content: space-between;
     align-items: flex-start;
     margin: 20px;
-    .aboutMe__avatar {
-      width: 160px;
-      margin-left: auto;
-      margin-right: auto;
-      object-fit: contain;
-      transition: 2s all;
-      &:hover {
-        cursor: pointer;
-        transform: (skew(10deg, 0deg) rotateZ(360deg));
-      }
+  }
+  &__avatar {
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    transition: 2s all;
+    &:hover {
+      cursor: pointer;
+      transform: (skew(10deg, 0deg) rotateZ(360deg));
     }
-    .avatar__click {
+    &-click {
       width: 260px;
     }
-    .aboutMe__wrap {
-      display: block;
-      margin: 0 auto;
+  }
 
-      .aboutMe__title {
-        display: flex;
-        flex-direction: column;
-        max-width: 270px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        .aboutMe__name {
-          text-align: center;
-        }
-        .aboutMe__profession {
-          font-size: 20px;
-          font-weight: 500;
-          margin: 30px 0 20px 0;
-        }
-        p {
-          font-size: 18px;
-        }
-      }
-    }
+  &__wrap {
+    display: block;
+    margin: 0 auto;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  &__name {
+    text-align: center;
+  }
+  &__profession {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 30px 0 20px 0;
   }
 }

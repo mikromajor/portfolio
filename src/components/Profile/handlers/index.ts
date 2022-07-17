@@ -1,0 +1,1 @@
+export { requireImg } from "./requireImg";
