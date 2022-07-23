@@ -3,7 +3,7 @@ import { HeadMenu } from "./HeadMenu";
 import FavoriteList from "./FavoriteList/FavoriteList";
 import FilmsList from "./FilmsList/FilmsList";
 import { ARR } from "../constants";
-import { Loader } from "./UI";
+import { Loader } from "../../../ui";
 
 function GalleriaFilms() {
   const [isLoading, setIsLoading] = useState(false);

@@ -1,51 +1,29 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Loader } from "./components/GalleriaFilms/components/UI";
-
-const Profile = lazy(() => import("./components/Profile"));
-const SimpleCalc = lazy(
-  () => import("./components/SimpleCalc")
-);
-const StopWatch = lazy(
-  () => import("./components/StopWatch")
-);
-const GitHubSearcher = lazy(
-  () => import("./components/GitHubSearcher")
-);
-const GalleriaFilms = lazy(
-  () => import("./components/GalleriaFilms")
-);
-const Covid = lazy(() => import("./components/Covid"));
-const DragCards = lazy(
-  () => import("./components/DragCards")
-);
+import { Loader } from "./ui";
+import * as l from "./handlers/lazyImport";
+import { default as p } from "./constants/ROUT_PATH";
 
 const App = () => {
   return (
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path='/portfolio' element={<Profile />} />
+          <Route path={p.PROFILE} element={<l.Profile />} />
           <Route
-            path='/galleria_films'
-            element={<GalleriaFilms />}
+            path={p.FILMS}
+            element={<l.GalleriaFilms />}
           />
           <Route
-            path='/git_hub_searcher'
-            element={<GitHubSearcher />}
+            path={p.FILMS}
+            element={<l.GitHubSearcher />}
           />
-          <Route path='/covid' element={<Covid />} />
+          <Route path={p.COVID} element={<l.Covid />} />
 
-          <Route path='/calc' element={<SimpleCalc />} />
-          <Route
-            path='/drag_and_drop_card'
-            element={<DragCards />}
-          />
-          <Route
-            path='/stopWatch'
-            element={<StopWatch />}
-          />
-          <Route path='*' element={<Profile />} />
+          <Route path={p.CALC} element={<l.SimpleCalc />} />
+          <Route path={p.CARDS} element={<l.DragCards />} />
+          <Route path={p.WATCH} element={<l.StopWatch />} />
+          <Route path='*' element={<l.Profile />} />
         </Routes>
       </Suspense>
     </>

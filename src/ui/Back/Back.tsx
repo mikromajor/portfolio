@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { default as p } from "../../constants/ROUT_PATH";
 
 export const Back = () => {
   return (
-    <Link to='/portfolio'>
+    <Link to={p.PROFILE}>
       <Button
         variant={"secondary"}
         style={{

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import getFetch from "../../api/getFetch";
 import CountriesSelection from "./components/CountriesSelection";
-import { Loader } from "../UI";
+import { Loader } from "../../../../ui";
 
 const CountriesList = ({ setCountry }) => {
   const [items, setItems] = useState([]);

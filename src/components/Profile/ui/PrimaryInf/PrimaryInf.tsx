@@ -1,15 +1,16 @@
 import { FC } from "react";
+import { requireImg } from "../../handlers";
+import { KeysAboutMe, KeysPetProject } from "../../types";
 
 type PrimaryInfProps = {
-  icon: string;
-  header: string;
+  header: KeysAboutMe | KeysPetProject;
 };
 
 export const PrimaryInf: FC<PrimaryInfProps> = ({
-  icon,
   header,
 }) => {
   const headerContent = header.toUpperCase();
+  const icon = requireImg(header);
   return (
     <>
       {!!icon && (

@@ -12,8 +12,6 @@ const Covid = () => {
   const [country, setCountry] = useState("");
   const [countryData, setCountryData] = useState([]);
   const [period, setPeriod] = useState(INIT_PERIOD);
-  console.log("period", period);
-
   const [showInputMenu, setShowInputMenu] = useState(false);
   const [showStatistics, setShowStatistics] =
     useState(false);
