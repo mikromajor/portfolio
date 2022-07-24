@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { default as p } from "../../constants/ROUT_PATH";
+import { ROUT_PATH as p } from "../../constants";
 
 export const Back = () => {
   return (

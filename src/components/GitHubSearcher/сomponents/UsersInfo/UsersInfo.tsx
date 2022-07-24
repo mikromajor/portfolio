@@ -3,7 +3,8 @@ import { getUserData } from "../../api";
 import { PageContext } from "../../context";
 import { UsersSearcher, UsersList } from "./.";
 import { PageCache } from "../../utils";
-import { Loader, Error } from "../../ui";
+import { Error } from "../../ui";
+import { Loader } from "../../../../ui";
 import { CurrentUserType } from "../../types";
 
 import "./UsersInfo.scss";

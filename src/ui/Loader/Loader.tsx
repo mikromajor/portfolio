@@ -1,10 +1,10 @@
-import cl from "./Loader.module.css";
+import "./Loader.scss";
 
 export const Loader = () => {
   return (
-    <div className={cl.loadText}>
+    <div className=' loadText'>
       Loading...
-      <div className={cl.loading}></div>
+      <div className='loading'></div>
     </div>
   );
 };

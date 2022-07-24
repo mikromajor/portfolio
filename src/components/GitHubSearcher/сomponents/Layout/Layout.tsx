@@ -2,7 +2,8 @@ import { useState, useContext, useRef } from "react";
 import { PageContext } from "../../context";
 import { UsersInfo } from "../.";
 import { UserInfo } from "../UserInfo";
-import { Loader, Error } from "../../ui";
+import { Error } from "../../ui";
+import { Loader } from "../../../../ui";
 
 import "./Layout.scss";
 
