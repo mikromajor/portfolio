@@ -1,7 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Loader } from "./ui";
-// import * as lazy from "./handlers/lazyImport";
 import {
   ROUT_PATH as r_p,
   LAZY_PATH as l_p,
