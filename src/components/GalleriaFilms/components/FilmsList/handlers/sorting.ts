@@ -1,11 +1,11 @@
 //import { useCallback } from "react";
-import { ARR } from "../../../constants";
+import { Film } from "../../../constants/types";
 //import { useSortingProps } from "./useSorting.types";
 
 const sorting = (
   keyWordSort: string,
-  filmsList: ARR,
-  setFilmsList: React.Dispatch<React.SetStateAction<ARR>>
+  filmsList: Film[],
+  setFilmsList: React.Dispatch<React.SetStateAction<Film[]>>
 ) => {
   if (
     keyWordSort.length &&

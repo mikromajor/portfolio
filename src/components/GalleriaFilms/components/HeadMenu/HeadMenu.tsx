@@ -12,7 +12,7 @@ import {
   Counter,
 } from "../UI";
 import { getMovies } from "../../api";
-import { OPTIONS } from "../../constants";
+import { OPTIONS } from "../../constants/constants";
 import { handlerGenre } from "./handlers";
 import { HeadMenuProps } from "./HeadMenu.types";
 import "./HeadMenu.css";

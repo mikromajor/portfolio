@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Button, CloseButton } from "react-bootstrap";
-import { BASE_IMG_URL } from "../../../../constants";
+import { BASE_IMG_URL } from "../../../../constants/constants";
 import { FilmProps } from "./Film.types";
 
 import styles from "./Film.module.css";

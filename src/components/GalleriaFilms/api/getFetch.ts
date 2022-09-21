@@ -1,12 +1,11 @@
 async function getFetch(url: string) {
-  console.log(url);
-
   if (!url) throw new Error("Wrong url in request");
 
   const response = await fetch(url);
   if (response.status === 204) {
-    console.log("response.status === 204 (No content)");
-    return;
+    return console.log(
+      "response.status === 204 (No content)"
+    );
   }
   if (!response.ok) {
     throw new Error(

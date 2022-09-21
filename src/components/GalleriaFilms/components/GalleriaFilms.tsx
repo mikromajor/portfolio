@@ -2,15 +2,17 @@ import { useState } from "react";
 import { HeadMenu } from "./HeadMenu";
 import FavoriteList from "./FavoriteList/FavoriteList";
 import FilmsList from "./FilmsList/FilmsList";
-import { ARR } from "../constants";
+import { Film } from "../constants/types";
 import { Loader } from "../../../ui";
 
 function GalleriaFilms() {
   const [isLoading, setIsLoading] = useState(false);
   const [keyWordSort, setKeyWordSort] =
     useState<string>("");
-  const [filmsData, setFilmsData] = useState<ARR>([]);
-  const [favoriteList, setFavoriteList] = useState<ARR>([]);
+  const [filmsData, setFilmsData] = useState<Film[]>([]);
+  const [favoriteList, setFavoriteList] = useState<Film[]>(
+    []
+  );
   const [showFavoriteList, setShowFavoriteList] =
     useState(false);
   console.log();

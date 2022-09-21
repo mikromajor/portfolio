@@ -3,26 +3,25 @@ import {
   API_URL,
   API_KEY,
   PATH_3,
-  ARR,
-} from "../constants";
+} from "../constants/constants";
+import { Film } from "../constants/types";
 
 const getMovies = (
   genres: string[],
-  setFilmsData: React.Dispatch<React.SetStateAction<ARR>>,
+  setFilmsData: React.Dispatch<
+    React.SetStateAction<Film[]>
+  >,
   setIsLoading: React.Dispatch<
     React.SetStateAction<boolean>
   >
 ) => {
   let url = "";
-  console.log("getMovies fire, genres are ->", genres);
-
   if (genres.length) {
     url = `${API_URL}/discover/movie?api_key=${API_KEY}${PATH_3}&with_genres=${genres.join()}`;
 
     setIsLoading(true);
     getFetch(url)
       .then((obj) => {
-        console.log("in getMovies--->", obj.results);
         setFilmsData(obj.results);
         setIsLoading(false);
       })

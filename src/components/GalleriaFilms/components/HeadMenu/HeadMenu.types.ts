@@ -1,7 +1,9 @@
-import { ARR } from "../../constants";
+import { Film } from "../../constants/types";
 
 export type HeadMenuProps = {
-  setFilmsData: React.Dispatch<React.SetStateAction<ARR>>;
+  setFilmsData: React.Dispatch<
+    React.SetStateAction<Film[]>
+  >;
   keyWordSort: string;
   setKeyWordSort: React.Dispatch<
     React.SetStateAction<string>
@@ -10,7 +12,7 @@ export type HeadMenuProps = {
     React.SetStateAction<boolean>
   >;
   showFavoriteList: boolean;
-  favoriteList: ARR;
+  favoriteList: Film[];
   setIsLoading: React.Dispatch<
     React.SetStateAction<boolean>
   >;

@@ -1,12 +1,10 @@
-import { OPT } from "../../../constants";
-
 const DropdownSort = ({
   options,
   defaultName,
   value,
   setKeyWordSort,
 }: {
-  options: OPT[];
+  options: { [key: string]: string }[];
   defaultName: string;
   value: string;
   setKeyWordSort: React.Dispatch<

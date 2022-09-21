@@ -1,10 +1,10 @@
-import { ARR } from "../../../constants";
+import { Film } from "../../../constants/types";
 import cl from "./Counter.module.css";
 
 const Counter = ({
   favoriteList,
 }: {
-  favoriteList: [] | ARR;
+  favoriteList: Film[];
 }) => {
   return (
     <div className={cl.counter}>{favoriteList.length}</div>

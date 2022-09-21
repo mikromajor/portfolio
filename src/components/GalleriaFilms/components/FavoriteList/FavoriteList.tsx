@@ -1,14 +1,15 @@
 import { Card, Row, Button } from "react-bootstrap";
-import { ARR, FILM, BASE_IMG_URL } from "../../constants";
+import { BASE_IMG_URL } from "../../constants/constants";
+import { Film } from "../../constants/types";
 import c from "./FavoriteList.module.css";
 
 const FavoriteList = ({
   favoriteList,
   setFavoriteList,
 }: {
-  favoriteList: ARR;
+  favoriteList: Film[];
   setFavoriteList: React.Dispatch<
-    React.SetStateAction<ARR>
+    React.SetStateAction<Film[]>
   >;
 }) => {
   if (!favoriteList.length) {
@@ -34,7 +35,7 @@ const FavoriteList = ({
         backgroundColor: "#F8FFAF",
       }}
     >
-      {favoriteList.map((cardData: FILM) => (
+      {favoriteList.map((cardData: Film) => (
         <Card
           style={{ width: "20rem" }}
           bg={`success ${c.card_marg}`}

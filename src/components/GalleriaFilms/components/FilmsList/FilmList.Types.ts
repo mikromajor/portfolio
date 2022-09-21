@@ -1,11 +1,13 @@
-import { ARR } from "../../constants";
+import { Film } from "../../constants/types";
 
 export type FilmsListProps = {
-  filmsData: ARR;
-  setFilmsData: React.Dispatch<React.SetStateAction<ARR>>;
-  favoriteList: ARR;
+  filmsData: Film[];
+  setFilmsData: React.Dispatch<
+    React.SetStateAction<Film[]>
+  >;
+  favoriteList: Film[];
   setFavoriteList: React.Dispatch<
-    React.SetStateAction<ARR>
+    React.SetStateAction<Film[]>
   >;
   keyWordSort: string;
   isLoading: boolean;
