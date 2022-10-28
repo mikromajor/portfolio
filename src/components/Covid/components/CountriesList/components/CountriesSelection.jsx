@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 
 const CountriesSelection = ({ data, setCountry }) => {
   const [userCountry, setUserCountry] = useState("");
-  let country;
-
   useEffect(() => {
     data.forEach(
       (elem) =>
-        userCountry.toLowerCase().includes(elem.Slug) &&
+        userCountry
+          .toLowerCase()
+          .includes(elem.Country.toLowerCase()) &&
         setCountry(elem.Slug)
     );
   }, [setUserCountry, userCountry, data, setCountry]);
@@ -24,13 +24,12 @@ const CountriesSelection = ({ data, setCountry }) => {
         />
       </label>
       <datalist id='countries'>
-        {data.map((item, index) => {
-          country = item.Country.slice(0, 30) + "...";
+        {data.map((o, index) => {
           return (
             <option
-              key={item.Slug}
-              value={`${index + 1}. ${country}`}
-            ></option>
+              key={o.Slug}
+              value={`${index + 1}. ${o.Country}`}
+            />
           );
         })}
       </datalist>
