@@ -19,9 +19,10 @@ const CountryInfo = ({
       setCountryData(request);
       setLoading(false);
     };
-    if (!country.length) return;
-    setLoading(true);
-    fetchData();
+    if (!!country) {
+      setLoading(true);
+      fetchData();
+    }
   }, [country, setCountryData, setLoading]);
 
   if (loading) {
