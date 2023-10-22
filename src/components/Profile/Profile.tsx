@@ -1,7 +1,7 @@
 import { AboutMe, PetProjects } from "./components";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./profile.scss";
+import "./Profile.scss";
 
 export const Profile = () => {
   return (
