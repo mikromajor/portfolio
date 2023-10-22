@@ -1,4 +1,4 @@
-import { DRAG_CARDS_ACTIONS } from "../../actions/DRAG_CARDS_ACTIONS";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
 import {
   UserType,
   CurrentUser,

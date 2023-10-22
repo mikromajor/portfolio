@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   setNumbType,
   setOperatorType,
-} from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+} from "../../../../store/ACTIONS/SIMPLE_CALC_ACTIONS";
 
 interface PropsType {
   btnName: string;

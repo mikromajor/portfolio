@@ -1,4 +1,4 @@
-import { SIMPLE_CALC_ACTIONS } from "../actions/SIMPLE_CALC_ACTIONS";
+import { SIMPLE_CALC_ACTIONS } from "../ACTIONS/SIMPLE_CALC_ACTIONS";
 
 // type SimpleCalcActions = typeof SIMPLE_CALC_ACTIONS;
 // export type ActionType = keyof SimpleCalcActions;

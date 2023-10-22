@@ -2,7 +2,7 @@ import { Buttons } from "..";
 import {
   setNumb,
   setOperator,
-} from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+} from "../../../../store/ACTIONS/SIMPLE_CALC_ACTIONS";
 import {
   BUTTONS,
   OPERATORS,

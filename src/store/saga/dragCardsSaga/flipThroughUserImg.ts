@@ -4,7 +4,7 @@ import {
   takeEvery,
   takeLatest,
 } from "redux-saga/effects";
-import { DRAG_CARDS_ACTIONS } from "../../actions/DRAG_CARDS_ACTIONS";
+import { DRAG_CARDS_ACTIONS } from "../../ACTIONS/DRAG_CARDS_ACTIONS";
 import {
   StartFlipThrough,
   setFlipThrough,

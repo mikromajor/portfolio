@@ -7,7 +7,7 @@ import {
   ValuePetProject,
 } from "../../types";
 
-import "./accordionItem.scss";
+import "./AccordionItem.scss";
 
 type AccordionItemProps = {
   eventKey: number;

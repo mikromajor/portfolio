@@ -1,4 +1,4 @@
-import { SIMPLE_CALC_ACTIONS } from "../../actions/SIMPLE_CALC_ACTIONS";
+import { SIMPLE_CALC_ACTIONS } from "../../ACTIONS/SIMPLE_CALC_ACTIONS";
 
 type EffectsAction = {
   type: SIMPLE_CALC_ACTIONS;

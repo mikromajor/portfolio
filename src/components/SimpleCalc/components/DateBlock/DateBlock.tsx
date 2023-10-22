@@ -7,7 +7,7 @@ import {
   setDate1,
   setDate2,
   calcDate,
-} from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+} from "../../../../store/ACTIONS/SIMPLE_CALC_ACTIONS";
 
 export const DateBlock = () => {
   const firstDate = useSelector(getFirstDate);

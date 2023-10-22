@@ -8,7 +8,7 @@ import {
   SIMPLE_CALC_ACTIONS,
   CalcDateType,
   setNumb,
-} from "../../actions/SIMPLE_CALC_ACTIONS";
+} from "../../ACTIONS/SIMPLE_CALC_ACTIONS";
 const { CALC_DATE } = SIMPLE_CALC_ACTIONS;
 
 const getDate = ({

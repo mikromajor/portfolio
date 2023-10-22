@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getSideBare } from "../../../../store/selectors/simpleCalcSelector";
 import { DateBlock, ExtraButtons } from "../";
-import { setSideBar } from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+import { setSideBar } from "../../../../store/ACTIONS/SIMPLE_CALC_ACTIONS";
 
 export const SidePanel = () => {
   const sideBare = useSelector(getSideBare);

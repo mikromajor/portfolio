@@ -3,7 +3,7 @@ import { Button } from "../../ui";
 import {
   setNumbType,
   setOperatorType,
-} from "../../../../store/actions/SIMPLE_CALC_ACTIONS";
+} from "../../../../store/ACTIONS/SIMPLE_CALC_ACTIONS";
 
 type ButtonsType = {
   buttons: string[];
