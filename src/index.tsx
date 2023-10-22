@@ -16,3 +16,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+//TODO: problem change to lowercase folder store/ACTION => store/action
+// GitHub don't see changes
