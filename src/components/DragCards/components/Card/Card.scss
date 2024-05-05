@@ -17,6 +17,13 @@ $status-color: (
   female: rgb(252, 147, 147),
 ); //--\
 
+.drug-cards {
+  &__header {
+    width: 100%;
+    text-align: center;
+    text-shadow: 10px 10px 10px rgb(100, 100, 100);
+  }
+}
 .header {
   text-align: center;
   text-shadow: 10px 10px 10px rgb(100, 100, 100);
@@ -85,7 +92,6 @@ $status-color: (
 }
 .newUsersButton {
   margin: 30px;
-  background-color: blue;
   @extend %borders;
   @extend %box-shadow;
   &:active {
