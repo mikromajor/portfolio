@@ -40,7 +40,7 @@ export const DragCards: FC = () => {
       </Link>
       <DragCardsHeader />
       <NavBar />
-      <div className='dragCards'>
+      <div className='drug-cards__container'>
         {!!users?.length &&
           users.map((user) => (
             <CardDeck

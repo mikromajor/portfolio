@@ -1,14 +1,15 @@
-$b-r: 5px;
-%flex__center {
+$button-radius: 5px;
+
+%position__flex--center {
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
-%borders {
+%main-borders {
   border: 1px solid grey;
-  border-radius: $b-r;
+  border-radius: $button-radius;
 }
-%box-shadow {
+%main-box-shadow {
   box-shadow: 10px 10px 10px rgb(100, 100, 100);
 }
 //-- map
@@ -19,13 +20,15 @@ $status-color: (
 
 .drug-cards {
   &__back-button {
-    box-shadow: "10px 10px 10px rgb(100, 100, 100)";
+    @extend %main-box-shadow;
   }
+
   &__header {
     width: 100%;
     text-align: center;
     text-shadow: 10px 10px 10px rgb(100, 100, 100);
   }
+
   &__nav-bar {
     display: flex;
     flex-wrap: wrap;
@@ -33,74 +36,70 @@ $status-color: (
 
     button {
       margin: 30px;
-      @extend %borders;
-      @extend %box-shadow;
+      @extend %main-borders;
+      @extend %main-box-shadow;
       &:active {
         background-color: green;
       }
     }
   }
-}
 
-.dragCards {
-  @extend %flex__center;
-  flex-wrap: wrap;
-  min-width: 100vw;
-  min-height: 100vh;
-  button {
-    @extend %box-shadow;
+  &__container {
+    @extend %position__flex--center;
+    flex-wrap: wrap;
+    min-width: 100vw;
   }
-}
+  &__card-deck {
+    @extend %position__flex--center;
+    margin: 20px;
+  }
+  &__first-card {
+    position: relative;
+    left: 15px;
+    top: 15px;
+    @extend %main-borders;
+    @extend %main-box-shadow;
+    background-color: rgb(174, 175, 120);
+  }
+  &__card-cover {
+    z-index: 24;
+    position: relative;
+    left: 15px;
+    top: 15px;
+  }
+  &__card {
+    padding: 20px;
+    padding-bottom: 0px;
+    height: 300px;
+    cursor: grab;
+    z-index: 25;
+    flex-direction: column;
+    background-color: rgb(254, 255, 170);
 
-.card {
-  //--map
-  @each $status, $color in $status-color {
-    &__#{$status} {
-      background-color: $color;
+    //--map
+    @each $status, $color in $status-color {
+      &--#{$status} {
+        background-color: $color;
+      }
+    } //--\
+
+    @extend %position__flex--center;
+    @extend %main-borders;
+    @extend %main-box-shadow;
+
+    &--shine {
+      background-color: rgb(247, 250, 56);
     }
-  } //--\
-
-  @extend %flex__center;
-  padding: 20px;
-  padding-bottom: 0px;
-  height: 300px;
-  @extend %borders;
-  background-color: rgb(254, 255, 170);
-  @extend %box-shadow;
-  cursor: grab;
-  z-index: 25;
-  &__shine {
-    background-color: rgb(247, 250, 56);
   }
-  &__img {
+  &__user-img {
     width: 200px;
     height: 200px;
-    @extend %box-shadow;
-    @extend %borders;
+    @extend %main-box-shadow;
+    @extend %main-borders;
   }
-  &__title {
-    @extend %flex__center;
-    flex-wrap: wrap;
-    width: 180px;
-
-    margin: 10px;
+  &__user-name {
+    text-align: center;
+    margin-top: 10px;
+    width: 200px;
   }
-}
-.CardDeckStyle {
-  @extend %flex__center;
-  margin: 20px;
-}
-.wrap {
-  z-index: 24;
-  position: relative;
-  left: 15px;
-  top: 15px;
-}
-.wrapperCard {
-  position: relative;
-  left: 15px;
-  top: 15px;
-  @extend %borders;
-  @extend %box-shadow;
-  background-color: rgb(174, 175, 120);
 }

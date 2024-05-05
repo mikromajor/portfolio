@@ -6,12 +6,14 @@ export const CardDeck: FC<any> = ({ children, length }) => {
     length--;
     wrapper = (
       <div
-        className='wrapperCard'
+        className='drug-cards__first-card'
         style={{ zIndex: `${length}` }}
       >
         {wrapper}
       </div>
     );
   }
-  return <div className='CardDeckStyle'>{wrapper}</div>;
+  return (
+    <div className='drug-cards__card-deck'>{wrapper}</div>
+  );
 };

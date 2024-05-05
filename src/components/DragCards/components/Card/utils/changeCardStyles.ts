@@ -1,8 +1,10 @@
 export const removeShine = (e: React.DragEvent) => {
   e.preventDefault();
-  e.currentTarget.classList.remove("card__shine");
+  e.currentTarget.classList.remove(
+    "drug-cards__card--shine"
+  );
 };
 export const addShine = (e: React.DragEvent) => {
   e.preventDefault();
-  e.currentTarget.classList.add("card__shine");
+  e.currentTarget.classList.add("drug-cards__card--shine");
 };

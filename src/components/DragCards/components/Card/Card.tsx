@@ -36,15 +36,10 @@ export const Card: FC<CardProps> = ({ user }) => {
 
   const dispatch = useDispatch();
 
-  //TODO: add it to reducer
-  let changeGenderColor = true; //it will be change by button
-  const cardGenderStylesHandle = (): string =>
-    changeGenderColor ? `card card__${gender}` : "card";
-
   return (
-    <div className='wrap'>
+    <div className='drug-cards__card-cover'>
       <div
-        className={cardGenderStylesHandle()}
+        className={`drug-cards__card drug-cards__card--${gender}`}
         draggable={true}
         onDragStart={() =>
           dispatch(setCurrentDruggingUser(user))
@@ -66,9 +61,9 @@ export const Card: FC<CardProps> = ({ user }) => {
           onMouseLeave={() => dispatch(stopFlipThrough())}
           src={picture.large}
           alt={`${name.last}`}
-          className='card__img'
+          className='drug-cards__user-img'
         />
-        <h4 className='card__title'>{`${name.first} ${name.last}`}</h4>
+        <h4 className='drug-cards__user-name'>{`${name.first} ${name.last}`}</h4>
       </div>
     </div>
   );
