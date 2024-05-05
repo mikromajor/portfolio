@@ -5,9 +5,9 @@ import {
   Card,
   CardDeck,
   NavBar,
+  DragCardsHeader,
   // MyGoogleMap,
 } from "./components";
-import { DragCardsHeader } from "./ui";
 import "./components/Card/Card.scss";
 
 import {
