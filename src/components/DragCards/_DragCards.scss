@@ -26,11 +26,22 @@ $status-color: (
     text-align: center;
     text-shadow: 10px 10px 10px rgb(100, 100, 100);
   }
+  &__nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    button {
+      margin: 30px;
+      @extend %borders;
+      @extend %box-shadow;
+      &:active {
+        background-color: green;
+      }
+    }
+  }
 }
-.header {
-  text-align: center;
-  text-shadow: 10px 10px 10px rgb(100, 100, 100);
-}
+
 .dragCards {
   @extend %flex__center;
   flex-wrap: wrap;
@@ -92,18 +103,4 @@ $status-color: (
   @extend %borders;
   @extend %box-shadow;
   background-color: rgb(174, 175, 120);
-}
-.newUsersButton {
-  margin: 30px;
-  @extend %borders;
-  @extend %box-shadow;
-  &:active {
-    background-color: green;
-  }
-}
-
-.buttonsRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }

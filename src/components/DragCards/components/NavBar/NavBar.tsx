@@ -10,23 +10,14 @@ export const NavBar: FC = () => {
   const dispatch = useDispatch();
 
   return (
-    <div className='buttonsRow'>
-      <button
-        className='newUsersButton'
-        onClick={() => dispatch(fetchUsers())}
-      >
+    <div className='drug-cards__nav-bar'>
+      <button onClick={() => dispatch(fetchUsers())}>
         Get new users
       </button>
-      <button
-        className='newUsersButton'
-        onClick={() => dispatch(fetchMan())}
-      >
-        Get only mans
+      <button onClick={() => dispatch(fetchMan())}>
+        Get only men
       </button>
-      <button
-        className='newUsersButton'
-        onClick={() => dispatch(fetchWomen("40"))}
-      >
+      <button onClick={() => dispatch(fetchWomen("40"))}>
         Get only women
       </button>
 
