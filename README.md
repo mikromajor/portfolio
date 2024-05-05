@@ -1,5 +1,5 @@
-# My portfolio 
-#demo https://mikromajor.github.io/portfolio/
+## My portfolio demo
+https://mikromajor.github.io/portfolio/
 
 ## Available Scripts
 
