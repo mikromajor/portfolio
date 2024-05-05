@@ -29,13 +29,11 @@ export const DragCards: FC = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className='drug-cards'>
       <Link to='/portfolio'>
         <Button
           variant={"secondary"}
-          style={{
-            boxShadow: "10px 10px 10px rgb(100, 100, 100)",
-          }}
+          className='drug-cards__back-button'
         >
           Back
         </Button>
@@ -54,6 +52,6 @@ export const DragCards: FC = () => {
           ))}
       </div>
       {/* <MyGoogleMap /> */}
-    </>
+    </div>
   );
 };
