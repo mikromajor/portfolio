@@ -8,7 +8,6 @@ import {
   DragCardsHeader,
   // MyGoogleMap,
 } from "./components";
-import "./components/Card/Card.scss";
 
 import {
   getUsersSelector,

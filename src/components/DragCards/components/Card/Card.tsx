@@ -19,7 +19,6 @@ import {
   removeShine,
   addShine,
 } from "./utils/changeCardStyles";
-import "./Card.scss";
 
 interface CardProps {
   user: UserType;
